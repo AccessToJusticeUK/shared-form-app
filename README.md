@@ -2,7 +2,7 @@
 
 This repository holds the shared front-end components for the insurance checker and triage tool.
 
-## Tech 
+## Tech
 
 - React
 - Typescript
