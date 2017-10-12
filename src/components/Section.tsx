@@ -1,11 +1,17 @@
 import * as React from "react";
 
-export default class Section extends React.Component {
+export interface SectionProps 
+{ 
+    compiler: string; 
+    framework: string; 
+}
+
+export class Section extends React.Component<SectionProps, {}> {
     render() {
         return (
-            <div>
-                Section
-            </div>
+            <h1>
+                Hello from {this.props.compiler} and {this.props.framework}!
+            </h1>
         );
     }
 }
