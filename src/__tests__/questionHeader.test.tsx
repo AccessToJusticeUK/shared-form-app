@@ -5,12 +5,22 @@ import { QuestionHeader } from '../components/questionHeader';
 import '../setupTests';
 
 describe("QuestionHeader  ", () => {
-    it("renders header with a title that was passed to it", () => {
+
+    let wrapper : any;
+
+    beforeEach(() => {
         let title = "Example question";
         let testHeader = {
             title: title
         }
-        let wrapper = shallow(<QuestionHeader {...testHeader}/>)
+        wrapper = shallow(<QuestionHeader {...testHeader}/>)
+    });
+
+    it("renders header with a title that was passed to it", () => {
         expect(wrapper.contains(<div>Example question</div>));
+    });
+
+    it("has a className of questionHeader", () => {
+        expect(wrapper.props().className).toBe("questionHeader");
     });
 });

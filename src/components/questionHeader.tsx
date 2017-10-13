@@ -6,7 +6,7 @@ interface QuestionHeaderProps {
 
 export function QuestionHeader(props: QuestionHeaderProps) {
     return (
-        <div>
+        <div className="questionHeader">
             {props.title}
         </div> 
     );   
