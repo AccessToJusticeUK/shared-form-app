@@ -4,6 +4,9 @@ import { Section } from '../components/Section';
 
 import '../setupTests';
 
-it('renders without crashing', () => {
-  shallow(<Section compiler="TypeScript" framework="React" />);
+describe("Section ", () => {
+  it('renders a div', function() {
+    expect(shallow(<Section  compiler="TypeScript" framework="React" />)
+      .contains(<div>Section</div>)).toBe(true);
+  });
 });

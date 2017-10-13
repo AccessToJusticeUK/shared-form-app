@@ -9,9 +9,9 @@ export interface SectionProps
 export class Section extends React.Component<SectionProps, {}> {
     render() {
         return (
-            <h1>
-                Hello from {this.props.compiler} and {this.props.framework}!
-            </h1>
+           <div>
+               Section
+           </div> 
         );
     }
 }
