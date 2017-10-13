@@ -4,6 +4,6 @@ import * as ReactDOM from "react-dom";
 import { Section } from "./components/Section";
 
 ReactDOM.render(
-    <Section compiler="TypeScript" framework="React" />,
+    <Section />,
     document.getElementById("homepage")
 );
