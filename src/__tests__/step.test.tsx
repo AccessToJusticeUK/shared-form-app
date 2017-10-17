@@ -18,7 +18,7 @@ describe("Step ", () => {
           wrapper = shallow(<Step {...testHeader}/>)
       });
 
-  it("renders a div containing a QuestionHeader", function() {
+  it("renders a div containing a QuestionHeader", ()  => {
     expect(wrapper.contains( <div>
       <QuestionHeader title="Example question" />
     </div>)).toBe(true);

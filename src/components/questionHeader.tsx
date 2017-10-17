@@ -4,7 +4,7 @@ interface QuestionHeaderProps {
     title: string
 }
 
-default export function QuestionHeader(props: QuestionHeaderProps) {
+ export function QuestionHeader(props: QuestionHeaderProps) {
     return (
         <div className="questionHeader">
             {props.title}
