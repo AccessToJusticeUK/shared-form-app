@@ -1,11 +1,16 @@
 import * as React from "react";
+import { QuestionHeader } from "./questionHeader";
 
-export class Step extends React.Component {
+interface StepProps {
+    title: string
+}
+
+export class Step extends React.Component<StepProps, StepProps> {
     render() {
         return (
-           <div>
-               Step
-           </div> 
+            <div>
+                <QuestionHeader {...this.props}/>
+            </div> 
         );
     }
 }
