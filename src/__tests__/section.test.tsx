@@ -9,8 +9,4 @@ describe("Section ", () => {
     expect(shallow(<Section />)
       .contains(<div>Section</div>)).toBe(true);
   });
-
-  it("can render a QuestionHeader component", () => {
-
-  });
 });
