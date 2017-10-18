@@ -1,6 +1,6 @@
 import * as React from "react";
 import { shallow } from "enzyme";
-import { Step } from "../components/Step";
+import { Step } from "../components/step";
 import { QuestionHeader } from "../components/questionHeader";
 
 import "../setupTests";
@@ -19,8 +19,10 @@ describe("Step ", () => {
       });
 
   it("renders a div containing a QuestionHeader", ()  => {
-    expect(wrapper.contains( <div>
-      <QuestionHeader title="Example question" />
-    </div>)).toBe(true);
+    expect(wrapper.contains(
+      <div>
+        <QuestionHeader title="Example question" />
+      </div>
+    )).toBe(true);
   });
 });
