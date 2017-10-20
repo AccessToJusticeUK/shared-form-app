@@ -6,22 +6,25 @@ import { QuestionHeader } from "../components/questionHeader";
 import "../setupTests";
 
 describe("Step ", () => {
-  
+
   let testHeader : any;
   let wrapper : any;
 
       beforeEach(() => {
           let title = "Example question";
+          let description = "hey";
           testHeader = {
-              title: title
+              title: title,
+              description: description
           }
           wrapper = shallow(<Step {...testHeader}/>)
       });
 
   it("renders a div containing a QuestionHeader", ()  => {
+    console.log(wrapper.debug());
     expect(wrapper.contains(
-      <div>
-        <QuestionHeader title="Example question" />
+      <div className="jumbotron">
+        <QuestionHeader title="Example question" description="hey"/>
       </div>
     )).toBe(true);
   });

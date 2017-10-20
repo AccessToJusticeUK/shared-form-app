@@ -21,16 +21,15 @@ module.exports = {
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
 
-            { test: /\.scss$/,
+            { test: /\.css$/,
                     use: [{
                     loader: "style-loader"
                     }, {
-                    loader: "css-loader" 
-                    }, {
-                    loader: "sass-loader"
-                    }
-                ]
-            }
+                    loader: "css-loader"
+                    }]
+            },
+
+            { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
         ]
     },
 

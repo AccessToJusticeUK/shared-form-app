@@ -5,10 +5,10 @@ export class App extends React.Component {
     render() {
         return (
            <div>
-              <Step title="Title1" />
-              <Step title="Title2" />
-              <Step title="Title3" />
-           </div> 
+              <Step title="Step 1 - " description="What type of issue do you have?" />
+              <Step title="Step 2 - " description="What type of issue do you have?" />
+              <Step title="Step 3 - " description="What type of issue do you have?" />
+           </div>
         );
     }
 }

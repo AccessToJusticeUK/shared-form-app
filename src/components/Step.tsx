@@ -3,14 +3,15 @@ import { QuestionHeader } from "./questionHeader";
 
 interface StepProps {
     title: string
+    description: string
 }
 
 export class Step extends React.Component<StepProps, StepProps> {
     render() {
         return (
-            <div>
+            <div className="jumbotron">
                 <QuestionHeader {...this.props}/>
-            </div> 
+            </div>
         );
     }
 }
