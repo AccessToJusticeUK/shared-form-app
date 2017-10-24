@@ -6,9 +6,7 @@ This repository holds the shared front-end components for the insurance checker 
 
 Initial:
 ```
-npm install -g webpack    #if not already installed
 npm install               #install dependencies
-webpack                   #compile
 
 ```
 
@@ -18,7 +16,23 @@ npm test
 ```
 
 
+To run local (port 3000):
+```
+npm start
+```
 
+
+To build:
+```
+npm run build
+```
+
+To build (& view your prod artefacts on port 8000):
+```
+npm run build
+python3 -m http.server
+
+```
 
 ## Tech
 

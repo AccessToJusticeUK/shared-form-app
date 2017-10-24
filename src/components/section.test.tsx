@@ -1,6 +1,6 @@
 import * as React from "react";
 import { shallow } from "enzyme";
-import { Section } from "../components/section";
+import { Section } from "./section";
 
 import "../setupTests";
 

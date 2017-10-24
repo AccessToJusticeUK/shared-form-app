@@ -1,7 +1,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
-import { Step } from "../components/step";
-import { QuestionHeader } from "../components/questionHeader";
+import { Step } from "./step";
+import { QuestionHeader } from "./questionHeader";
 
 import "../setupTests";
 
