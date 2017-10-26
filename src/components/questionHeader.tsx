@@ -7,9 +7,11 @@ interface QuestionHeaderProps {
 
  export function QuestionHeader(props: QuestionHeaderProps) {
     return (
-        <div className="questionHeader" id="u158">
-          <span id="step">{props.title}</span>
-          <span id="desc">{props.description}</span>
+        <div>
+            <p >
+                <span id="step">{props.title}</span>
+                <span id="desc">{props.description}</span>
+            </p>
         </div>
     );
 }

@@ -1,20 +1,12 @@
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
-#u158 {
-    border-width: 0px;
-    left: 20px;
-    top: 24px;
-    width: auto;
-    height: auto;
-    font-family: 'Open Sans SemiBold', 'Open Sans Regular', 'Open Sans';
-    font-style: normal;
-    font-size: 20px;
-}
+
 #step{
   font-family:'Open Sans SemiBold', 'Open Sans Regular', 'Open Sans';font-weight:500;
 }
 #desc{
   font-family:'Open Sans Bold', 'Open Sans Regular', 'Open Sans';font-weight:700;
 }
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -22,6 +14,7 @@ html {
 }
 body {
   margin: 0;
+  padding: 10px;
 }
 article,
 aside,
@@ -474,7 +467,7 @@ h6,
   font-size: 16px;
 }
 p {
-  margin: 0 0 14px;
+  margin: 0;
 }
 .lead {
   margin-bottom: 28px;
@@ -4370,8 +4363,9 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 .jumbotron {
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 15px;
+
+  margin-bottom: 20px;
   color: inherit;
   background-color: #ffffff;
 }
@@ -4380,7 +4374,6 @@ a.list-group-item.active > .badge,
   color: inherit;
 }
 .jumbotron p {
-  margin-bottom: 15px;
   font-size: 24px;
   font-weight: 200;
 }
@@ -4391,10 +4384,6 @@ a.list-group-item.active > .badge,
   max-width: 100%;
 }
 @media screen and (min-width: 768px) {
-  .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
   .container .jumbotron {
     padding-left: 60px;
     padding-right: 60px;

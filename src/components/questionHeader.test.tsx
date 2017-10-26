@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import { QuestionHeader } from './questionHeader';
 import '../setupTests';
 
 describe("QuestionHeader  ", () => {
 
-    let wrapper : any;
+    let wrapper : ShallowWrapper;
 
     beforeEach(() => {
         let title = "Example question ";
@@ -18,10 +18,6 @@ describe("QuestionHeader  ", () => {
     });
 
     it("renders header with a title that was passed to it", () => {
-        expect(wrapper.contains(<div>Example question hey</div>));
-    });
-
-    it("has a className of questionHeader", () => {
-        expect(wrapper.props().className).toBe("questionHeader");
+        expect(wrapper.contains(<p>Example question hey</p>));
     });
 });

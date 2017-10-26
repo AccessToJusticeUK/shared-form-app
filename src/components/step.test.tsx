@@ -1,5 +1,5 @@
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, ShallowWrapper } from "enzyme";
 import { Step } from "./step";
 import { QuestionHeader } from "./questionHeader";
 
@@ -8,23 +8,20 @@ import "../setupTests";
 describe("Step ", () => {
 
   let testHeader : any;
-  let wrapper : any;
+  let wrapper : ShallowWrapper;
 
       beforeEach(() => {
-          let title = "Example question";
-          let description = "hey";
           testHeader = {
-              title: title,
-              description: description
+              title: "Step 1",
+              description: "Question"
           }
           wrapper = shallow(<Step {...testHeader}/>)
       });
 
   it("renders a div containing a QuestionHeader", ()  => {
-    console.log(wrapper.debug());
     expect(wrapper.contains(
       <div className="jumbotron">
-        <QuestionHeader title="Example question" description="hey"/>
+        <QuestionHeader title="Step 1" description="Question"/>
       </div>
     )).toBe(true);
   });
