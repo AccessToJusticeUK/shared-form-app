@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import { QuestionHeader } from './questionHeader';
 import '../setupTests';
 
 describe("QuestionHeader  ", () => {
 
-    let wrapper : any;
+    let wrapper : ShallowWrapper;
 
     beforeEach(() => {
         let title = "Example question ";
