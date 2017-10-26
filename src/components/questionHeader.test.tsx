@@ -22,6 +22,6 @@ describe("QuestionHeader  ", () => {
     });
 
     it("has a className of questionHeader", () => {
-        expect(wrapper.props().className).toBe("questionHeader");
+        expect(wrapper.hasClass("questionHeader")).toBe(true);
     });
 });
