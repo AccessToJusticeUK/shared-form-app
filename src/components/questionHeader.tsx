@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface QuestionHeaderProps {
-    title: string
+    title: string,
     description: string
 }
 
