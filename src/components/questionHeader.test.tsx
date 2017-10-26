@@ -18,10 +18,6 @@ describe("QuestionHeader  ", () => {
     });
 
     it("renders header with a title that was passed to it", () => {
-        expect(wrapper.contains(<div>Example question hey</div>));
-    });
-
-    it("has a className of questionHeader", () => {
-        expect(wrapper.hasClass("questionHeader")).toBe(true);
+        expect(wrapper.contains(<p>Example question hey</p>));
     });
 });
