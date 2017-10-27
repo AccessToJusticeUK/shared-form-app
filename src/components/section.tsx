@@ -5,8 +5,8 @@ interface SectionProps {
   innerHTML : string
 }
 
-export class Section extends React.Component<SectionProps> {
-  render() : any {
+export class Section extends React.Component<SectionProps, SectionProps> {
+  render() :any {
     return (
       <div>
         <Section {...this.props}/>

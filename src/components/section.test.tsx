@@ -1,14 +1,16 @@
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, ShallowWrapper } from "enzyme";
 import { Section } from "./section";
 import "../setupTests";
 
 describe("Section ", () => {
+  
   let testHeader : any = {
     isVisible: true,
     innerHTML: "Section"
   };
-  let wrapper : any;
+
+  let wrapper : ShallowWrapper;
   let sectionDiv : any;
 
   it("renders a div with innerHTML and isVisible properties", () => {
