@@ -1,21 +1,29 @@
 import * as React from "react";
 import { shallow, ShallowWrapper } from "enzyme";
-import { Section } from "./section";
+import { Section, ISectionProps } from "./section";
 import "../setupTests";
 
 describe("Section ", () => {
-  
-  let testHeader : any = {
-    isVisible: true,
-    innerHTML: "Section"
-  };
+    let visibleSectionProps : ISectionProps = {
+        isVisible: true,
+        innerHTML: "Section text"
+    };
 
-  let wrapper : ShallowWrapper;
-  let sectionDiv : any;
+    let invisibleSectionProps : ISectionProps = {
+        isVisible: false,
+        innerHTML: "Section text"
+    };
 
-  it("renders a div with innerHTML and isVisible properties", () => {
-    wrapper = shallow(<Section {...testHeader}/>);
-    sectionDiv = <div>Section</div>;
-    expect(wrapper.contains(sectionDiv)).toBe(true);
-  });
+    let wrapper : ShallowWrapper;
+
+    it("renders a div with innerHTML and isVisible properties", () => {
+        wrapper = shallow(<Section {...visibleSectionProps}/>);
+        expect(wrapper.contains(<div style={{}}>Section text</div>)).toBe(true);
+    });
+
+    it("changes display property to none", () => {
+        wrapper = shallow(<Section {...invisibleSectionProps}/>);
+        let sectionProps : object = { style: { display: 'none' }, children: 'Section text' };
+        expect(wrapper.props()).toEqual(sectionProps);
+    });
 });
