@@ -9,7 +9,7 @@ export class Section extends React.Component<SectionProps, SectionProps> {
   render() :any {
     return (
       <div>
-        <Section {...this.props}/>
+        {this.props.innerHTML}
       </div>
     );
   }

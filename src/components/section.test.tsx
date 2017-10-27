@@ -15,8 +15,7 @@ describe("Section ", () => {
 
   it("renders a div with innerHTML and isVisible properties", () => {
     wrapper = shallow(<Section {...testHeader}/>);
-    sectionDiv = <div><Section isVisible={true} innerHTML="Section" /></div>;
-
+    sectionDiv = <div>Section</div>;
     expect(wrapper.contains(sectionDiv)).toBe(true);
   });
 });
