@@ -25,7 +25,7 @@ export let step5 : IStepProps;
         },
     
         sectionProps: {
-            isVisible: true,
+            isVisible: false,
             innerHTML: "Section"
         }
     }
@@ -37,7 +37,7 @@ export let step5 : IStepProps;
         },
     
         sectionProps: {
-            isVisible: true,
+            isVisible: false,
             innerHTML: "Section"
         }
     }
@@ -49,7 +49,7 @@ export let step5 : IStepProps;
         },
     
         sectionProps: {
-            isVisible: true,
+            isVisible: false,
             innerHTML: "Section"
         }
     }
@@ -61,7 +61,7 @@ export let step5 : IStepProps;
         },
     
         sectionProps: {
-            isVisible: true,
+            isVisible: false,
             innerHTML: "Section"
         }
     }
