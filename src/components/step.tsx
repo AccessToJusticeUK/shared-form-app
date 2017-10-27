@@ -1,16 +1,18 @@
 import * as React from "react";
-import { QuestionHeader } from "./questionHeader";
+import { QuestionHeader, IQuestionHeaderProps } from "./questionHeader";
+import { Section, ISectionProps } from "./section";
 
-interface StepProps {
-    title: string,
-    description: string
+export interface IStepProps {
+    questionHeaderProps : IQuestionHeaderProps,
+    sectionProps: ISectionProps
 }
 
-export class Step extends React.Component<StepProps, StepProps> {
+export class Step extends React.Component<IStepProps, IStepProps> {
     render() {
         return (
             <div className="jumbotron">
-                <QuestionHeader {...this.props}/>
+                <QuestionHeader {...this.props.questionHeaderProps} />
+                <Section {...this.props.sectionProps} />
             </div>
         );
     }

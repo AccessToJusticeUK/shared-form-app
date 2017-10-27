@@ -1,14 +1,14 @@
 import * as React from "react";
 
-interface QuestionHeaderProps {
+export interface IQuestionHeaderProps {
     title: string,
     description: string
 }
 
- export function QuestionHeader(props: QuestionHeaderProps) {
+ export function QuestionHeader(props: IQuestionHeaderProps) {
     return (
         <div>
-            <p >
+            <p>
                 <span id="step">{props.title}</span>
                 <span id="desc">{props.description}</span>
             </p>
