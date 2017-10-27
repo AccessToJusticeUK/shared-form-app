@@ -14,7 +14,7 @@ describe("Section ", () => {
         innerHTML: "Section text"
     };
 
-    let wrapper : ShallowWrapper;
+    let wrapper : ShallowWrapper<ISectionProps, any>;
 
     it("renders a div with innerHTML and isVisible properties", () => {
         wrapper = shallow(<Section {...visibleSectionProps}/>);
@@ -23,7 +23,8 @@ describe("Section ", () => {
 
     it("changes display property to none", () => {
         wrapper = shallow(<Section {...invisibleSectionProps}/>);
-        let sectionProps : object = { style: { display: 'none' }, children: 'Section text' };
-        expect(wrapper.props()).toEqual(sectionProps);
+        const style = wrapper.find('div').props().style;
+        const display = style && style.display;
+        expect(display).toEqual('none');
     });
 });
