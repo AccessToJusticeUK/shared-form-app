@@ -7,13 +7,11 @@ export interface IStepProps {
     sectionProps: ISectionProps
 }
 
-export class Step extends React.Component<IStepProps, IStepProps> {
-    render() {
-        return (
-            <div className="jumbotron">
-                <QuestionHeader {...this.props.questionHeaderProps} />
-                <Section {...this.props.sectionProps} />
-            </div>
-        );
-    }
+export function Step(props:IStepProps) {
+    return (
+        <div className="jumbotron">
+            <QuestionHeader {...props.questionHeaderProps} />
+            <Section {...props.sectionProps} />
+        </div>
+    );
 }

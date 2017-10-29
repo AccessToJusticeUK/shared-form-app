@@ -9,23 +9,19 @@ interface IStyle {
     display? : string
 }
 
-export class Section extends React.Component<ISectionProps, ISectionProps> {
-    getStyle(props : ISectionProps) {
+export function Section(props: ISectionProps) {
+    function getStyle(props: ISectionProps): {}  {
         let style : IStyle = {};
-
         if (!props.isVisible) {
             style.display = "none";
         }
-
         return style;
     }
-
-    render() : any {
-        return (
-            <div style={this.getStyle(this.props)}>
-                {this.props.innerHTML}
-            </div>
-        );
-    }
-}
-;
+    
+    return (
+        <div style={getStyle(props)}>
+            {props.innerHTML}
+        </div>
+    );
+    
+};
