@@ -1,0 +1,20 @@
+#step {
+    font-family: 'Open Sans SemiBold', 'Open Sans Regular', 'Open Sans';
+    font-weight: 500;
+}
+
+#desc {
+    font-family: 'Open Sans Bold', 'Open Sans Regular', 'Open Sans';
+    font-weight: 700;
+}
+
+#qas-question {
+    margin-left: 90px;
+    font-family: 'Open Sans SemiBold', 'Open Sans Regular', 'Open Sans';
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    color: #000000;
+    line-height: 28px;
+    word-wrap: break-word;
+}

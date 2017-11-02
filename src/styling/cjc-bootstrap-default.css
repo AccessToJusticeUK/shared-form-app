@@ -1,12 +1,5 @@
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
-#step{
-  font-family:'Open Sans SemiBold', 'Open Sans Regular', 'Open Sans';font-weight:500;
-}
-#desc{
-  font-family:'Open Sans Bold', 'Open Sans Regular', 'Open Sans';font-weight:700;
-}
-
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

@@ -1,27 +1,26 @@
-import * as React from "react";
+import * as React from 'react';
 
-export interface ISectionProps {
-    isVisible : boolean,
-    innerHTML : string
+export interface SectionProps {
+    isVisible: boolean;
+    innerHTML: string;
 }
 
-interface IStyle {
-    display? : string
+interface Style {
+    display?: string;
 }
 
-export function Section(props: ISectionProps) {
-    function getStyle(props: ISectionProps): {}  {
-        let style : IStyle = {};
-        if (!props.isVisible) {
-            style.display = "none";
-        }
-        return style;
+function getStyle(props: SectionProps): {} {
+    let style: Style = {};
+    if (!props.isVisible) {
+        style.display = 'none';
     }
-    
+    return style;
+}
+
+export function Section(props: SectionProps) {
     return (
         <div style={getStyle(props)}>
             {props.innerHTML}
         </div>
     );
-    
-};
+}

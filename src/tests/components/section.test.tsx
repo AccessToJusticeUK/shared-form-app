@@ -1,20 +1,20 @@
 import * as React from "react";
 import { shallow, ShallowWrapper } from "enzyme";
-import { Section, ISectionProps } from "./section";
-import "../setupTests";
+import { Section, SectionProps } from "../../components/section";
+import "../../setupTests";
 
 describe("Section ", () => {
-    let visibleSectionProps : ISectionProps = {
+    let visibleSectionProps : SectionProps = {
         isVisible: true,
         innerHTML: "Section text"
     };
 
-    let invisibleSectionProps : ISectionProps = {
+    let invisibleSectionProps : SectionProps = {
         isVisible: false,
         innerHTML: "Section text"
     };
 
-    let wrapper : ShallowWrapper<ISectionProps, any>;
+    let wrapper : ShallowWrapper<SectionProps, any>;
 
     it("renders a div with innerHTML and isVisible properties", () => {
         wrapper = shallow(<Section {...visibleSectionProps}/>);

@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Step } from "./components/step";
-import { step1, step2, step3, step4, step5 } from "./data/mockedSteps";
+import * as React from 'react';
+import { Step } from './components/step';
+import { step1, step2, step3, step4, step5 } from './data/mockedSteps';
 
 export class App extends React.Component {
     render() {

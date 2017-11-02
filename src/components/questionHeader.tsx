@@ -1,11 +1,11 @@
-import * as React from "react";
+import * as React from 'react';
 
-export interface IQuestionHeaderProps {
-    title: string,
-    description: string
+export interface QuestionHeaderProps {
+    title: string;
+    description: string;
 }
 
- export function QuestionHeader(props: IQuestionHeaderProps) {
+export function QuestionHeader(props: QuestionHeaderProps) {
     return (
         <div>
             <p>
