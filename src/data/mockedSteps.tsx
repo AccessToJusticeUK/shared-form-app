@@ -1,87 +1,107 @@
-import { StepProps } from '../components/step';
+import { StepProps } from "../components/step";
+import { StepsListProps } from "../components/stepsList";
 
-export let step1: StepProps;
-export let step2: StepProps;
-export let step3: StepProps;
-export let step4: StepProps;
-export let step5: StepProps;
+let step1 : StepProps;
+let step2 : StepProps;
+let step3 : StepProps;
+let step4 : StepProps;
+let step5 : StepProps;
 
-step1 = {
-    questionHeaderProps: {
-        title: 'Step 1 - ',
-        description: 'Question one'
-    },
+export let mockedData: StepsListProps;
 
-    sectionProps: {
-        isVisible: true,
-        innerHTML: 'Section'
-    },
+mockedData= {
+    steps: [
+        step1 = {
+            stepOrder: 2,
+            questionHeaderProps: {
+                stepOrder: 2,
+                title: "Step ",
+                description: " - Question one"
+            },
+        
+            sectionProps: {
+                isVisible: true,
+                innerHTML: "Section"
+            },
 
-    questionAnswerSetProps: {
-        question: 'Which of the following options best describes your legal issue?'
-    }
-};
+            questionAnswerSetProps: {
+                question: 'Which of the following options best describes your legal issue?'
+            }
+        },
 
-step2 = {
-    questionHeaderProps: {
-        title: 'Step 2 - ',
-        description: 'Question two'
-    },
+        step2 = {
+            stepOrder: 1,
+            questionHeaderProps: {
+                stepOrder: 1,
+                title: "Step ",
+                description: " - Question two"
+            },
+        
+            sectionProps: {
+                isVisible: false,
+                innerHTML: "Section"
+            },
 
-    sectionProps: {
-        isVisible: false,
-        innerHTML: 'Section'
-    },
+            questionAnswerSetProps: {
+                question: 'Which of the following options best describes your legal issue?'
+            }
+        },
 
-    questionAnswerSetProps: {
-        question: 'Which of the following options best describes your legal issue?'
-    }
-};
+        step3 = {
+            stepOrder: 3,
+            questionHeaderProps: {
+                stepOrder: 3,
+                title: "Step ",
+                description: " - Question three"
+            },
+        
+            sectionProps: {
+                isVisible: false,
+                innerHTML: "Section"
+            },
 
-step3 = {
-    questionHeaderProps: {
-        title: 'Step 3 - ',
-        description: 'Question three'
-    },
+            questionAnswerSetProps: {
+                question: 'Which of the following options best describes your legal issue?'
+            }
+        },
 
-    sectionProps: {
-        isVisible: false,
-        innerHTML: 'Section'
-    },
+        step4 = {
+            stepOrder: 4,
+            questionHeaderProps: {
+                stepOrder: 4,
+                title: "Step ",
+                description: " - Question four"
+            },
+        
+            sectionProps: {
+                isVisible: false,
+                innerHTML: "Section"
+            },
 
-    questionAnswerSetProps: {
-        question: 'Which of the following options best describes your legal issue?'
-    }
-};
+            questionAnswerSetProps: {
+                question: 'Which of the following options best describes your legal issue?'
+            }
+        },
 
-step4 = {
-    questionHeaderProps: {
-        title: 'Step 4 - ',
-        description: 'Question four'
-    },
+        step5 = {
+            stepOrder: 5,
+            questionHeaderProps: {
+                stepOrder: 5,
+                title: "Step ",
+                description: " - Question five"
+            },
+        
+            sectionProps: {
+                isVisible: false,
+                innerHTML: "Section"
+            },
 
-    sectionProps: {
-        isVisible: false,
-        innerHTML: 'Section'
-    },
+            questionAnswerSetProps: {
+                 question: 'Which of the following options best describes your legal issue?'
+            }
+       }
+    ]
+}
 
-    questionAnswerSetProps: {
-        question: 'Which of the following options best describes your legal issue?'
-    }
-};
 
-step5 = {
-    questionHeaderProps: {
-        title: 'Step 5 - ',
-        description: 'Question five'
-    },
-
-    sectionProps: {
-        isVisible: false,
-        innerHTML: 'Section'
-    },
-
-    questionAnswerSetProps: {
-        question: 'Which of the following options best describes your legal issue?'
-    }
-};
+    

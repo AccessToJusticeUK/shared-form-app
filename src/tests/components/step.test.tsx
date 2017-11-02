@@ -13,7 +13,9 @@ describe("Step ", () => {
 
   beforeEach(() => {
     stepProps = {
+      stepOrder: 1,
       questionHeaderProps: {
+        stepOrder: 1,
         title: "Step 1",
         description: "Question"
       },
