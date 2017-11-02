@@ -29,7 +29,8 @@ describe("StepsList", () => {
                 },
 
                 questionAnswerSetProps: {
-                    question: 'Which of the following options best describes your legal issue?'
+                    question: 'Which of the following options best describes your legal issue?',
+                    answers: []
                 }
             },
             step2 = {
@@ -46,7 +47,8 @@ describe("StepsList", () => {
                 },
 
                 questionAnswerSetProps: {
-                    question: 'Which of the following options best describes your legal issue?'
+                    question: 'Which of the following options best describes your legal issue?',
+                    answers: []
                 }
             },
             step3 = {
@@ -62,7 +64,8 @@ describe("StepsList", () => {
                 },
 
                 questionAnswerSetProps: {
-                    question: 'Which of the following options best describes your legal issue?'
+                    question: 'Which of the following options best describes your legal issue?',
+                    answers: []
                  }
             }
         ]

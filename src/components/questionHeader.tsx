@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 export interface QuestionHeaderProps {
-    title: string,
-    stepOrder: number,
-    description: string
+    title: string;
+    stepOrder: number;
+    description: string;
 }
 
 export function QuestionHeader(props: QuestionHeaderProps) {

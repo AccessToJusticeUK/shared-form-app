@@ -1,3 +1,8 @@
+.step-content {
+    max-width: 50%;
+    word-wrap: break-word;
+}
+
 #step {
     font-family: 'Open Sans SemiBold', 'Open Sans Regular', 'Open Sans';
     font-weight: 500;
@@ -8,13 +13,39 @@
     font-weight: 700;
 }
 
-#qas-question {
-    margin-left: 90px;
+.qas {
+    margin-left: 76px;
+    margin-right: 10px;
+    font-style: normal;
+}
+
+.qas-question {
+    margin-top: 37px;
     font-family: 'Open Sans SemiBold', 'Open Sans Regular', 'Open Sans';
     font-weight: 600;
-    font-style: normal;
     font-size: 16px;
     color: #000000;
     line-height: 28px;
-    word-wrap: break-word;
+}
+
+.qas-answer {
+    margin-top: 5px;
+    margin-bottom: 13px;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 75, 135, 1);
+}
+
+.qas-answer:hover {
+    box-shadow: 0 0 0 2px rgba(0, 75, 135, 1) inset;
+}
+
+.qas-answer-text {
+    margin-left: 8px;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
 }

@@ -26,7 +26,8 @@ describe("Step ", () => {
       },
 
       questionAnswerSetProps: {
-        question: "Question"
+        question: "Question",
+        answers: ["Answer 1", "Answer 2", "Answer 3"]
       }
     };
     wrapper = shallow(<Step {...stepProps} />)
@@ -35,9 +36,11 @@ describe("Step ", () => {
   it("renders a div containing a QuestionHeader, Section and QuestionAnswerSet", () => {
     expect(wrapper.contains(
       <div className="jumbotron">
-        <QuestionHeader {...stepProps.questionHeaderProps} />
-        <Section {...stepProps.sectionProps} />
-        <QuestionAnswerSet {...stepProps.questionAnswerSetProps} />
+        <div className="step-content">
+          <QuestionHeader {...stepProps.questionHeaderProps} />
+          <Section {...stepProps.sectionProps} />
+          <QuestionAnswerSet {...stepProps.questionAnswerSetProps} />
+        </div>
       </div>
     )).toBe(true);
   });

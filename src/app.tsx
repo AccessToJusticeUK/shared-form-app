@@ -1,11 +1,11 @@
-import * as React from "react";
-import { mockedData } from "./data/mockedSteps";
-import { StepsList } from "./components/stepsList";
+import * as React from 'react';
+import { mockedData } from './data/mockedSteps';
+import { StepsList } from './components/stepsList';
 
-export class App extends React.Component<{},{}> {
+export class App extends React.Component<{}, {}> {
     render() {
         return (
-           <StepsList steps={mockedData.steps}/> 
+            <StepsList steps={mockedData.steps} />
         );
     }
 }
