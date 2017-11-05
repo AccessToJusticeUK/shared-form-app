@@ -1,12 +1,12 @@
-export interface StepsListProps {
-    steps: StepProps[];
-};
-
 export interface StepProps {
     stepOrder: number;
     questionHeaderProps: QuestionHeaderProps;
     sectionProps: SectionProps;
     questionAnswerSetProps: QuestionAnswerSetProps;
+};
+
+export interface StepsListProps {
+    steps: StepProps[];
 };
 
 export interface QuestionHeaderProps {
@@ -20,7 +20,16 @@ export interface SectionProps {
     innerHTML: string;
 };
 
+export interface Answer {
+    id: string;
+    text: string;
+    example: string;
+}
+
 export interface QuestionAnswerSetProps {
     question: string;
-    answers: string[];
+    answers: {
+        options: Answer[],
+        defaultOption: Answer
+    };
 };

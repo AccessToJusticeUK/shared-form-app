@@ -25,7 +25,10 @@ mockedData = {
 
             questionAnswerSetProps: {
                 question: '',
-                answers: []
+                answers: {
+                    options: [], 
+                    defaultOption: { id: '', text: 'I have no insurance policies - skip this step', example: '' }
+                }
             }
         },
 
@@ -45,9 +48,19 @@ mockedData = {
 
             questionAnswerSetProps: {
                 question: 'Which of the following options best describes your legal issue?',
-                answers: ['Consumer disputes', 'Criminal defence', 'Employment disputes', 'Identity theft', 
-                            'Neighbour disputes', 'Personal injury', 'Provision of an inadequate service', 
-                                'Tax investigation', 'My issue is not listed above']
+                answers: {
+                    defaultOption: { id: '0', text: 'My issue is not listed above', example: '' },
+                    options: [
+                        { id: '1', text: 'Consumer disputes', example: '' },
+                        { id: '2', text: 'Criminal defence', example: '' },
+                        { id: '3', text: 'Employment disputes', example: 'e.g. redundancy or conflict in work' },
+                        { id: '4', text: 'Identity theft', example: '' },
+                        { id: '5', text: 'Neighbour disputes', example: '' },
+                        { id: '6', text: 'Personal injury', example: '' },
+                        { id: '7', text: 'Provision of an inadequate service', example: '' },
+                        { id: '8', text: 'Tax investigation', example: '' }
+                    ]
+                }
             }
         },
 
@@ -66,7 +79,10 @@ mockedData = {
 
             questionAnswerSetProps: {
                 question: '',
-                answers: []
+                answers: {
+                    options: [], 
+                    defaultOption: { id: '0', text: 'I have no paid Bank accounts or Credit Cards - skip this step', example: '' }
+                }
             }
         },
 
@@ -85,7 +101,10 @@ mockedData = {
 
             questionAnswerSetProps: {
                 question: '',
-                answers: []
+                answers: {
+                    options: [], 
+                    defaultOption: { id: '0', text: 'Not implemented yet', example: '' }
+                }
             }
         },
 
@@ -104,7 +123,10 @@ mockedData = {
 
             questionAnswerSetProps: {
                 question: '',
-                answers: []
+                answers: {
+                    options: [], 
+                    defaultOption: { id: '0', text: 'Not implemented yet', example: '' }
+                }
             }
         }
     ]
