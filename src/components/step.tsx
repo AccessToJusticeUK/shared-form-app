@@ -1,23 +1,23 @@
 import * as React from 'react';
-import { QuestionHeader, QuestionHeaderProps } from './questionHeader';
-import { Section, SectionProps } from './section';
-import { QuestionAnswerSet, QuestionAnswerSetProps } from './questionAnswerSet';
+import { QuestionHeader } from './questionHeader';
+import { Section } from './section';
+import { QuestionAnswerSet } from './questionAnswerSet';
+import { StepProps } from './props.types';
 
-export interface StepProps {
-    stepOrder: number;
-    questionHeaderProps: QuestionHeaderProps;
-    sectionProps: SectionProps;
-    questionAnswerSetProps: QuestionAnswerSetProps;
-}
-
-export function Step(props: StepProps) {
-    return (
-        <div className="jumbotron">
-            <div className="step-content">
-                <QuestionHeader {...props.questionHeaderProps} />
-                <Section {...props.sectionProps} />
-                <QuestionAnswerSet {...props.questionAnswerSetProps} />
+export class Step extends React.Component<StepProps, {}> {
+    constructor(props: StepProps) {
+        super(props);
+    }
+    
+    render() {
+        return (
+            <div className="jumbotron">
+                <div className="step-content">
+                    <QuestionHeader {...this.props.questionHeaderProps} />
+                    <Section {...this.props.sectionProps} />
+                    <QuestionAnswerSet {...this.props.questionAnswerSetProps} />
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }

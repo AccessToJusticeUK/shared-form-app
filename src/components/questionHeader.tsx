@@ -1,18 +1,19 @@
 import * as React from 'react';
+import { QuestionHeaderProps } from './props.types';
 
-export interface QuestionHeaderProps {
-    title: string;
-    stepOrder: number;
-    description: string;
-}
+export class QuestionHeader extends React.Component<QuestionHeaderProps, {}> {
+    constructor(props: QuestionHeaderProps) {
+        super(props);
+    }
 
-export function QuestionHeader(props: QuestionHeaderProps) {
-    return (
-        <div>
-            <p>
-                <span id="step">{props.title}{props.stepOrder}</span>
-                <span id="desc">{props.description}</span>
-            </p>
-        </div>
-    );
+    render() {
+        return (
+            <div>
+                <p>
+                    <span id="step">{this.props.title}{this.props.stepOrder}</span>
+                    <span id="desc">{this.props.description}</span>
+                </p>
+            </div>
+        );
+    }
 }

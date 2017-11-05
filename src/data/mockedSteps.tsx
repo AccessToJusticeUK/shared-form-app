@@ -1,5 +1,4 @@
-import { StepProps } from '../components/step';
-import { StepsListProps } from '../components/stepsList';
+import { StepProps, StepsListProps } from '../components/props.types';
 
 let step1: StepProps;
 let step2: StepProps;

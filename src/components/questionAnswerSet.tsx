@@ -1,21 +1,23 @@
 import * as React from 'react';
+import { QuestionAnswerSetProps } from './props.types';
 
-export interface QuestionAnswerSetProps {
-    question: string;
-    answers: string[];
-}
+export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {}> {
+    constructor(props: QuestionAnswerSetProps) {
+        super(props);
+    }
 
-export function QuestionAnswerSet(props: QuestionAnswerSetProps) {
-    return (
-        <div>
-            <div className="qas">
-                <div className="qas-question">{props.question}</div>
-                <div className="qas-answers">{props.answers.map((answer, index) =>
-                    <div className="qas-answer" key={index}>
-                        <div className="qas-answer-text">{answer}</div>
-                    </div>)}
+    render() {
+        return (
+            <div>
+                <div className="qas">
+                    <div className="qas-question">{this.props.question}</div>
+                    <div className="qas-answers">{this.props.answers.map((answer: string, index: number) =>
+                        <div className="qas-answer" key={index}>
+                            <div className="qas-answer-text">{answer}</div>
+                        </div>)}
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
 }

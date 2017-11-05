@@ -1,10 +1,11 @@
-import * as React from "react";
-import { mount, ReactWrapper} from "enzyme";
-import { StepsList, StepsListProps } from "../../components/stepsList";
+import * as React from 'react';
+import { mount, ReactWrapper} from 'enzyme';
+import { StepsList } from '../../components/stepsList';
+import { Step } from '../../components/step';
+import { StepsListProps, StepProps } from '../../components/props.types';
 import '../../setupTests';
-import { StepProps, Step } from "../../components/step";
 
-describe("StepsList", () => {
+describe('StepsList', () => {
 
     let wrapper: ReactWrapper;
     let step1 : StepProps;
@@ -19,13 +20,13 @@ describe("StepsList", () => {
                 stepOrder: 2,
                 questionHeaderProps: {
                     stepOrder: 2,
-                    title: "Step ",
-                    description: " - Question one"
+                    title: 'Step ',
+                    description: ' - Question one'
                 },
             
                 sectionProps: {
                     isVisible: true,
-                    innerHTML: "Section"
+                    innerHTML: 'Section'
                 },
 
                 questionAnswerSetProps: {
@@ -37,13 +38,13 @@ describe("StepsList", () => {
                 stepOrder: 3,
                 questionHeaderProps: {
                     stepOrder: 3,
-                    title: "Step ",
-                    description: " - Question two"
+                    title: 'Step ',
+                    description: ' - Question two'
                 },
             
                 sectionProps: {
                     isVisible: false,
-                    innerHTML: "Section"
+                    innerHTML: 'Section'
                 },
 
                 questionAnswerSetProps: {
@@ -55,12 +56,12 @@ describe("StepsList", () => {
                 stepOrder: 1,
                 questionHeaderProps: {
                     stepOrder: 1,
-                    title: "Step ",
-                    description: " - Question three"
+                    title: 'Step ',
+                    description: ' - Question three'
                 },
                 sectionProps: {
                     isVisible: false,
-                    innerHTML: "Section"
+                    innerHTML: 'Section'
                 },
 
                 questionAnswerSetProps: {
@@ -74,19 +75,19 @@ describe("StepsList", () => {
     });
 
 
-    it("renders a list of steps", () => {
+    it('renders a list of steps', () => {
         expect(wrapper.contains(
             <StepsList steps={testData.steps}/>
         )).toBe(true);
     });
 
-    it("renders all steps correctly", () => {
+    it('renders all steps correctly', () => {
         expect(wrapper.contains(<Step {...testData.steps[0]}/>)).toBe(true);
         expect(wrapper.contains(<Step {...testData.steps[1]}/>)).toBe(true);
         expect(wrapper.contains(<Step {...testData.steps[2]}/>)).toBe(true);
     })
 
-    it("renders all steps in the correct order", () => {
+    it('renders all steps in the correct order', () => {
         //TO DO
     })     
 

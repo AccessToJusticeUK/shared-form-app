@@ -1,9 +1,5 @@
 import * as React from 'react';
-
-export interface SectionProps {
-    isVisible: boolean;
-    innerHTML: string;
-}
+import { SectionProps } from './props.types';
 
 interface Style {
     display?: string;
@@ -17,10 +13,16 @@ function getStyle(props: SectionProps): {} {
     return style;
 }
 
-export function Section(props: SectionProps) {
-    return (
-        <div style={getStyle(props)}>
-            {props.innerHTML}
-        </div>
-    );
+export class Section extends React.Component<SectionProps, {}> {
+    constructor(props: SectionProps) {
+        super(props);
+    }
+    
+    render() {
+        return (
+            <div style={getStyle(this.props)}>
+                {this.props.innerHTML}
+            </div>
+        );
+    }
 }
