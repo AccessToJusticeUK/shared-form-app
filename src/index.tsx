@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import './styling/cjc-bootstrap-default.css';
 import './styling/styles.css';
 
-import { App } from './app';
+import { App } from './App';
 
 ReactDOM.render(
     <App />,
