@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import { Step } from '../../components/step';
+import { Step } from '../../components/Step';
 import { StepProps } from '../../components/props.types';
-import { QuestionHeader } from '../../components/questionHeader';
-import { Section } from '../../components/section';
-import { QuestionAnswerSet } from '../../components/questionAnswerSet';
+import { StepHeader } from '../../components/StepHeader';
+import { Preamble } from '../../components/Preamble';
+import { QuestionAnswerSet } from '../../components/QuestionAnswerSet';
 import '../../setupTests';
 
 describe('Step ', () => {
@@ -36,12 +36,15 @@ describe('Step ', () => {
         wrapper = shallow(<Step {...stepProps} />)
     });
 
-    it('renders a div containing a QuestionHeader, Section and QuestionAnswerSet', () => {
+    it('renders a div containing a StepHeader, Preamble and QuestionAnswerSet', () => {
         expect(wrapper.contains(
             <div className="jumbotron">
+                <div className="step-heading">
+                    <StepHeader {...stepProps.questionHeaderProps} />
+                </div>
+                <hr className="step-content-divider" />
                 <div className="step-content">
-                    <QuestionHeader {...stepProps.questionHeaderProps} />
-                    <Section {...stepProps.sectionProps} />
+                    <Preamble {...stepProps.sectionProps} />
                     <QuestionAnswerSet {...stepProps.questionAnswerSetProps} />
                 </div>
             </div>

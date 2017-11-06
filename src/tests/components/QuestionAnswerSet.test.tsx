@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import { QuestionAnswerSet } from '../../components/questionAnswerSet';
-import { Answer } from '../../components/answer';
+import { QuestionAnswerSet } from '../../components/QuestionAnswerSet';
+import { Answer } from '../../components/Answer';
 import '../../setupTests';
 
 describe('QuestionAnswerSet ', () => {

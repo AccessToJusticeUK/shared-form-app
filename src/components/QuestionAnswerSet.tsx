@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { QuestionAnswerSetProps } from './props.types';
-import { Answer } from './answer';
+import { Answer } from './Answer';
 
 export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {}> {
     constructor(props: QuestionAnswerSetProps) {

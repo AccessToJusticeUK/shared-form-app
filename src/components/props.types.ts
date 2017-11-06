@@ -1,6 +1,6 @@
 export interface StepProps {
     stepOrder: number;
-    questionHeaderProps: QuestionHeaderProps;
+    questionHeaderProps: StepHeaderProps;
     sectionProps: SectionProps;
     questionAnswerSetProps: QuestionAnswerSetProps;
 };
@@ -9,7 +9,7 @@ export interface StepsListProps {
     steps: StepProps[];
 };
 
-export interface QuestionHeaderProps {
+export interface StepHeaderProps {
     title: string;
     stepOrder: number;
     description: string;

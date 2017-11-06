@@ -3,14 +3,36 @@
     word-wrap: break-word;
 }
 
-#step {
-    font-family: 'Open Sans SemiBold', 'Open Sans Regular', 'Open Sans';
-    font-weight: 500;
+.step-heading {
+    font-size: 20px;
+    margin: 5px 5px 20px;
+    color: #333333;
 }
 
-#desc {
+.step-heading-number {
+    display: inline-block;    
+    font-family: 'Open Sans SemiBold', 'Open Sans Regular', 'Open Sans';
+    font-weight: 600;
+}
+
+.step-heading-question {
+    display: inline-block;
     font-family: 'Open Sans Bold', 'Open Sans Regular', 'Open Sans';
     font-weight: 700;
+}
+
+hr.step-content-divider {
+    box-shadow: 0px 0.7px 0px 0px #EEEEEE;
+    margin: 15px 5px 20px;
+}
+
+.step-preamble {
+    margin-left: 25px;    
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    line-height: 28px;
 }
 
 .qas {

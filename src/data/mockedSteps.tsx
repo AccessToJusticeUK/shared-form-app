@@ -11,33 +11,11 @@ export let mockedData: StepsListProps;
 mockedData = {
     steps: [
         step1 = {
-            stepOrder: 2,
-            questionHeaderProps: {
-                stepOrder: 2,
-                title: 'Step ',
-                description: ' - Question one'
-            },
-
-            sectionProps: {
-                isVisible: false,
-                innerHTML: 'Section'
-            },
-
-            questionAnswerSetProps: {
-                question: '',
-                answers: {
-                    options: [], 
-                    defaultOption: { id: '', text: 'I have no insurance policies - skip this step', example: '' }
-                }
-            }
-        },
-
-        step2 = {
             stepOrder: 1,
             questionHeaderProps: {
                 stepOrder: 1,
-                title: 'Step ',
-                description: ' - Question two'
+                title: 'Step',
+                description: 'What type of issue do you have?'
             },
 
             sectionProps: {
@@ -64,12 +42,34 @@ mockedData = {
             }
         },
 
+        step2 = {
+            stepOrder: 2,
+            questionHeaderProps: {
+                stepOrder: 2,
+                title: 'Step',
+                description: 'Question two'
+            },
+
+            sectionProps: {
+                isVisible: false,
+                innerHTML: 'Section'
+            },
+
+            questionAnswerSetProps: {
+                question: '',
+                answers: {
+                    options: [], 
+                    defaultOption: { id: '', text: 'I have no insurance policies - skip this step', example: '' }
+                }
+            }
+        },
+
         step3 = {
             stepOrder: 3,
             questionHeaderProps: {
                 stepOrder: 3,
-                title: 'Step ',
-                description: ' - Question three'
+                title: 'Step',
+                description: 'Question three'
             },
 
             sectionProps: {
@@ -90,8 +90,8 @@ mockedData = {
             stepOrder: 4,
             questionHeaderProps: {
                 stepOrder: 4,
-                title: 'Step ',
-                description: ' - Question four'
+                title: 'Step',
+                description: 'Question four'
             },
 
             sectionProps: {
@@ -112,8 +112,8 @@ mockedData = {
             stepOrder: 5,
             questionHeaderProps: {
                 stepOrder: 5,
-                title: 'Step ',
-                description: ' - Question five'
+                title: 'Step',
+                description: 'Question five'
             },
 
             sectionProps: {
