@@ -39,30 +39,30 @@ describe('Tab ', () => {
         const listItem = wrapper.find('li.nav-item');
 
         expect(listItem.length).toEqual(1);
-        expect(listItem.contains(<a href='#a'>A</a>)).toBe(true);
+        expect(listItem.contains(<a href='#a' className='tab-inner'>A</a>)).toBe(true);
     });
 
     describe('tab classes', () => {
-        it('should append active class to list item if isActive is true', () => {
-            const listItem = wrapper.find('li.nav-item');
+        it('should append active class to tab if isActive is true', () => {
+            const tab = wrapper.find('.tab');
 
-            expect(listItem.hasClass('active')).toBe(true)
+            expect(tab.hasClass('active')).toBe(true)
         })
 
-        it('should append only disabled class to list item if isDisabled is true', () => {
+        it('should append only disabled class to tab if isDisabled is true', () => {
             wrapper = shallow(<Tab {...tab3} />)
-            const listItem = wrapper.find('li.nav-item');
+            const tab = wrapper.find('.tab');
 
-            expect(listItem.hasClass('active')).toBe(false)
-            expect(listItem.hasClass('disabled')).toBe(true)
+            expect(tab.hasClass('active')).toBe(false)
+            expect(tab.hasClass('disabled')).toBe(true)
         })
 
         it('should not append active or disabled class if neither props is true', () => {
             wrapper = shallow(<Tab {...tab2} />)
-            const listItem = wrapper.find('li.nav-item');
+            const tab = wrapper.find('.tab');
 
-            expect(listItem.hasClass('active')).toBe(false)
-            expect(listItem.hasClass('disabled')).toBe(false)
+            expect(tab.hasClass('active')).toBe(false)
+            expect(tab.hasClass('disabled')).toBe(false)
         })
     })
 });

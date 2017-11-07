@@ -7,7 +7,7 @@ export class Tab extends React.Component<TabProps, {}> {
     }
 
     getTabClasses(isActive: boolean, isDisabled: boolean): string {
-        const navItemClass = 'nav-item';
+        const navItemClass = 'nav-item tab';
 
         if (isDisabled) return `${navItemClass} disabled`;
         if (isActive) return `${navItemClass} active`;
@@ -17,7 +17,7 @@ export class Tab extends React.Component<TabProps, {}> {
     render() {
         return (
             <li key={this.props.id} className={this.getTabClasses(this.props.isActive, this.props.isDisabled)}>
-                <a href={`#${this.props.id}`}>
+                <a href={`#${this.props.id}`} className='tab-inner'>
                     {this.props.text}
                 </a>
             </li>

@@ -10,15 +10,17 @@ export class TabsList extends React.Component<TabsListProps, {}> {
 
     render() {
         return (
-            <QuestionPanel question={this.props.question}>
-                <ul className='nav nav-tabs'>
-                    { this.props.tabs &&
-                        Array.from(this.props.tabs).map((tab: TabProps) => (
-                            <Tab key={tab.id} {...tab} />
-                        ))
-                    }
-                </ul>
-            </QuestionPanel>
+            <div className='tabs-list-container'>
+                <QuestionPanel question={this.props.question}>
+                    <ul className='nav nav-tabs tabs-list'>
+                        { this.props.tabs &&
+                            Array.from(this.props.tabs).map((tab: TabProps) => (
+                                <Tab key={tab.id} {...tab} />
+                            ))
+                        }
+                    </ul>
+                </QuestionPanel>
+            </div>
         );
     }
 }

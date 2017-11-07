@@ -43,6 +43,7 @@ hr.step-divider {
 
 .qas-question {
     margin-top: 37px;
+    margin-bottom: 20px;
     font-family: 'Open Sans SemiBold', 'Open Sans Regular', 'Open Sans';
     font-weight: 600;
     font-size: 16px;
@@ -96,4 +97,46 @@ hr.default-option {
     margin-left: -10px;
     margin-top: 16px;
     margin-bottom: 15px;
+}
+
+.tabs-list-container .qas {
+    width: 100%;
+}
+
+.tabs-list > .tab > .tab-inner {
+    padding: 2px 3px;
+    width: 24px;
+    border-color: #dddddd;
+    border-width: 1px 1px 0 1px;
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+}
+
+.tabs-list > .tab.active > .tab-inner,
+.tabs-list > .tab.active > .tab-inner:hover,
+.tabs-list > .tab.active > .tab-inner:focus {
+    background-color: rgba(0, 75, 135, 1);
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    border-width: 1px 1px 0 1px;
+    border-color: #dddddd;
+}
+
+.tabs-list > .tab > .tab-inner:hover,
+.tabs-list > .tab > .tab-inner:focus {
+    border-color: rgba(0, 75, 135, 1);
+    background: transparent;
+    color: rgba(0, 75, 135, 1);
+    border-width: 1px 1px 0 1px;
+}
+
+.tabs-list > .tab.disabled > .tab-inner,
+.tabs-list > .tab.disabled > .tab-inner:hover,
+.tabs-list > .tab.disabled > .tab-inner:focus {
+    border: none;
+    background: transparent;
+    color: #999999;
+    outline: none;
 }
