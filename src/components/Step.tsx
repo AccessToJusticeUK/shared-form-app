@@ -3,6 +3,7 @@ import { StepHeader } from './StepHeader';
 import { Preamble } from './Preamble';
 import { QuestionAnswerSet } from './QuestionAnswerSet';
 import { StepProps } from './props.types';
+import { TabsList } from './tabs/TabsList';
 
 export class Step extends React.Component<StepProps, {}> {
     constructor(props: StepProps) {
@@ -22,6 +23,7 @@ export class Step extends React.Component<StepProps, {}> {
                             <div className="step-content">
                                 <Preamble {...this.props.preambleProps} />
                                 <QuestionAnswerSet {...this.props.questionAnswerSetProps} />
+                                {this.props.tabsListProps && <TabsList {...this.props.tabsListProps} />}
                             </div>
                         </div>
                     }
