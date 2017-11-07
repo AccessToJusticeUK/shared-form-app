@@ -4,6 +4,7 @@ export interface StepProps {
     questionHeaderProps: StepHeaderProps;
     preambleProps: PreambleProps;
     questionAnswerSetProps: QuestionAnswerSetProps;
+    tabsListProps?: TabsListProps;
 };
 
 export interface StepsListProps {
@@ -24,7 +25,7 @@ export interface Answer {
     id: string;
     text: string;
     example: string;
-}
+};
 
 export interface QuestionAnswerSetProps {
     question: string;
@@ -32,4 +33,16 @@ export interface QuestionAnswerSetProps {
         options: Answer[],
         defaultOption?: Answer
     };
+};
+
+export interface TabProps {
+    id: string;
+    text: string;
+    isActive: boolean;
+    isDisabled: boolean;
+};
+
+export interface TabsListProps {
+    question: string;
+    tabs: TabProps[];
 };

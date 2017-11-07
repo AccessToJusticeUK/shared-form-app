@@ -12,7 +12,7 @@ mockedData = {
     steps: [
         step1 = {
             stepOrder: 1,
-            isVisible: true,
+            isVisible: false,
 
             questionHeaderProps: {
                 stepOrder: 1,
@@ -45,24 +45,62 @@ mockedData = {
 
         step2 = {
             stepOrder: 2,
-            isVisible: false,
+            isVisible: true,
 
             questionHeaderProps: {
                 stepOrder: 2,
                 title: 'Step',
-                description: 'Question two'
+                description: 'Existing insurance'
             },
 
             preambleProps: {
-                innerHTML: 'Section'
+                innerHTML: 'Your existing insurance policies may already come with legal cover to help you.'
             },
 
             questionAnswerSetProps: {
-                question: '',
+                question: 'What is the first type of insurance you would like to add?',
                 answers: {
-                    options: [], 
+                    options: [
+                        { id: '1', text: 'Car', example: '' },
+                        { id: '2', text: 'Home', example: '' },
+                        { id: '3', text: 'Life', example: 'e.g. redundancy or conflict in work' },
+                        { id: '4', text: 'Pet', example: '' },
+                        { id: '5', text: 'Private medical', example: '' },
+                        { id: '6', text: 'Life', example: '' }
+                    ],
                     defaultOption: { id: '', text: 'I have no insurance policies - skip this step', example: '' }
                 }
+            },
+
+            tabsListProps: {
+                question: 'Who supplies your home insurance?',
+                tabs: [
+                    { id: 'a', text: 'A', isActive: true, isDisabled: false },
+                    { id: 'b', text: 'B', isActive: false, isDisabled: false },
+                    { id: 'c', text: 'C', isActive: false, isDisabled: false },
+                    { id: 'd', text: 'D', isActive: false, isDisabled: false },
+                    { id: 'e', text: 'E', isActive: false, isDisabled: false },
+                    { id: 'f', text: 'F', isActive: false, isDisabled: false },
+                    { id: 'g', text: 'G', isActive: false, isDisabled: false },
+                    { id: 'h', text: 'H', isActive: false, isDisabled: false },
+                    { id: 'i', text: 'I', isActive: false, isDisabled: false },
+                    { id: 'j', text: 'K', isActive: false, isDisabled: true },
+                    { id: 'l', text: 'L', isActive: false, isDisabled: false },
+                    { id: 'm', text: 'M', isActive: false, isDisabled: false },
+                    { id: 'n', text: 'N', isActive: false, isDisabled: false },
+                    { id: 'o', text: 'O', isActive: false, isDisabled: false },
+                    { id: 'p', text: 'P', isActive: false, isDisabled: false },
+                    { id: 'q', text: 'Q', isActive: false, isDisabled: false },
+                    { id: 'r', text: 'R', isActive: false, isDisabled: false },
+                    { id: 's', text: 'S', isActive: false, isDisabled: false },
+                    { id: 't', text: 'T', isActive: false, isDisabled: false },
+                    { id: 'u', text: 'U', isActive: false, isDisabled: false },
+                    { id: 'v', text: 'V', isActive: false, isDisabled: false },
+                    { id: 'w', text: 'W', isActive: false, isDisabled: false },
+                    { id: 'x', text: 'X', isActive: false, isDisabled: true },
+                    { id: 'y', text: 'Y', isActive: false, isDisabled: false },
+                    { id: 'z', text: 'Z', isActive: false, isDisabled: false }
+                ]
             }
         },
 
