@@ -12,14 +12,15 @@ mockedData = {
     steps: [
         step1 = {
             stepOrder: 1,
+            isVisible: true,
+
             questionHeaderProps: {
                 stepOrder: 1,
                 title: 'Step',
                 description: 'What type of issue do you have?'
             },
 
-            sectionProps: {
-                isVisible: true,
+            preambleProps: {
                 innerHTML: 'The type of legal issue you have helps us to identify which of your existing financial\
                  products may offer you legal insurance'
             },
@@ -44,14 +45,15 @@ mockedData = {
 
         step2 = {
             stepOrder: 2,
+            isVisible: false,
+
             questionHeaderProps: {
                 stepOrder: 2,
                 title: 'Step',
                 description: 'Question two'
             },
 
-            sectionProps: {
-                isVisible: false,
+            preambleProps: {
                 innerHTML: 'Section'
             },
 
@@ -66,14 +68,15 @@ mockedData = {
 
         step3 = {
             stepOrder: 3,
+            isVisible: false,
+
             questionHeaderProps: {
                 stepOrder: 3,
                 title: 'Step',
                 description: 'Question three'
             },
 
-            sectionProps: {
-                isVisible: false,
+            preambleProps: {
                 innerHTML: 'Section'
             },
 
@@ -88,44 +91,44 @@ mockedData = {
 
         step4 = {
             stepOrder: 4,
+            isVisible: false,
+            
             questionHeaderProps: {
                 stepOrder: 4,
                 title: 'Step',
                 description: 'Question four'
             },
 
-            sectionProps: {
-                isVisible: false,
+            preambleProps: {
                 innerHTML: 'Section'
             },
 
             questionAnswerSetProps: {
                 question: '',
                 answers: {
-                    options: [], 
-                    defaultOption: { id: '0', text: 'Not implemented yet', example: '' }
+                    options: [] 
                 }
             }
         },
 
         step5 = {
             stepOrder: 5,
+            isVisible: false,
+            
             questionHeaderProps: {
                 stepOrder: 5,
                 title: 'Step',
                 description: 'Question five'
             },
 
-            sectionProps: {
-                isVisible: false,
+            preambleProps: {
                 innerHTML: 'Section'
             },
 
             questionAnswerSetProps: {
                 question: '',
                 answers: {
-                    options: [], 
-                    defaultOption: { id: '0', text: 'Not implemented yet', example: '' }
+                    options: [] 
                 }
             }
         }

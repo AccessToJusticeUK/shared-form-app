@@ -1,7 +1,8 @@
 export interface StepProps {
     stepOrder: number;
+    isVisible: boolean;    
     questionHeaderProps: StepHeaderProps;
-    sectionProps: SectionProps;
+    preambleProps: PreambleProps;
     questionAnswerSetProps: QuestionAnswerSetProps;
 };
 
@@ -15,8 +16,7 @@ export interface StepHeaderProps {
     description: string;
 };
 
-export interface SectionProps {
-    isVisible: boolean;
+export interface PreambleProps {
     innerHTML: string;
 };
 
@@ -30,6 +30,6 @@ export interface QuestionAnswerSetProps {
     question: string;
     answers: {
         options: Answer[],
-        defaultOption: Answer
+        defaultOption?: Answer
     };
 };

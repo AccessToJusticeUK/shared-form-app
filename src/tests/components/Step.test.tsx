@@ -14,14 +14,14 @@ describe('Step ', () => {
     beforeEach(() => {
         stepProps = {
             stepOrder: 1,
+            isVisible: true,
             questionHeaderProps: {
                 stepOrder: 1,
                 title: 'Step 1',
                 description: 'Question'
             },
 
-            sectionProps: {
-                isVisible: true,
+            preambleProps: {
                 innerHTML: 'Section'
             },
 
@@ -36,16 +36,20 @@ describe('Step ', () => {
         wrapper = shallow(<Step {...stepProps} />)
     });
 
-    it('renders a div containing a StepHeader, Preamble and QuestionAnswerSet', () => {
+    it('renders a div containing a StepHeader, Preamble and QuestionAnswerSet when isVisible is true', () => {
         expect(wrapper.contains(
             <div className="jumbotron">
-                <div className="step-heading">
-                    <StepHeader {...stepProps.questionHeaderProps} />
-                </div>
-                <hr className="step-content-divider" />
-                <div className="step-content">
-                    <Preamble {...stepProps.sectionProps} />
-                    <QuestionAnswerSet {...stepProps.questionAnswerSetProps} />
+                <div className="step">
+                    <div className="step-heading">
+                        <StepHeader {...stepProps.questionHeaderProps} />
+                    </div>
+                    <div>
+                        <hr className="step-divider" />
+                        <div className="step-content">
+                            <Preamble {...stepProps.preambleProps} />
+                            <QuestionAnswerSet {...stepProps.questionAnswerSetProps} />
+                        </div>
+                    </div>
                 </div>
             </div>
         )).toBe(true);

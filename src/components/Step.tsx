@@ -12,13 +12,19 @@ export class Step extends React.Component<StepProps, {}> {
     render() {
         return (
             <div className="jumbotron">
-                <div className="step-heading">
-                    <StepHeader {...this.props.questionHeaderProps} />
-                </div>
-                <hr className="step-content-divider" />
-                <div className="step-content">
-                    <Preamble {...this.props.sectionProps} />
-                    <QuestionAnswerSet {...this.props.questionAnswerSetProps} />
+                <div className="step">
+                    <div className="step-heading">
+                        <StepHeader {...this.props.questionHeaderProps} />
+                    </div>
+                    {this.props.isVisible === true &&
+                        <div>
+                            <hr className="step-divider" />
+                            <div className="step-content">
+                                <Preamble {...this.props.preambleProps} />
+                                <QuestionAnswerSet {...this.props.questionAnswerSetProps} />
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         );

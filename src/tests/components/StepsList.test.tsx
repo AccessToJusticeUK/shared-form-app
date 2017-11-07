@@ -17,14 +17,15 @@ describe('StepsList', () => {
          steps: [
             step1 = {
                 stepOrder: 2,
+                isVisible: true,
+
                 questionHeaderProps: {
                     stepOrder: 2,
                     title: 'Step ',
                     description: ' - Question one'
                 },
             
-                sectionProps: {
-                    isVisible: true,
+                preambleProps: {
                     innerHTML: 'Section'
                 },
 
@@ -38,14 +39,15 @@ describe('StepsList', () => {
             },
             step2 = {
                 stepOrder: 3,
+                isVisible: false,
+
                 questionHeaderProps: {
                     stepOrder: 3,
                     title: 'Step ',
                     description: ' - Question two'
                 },
             
-                sectionProps: {
-                    isVisible: false,
+                preambleProps: {
                     innerHTML: 'Section'
                 },
 
@@ -59,13 +61,14 @@ describe('StepsList', () => {
             },
             step3 = {
                 stepOrder: 1,
+                isVisible: false,
+
                 questionHeaderProps: {
                     stepOrder: 1,
                     title: 'Step ',
                     description: ' - Question three'
                 },
-                sectionProps: {
-                    isVisible: false,
+                preambleProps: {
                     innerHTML: 'Section'
                 },
 
