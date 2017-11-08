@@ -149,6 +149,7 @@ hr.default-option {
     color: #999999;
     outline: none;
     cursor: default;
+    box-shadow: none;
 }
 
 .tab-panel {
