@@ -10,10 +10,10 @@
 # testing
 /coverage
 
-# production
+# generated
 /build
-
 /package-lock.json
+src/styling/**/*.css
 
 # misc
 .DS_Store
