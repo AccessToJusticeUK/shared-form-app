@@ -1,26 +1,27 @@
 import * as React from 'react';
 import { TabProps } from '../props.types';
+import * as classNames from 'classnames';
 
-export class Tab extends React.Component<TabProps, {}> {
-    constructor(props: TabProps) {
-        super(props);
-    }
+export const Tab: React.StatelessComponent<TabProps> = (props) => {
+    const clickTab = (event: { preventDefault: () => void }): void => {
+        event.preventDefault();
 
-    getTabClasses(isActive: boolean, isDisabled: boolean): string {
-        const navItemClass = 'nav-item tab';
+        if (props.onClickHandler && !props.isDisabled) {
+            props.onClickHandler(props.id);
+        }
+    };
 
-        if (isDisabled) return `${navItemClass} disabled`;
-        if (isActive) return `${navItemClass} active`;
-        return navItemClass
-    }
+    const tabClasses = classNames({
+        'nav-item tab': true,
+        'disabled': props.isDisabled,
+        'active': !props.isDisabled && props.activeTabId === props.id
+    });
 
-    render() {
-        return (
-            <li key={this.props.id} className={this.getTabClasses(this.props.isActive, this.props.isDisabled)}>
-                <a href={`#${this.props.id}`} className='tab-inner'>
-                    {this.props.text}
-                </a>
-            </li>
-        );
-    }
-}
+    return (
+        <li key={props.id} className={tabClasses}>
+            <a className="tab-inner" onClick={clickTab}>
+                {props.text}
+            </a>
+        </li>
+    );
+};

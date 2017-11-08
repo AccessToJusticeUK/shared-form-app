@@ -42,11 +42,18 @@ export interface QuestionPanelProps {
 export interface TabProps {
     id: string;
     text: string;
-    isActive: boolean;
     isDisabled: boolean;
+    onClickHandler?: (tabId: string) => void;
+    activeTabId?: string;
 };
 
 export interface TabsListProps {
     question: string;
     tabs: TabProps[];
+    defaultTabId: string;
+};
+
+export interface TabPanelProps {
+    id: string;
+    activeTabId: string;
 };

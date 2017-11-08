@@ -3,6 +3,7 @@ import { shallow, ShallowWrapper } from 'enzyme';
 import '../../../setupTests';
 import { Tab } from '../../../components/tabs/Tab';
 import { TabProps } from '../../../components/props.types';
+import { spy } from 'sinon';
 
 describe('Tab ', () => {
     let tab1 : TabProps;
@@ -14,21 +15,21 @@ describe('Tab ', () => {
         tab1 = {
             id: 'a',
             text: 'A',
-            isActive: true,
+            activeTabId: 'a',
             isDisabled: false
         };
 
         tab2 = {
             id: 'b',
             text: 'B',
-            isActive: false,
+            activeTabId: 'a',
             isDisabled: false
         };
 
         tab3 = {
             id: 'c',
             text: 'C',
-            isActive: true,
+            activeTabId: 'c',
             isDisabled: true
         };
 
@@ -39,30 +40,56 @@ describe('Tab ', () => {
         const listItem = wrapper.find('li.nav-item');
 
         expect(listItem.length).toEqual(1);
-        expect(listItem.contains(<a href='#a' className='tab-inner'>A</a>)).toBe(true);
+        expect(listItem.find('.tab-inner').length).toEqual(1);
+        expect(listItem.find('.tab-inner').text()).toEqual('A')
     });
 
-    describe('tab classes', () => {
-        it('should append active class to tab if isActive is true', () => {
+    describe('tabClasses', () => {
+        it('should append active class to tab if activeTabId is the same as id', () => {
+            const tab = wrapper.find('.tab');
+            expect(tab.hasClass('active')).toBe(true)
+        });
+
+        it('should not append active or disabled class if isDisabled is false and activeTabId is not the same as id', () => {
+            wrapper = shallow(<Tab {...tab2} />);
             const tab = wrapper.find('.tab');
 
-            expect(tab.hasClass('active')).toBe(true)
-        })
+            expect(tab.hasClass('active')).toBe(false);
+            expect(tab.hasClass('disabled')).toBe(false)
+        });
 
         it('should append only disabled class to tab if isDisabled is true', () => {
-            wrapper = shallow(<Tab {...tab3} />)
+            wrapper = shallow(<Tab {...tab3} />);
             const tab = wrapper.find('.tab');
 
-            expect(tab.hasClass('active')).toBe(false)
+            expect(tab.hasClass('active')).toBe(false);
             expect(tab.hasClass('disabled')).toBe(true)
         })
+    });
 
-        it('should not append active or disabled class if neither props is true', () => {
-            wrapper = shallow(<Tab {...tab2} />)
-            const tab = wrapper.find('.tab');
+    describe('on clicking link', () => {
+        it('should trigger event prevent default', () => {
+            const clickEvent = { preventDefault: spy() };
+            wrapper.find('a').simulate('click', clickEvent);
+            expect(clickEvent.preventDefault.called).toBe(true)
+        });
 
-            expect(tab.hasClass('active')).toBe(false)
-            expect(tab.hasClass('disabled')).toBe(false)
+        it('should trigger on click handler with id if handler exists', () => {
+            const onClickHandlerSpy = spy();
+            wrapper = shallow(<Tab {...tab1} onClickHandler={onClickHandlerSpy} />);
+
+            const clickEvent = { preventDefault: spy() };
+            wrapper.find('a').simulate('click', clickEvent);
+            expect(onClickHandlerSpy.firstCall.args[0]).toEqual(tab1.id)
+        });
+
+        it('should not trigger on click handler if is disabled is true', () => {
+            const onClickHandlerSpy = spy();
+            wrapper = shallow(<Tab {...tab3} onClickHandler={onClickHandlerSpy} />);
+
+            const clickEvent = { preventDefault: spy() };
+            wrapper.find('a').simulate('click', clickEvent);
+            expect(onClickHandlerSpy.called).toBe(false)
         })
     })
 });
