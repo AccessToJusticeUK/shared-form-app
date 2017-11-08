@@ -2,7 +2,6 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import '../../../setupTests';
 import { TabPanel } from '../../../components/tabs/TabPanel';
-import { spy } from 'sinon';
 
 describe('TabPanel ', () => {
     it('renders nothing if id passed in does not equal active tab id', () => {

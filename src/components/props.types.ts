@@ -39,6 +39,10 @@ export interface QuestionPanelProps {
     question: string;
 }
 
+export interface TabsHeaderProps {
+    question: string;
+}
+
 export interface TabProps {
     id: string;
     text: string;

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { TabsListProps, TabProps } from '../props.types';
 import { TabsListState } from '../state.types';
-import { QuestionPanel } from '../QuestionPanel';
 import { Tab } from './Tab';
 import { TabPanel } from './TabPanel';
 import { Answer } from '../Answer';
+import { TabsHeader } from './TabsHeader';
 
 export class TabsList extends React.Component<TabsListProps, TabsListState> {
     constructor(props: TabsListProps) {
@@ -25,17 +25,13 @@ export class TabsList extends React.Component<TabsListProps, TabsListState> {
 
         return (
             <div>
-                <div className="tabs-list-container">
-                    <QuestionPanel question={this.props.question}>
-                        <ul className="nav nav-tabs tabs-list">
-                            { this.props.tabs &&
-                                Array.from(this.props.tabs).map((tab: TabProps) => (
-                                    <Tab {...tab} key={tab.id} onClickHandler={this.handleTabClick} activeTabId={this.state.activeTabId} />
-                                ))
-                            }
-                        </ul>
-                    </QuestionPanel>
-                </div>
+                <TabsHeader question={this.props.question}>
+                    { this.props.tabs &&
+                        Array.from(this.props.tabs).map((tab: TabProps) => (
+                            <Tab {...tab} key={tab.id} onClickHandler={this.handleTabClick} activeTabId={this.state.activeTabId} />
+                        ))
+                    }
+                </TabsHeader>
 
                 <TabPanel id="a" activeTabId={this.state.activeTabId}>
                     <Answer id="1" text="AA" example="" />

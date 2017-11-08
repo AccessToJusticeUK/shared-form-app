@@ -4,8 +4,8 @@ import '../../../setupTests';
 import { TabsList } from '../../../components/tabs/TabsList';
 import { Tab } from '../../../components/tabs/Tab';
 import { TabPanel } from '../../../components/tabs/TabPanel';
-import { QuestionPanel } from '../../../components/QuestionPanel';
 import { TabProps, TabsListProps } from '../../../components/props.types';
+import { TabsHeader } from '../../../components/tabs/TabsHeader';
 
 describe('TabsList ', () => {
     let wrapper: ShallowWrapper;
@@ -42,10 +42,10 @@ describe('TabsList ', () => {
         wrapper = shallow(<TabsList {...testData} />)
     });
 
-    it('contains a question panel with question props', () => {
-        const questionPanel = wrapper.find(QuestionPanel);
-        expect(questionPanel.length).toEqual(1)
-        expect(questionPanel.props().question).toEqual('Example question')
+    it('contains a tabs header with question props', () => {
+        const tabsHeader = wrapper.find(TabsHeader);
+        expect(tabsHeader.length).toEqual(1)
+        expect(tabsHeader.props().question).toEqual('Example question')
     });
 
     it('renders all tabs correctly', () => {
@@ -62,7 +62,8 @@ describe('TabsList ', () => {
     })
 
     it('sets active tab id state as default tab id and passes active tab id as props to Tab and TabPanel', () => {
-        const instance = wrapper.instance();
+        let instance: Object<any>;
+        instance = wrapper.instance();
 
         expect(instance.state.activeTabId).toEqual(defaultTabId);
         expect(wrapper.find(Tab).at(0).props().activeTabId).toEqual(defaultTabId);
@@ -71,9 +72,10 @@ describe('TabsList ', () => {
 
     describe('handleTabClick', () => {
         it('should change the active tab id state to tabId passed in', () => {
-            const instance = wrapper.instance();
-            expect(instance.state.activeTabId).toEqual(defaultTabId);
+            let instance: Object<any>;
+            instance = wrapper.instance();
 
+            expect(instance.state.activeTabId).toEqual(defaultTabId);
             instance.handleTabClick('someId');
             expect(instance.state.activeTabId).toEqual('someId');
         })
