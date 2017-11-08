@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { Answer as AnswerType } from './props.types';
+import { AnswerProps } from './props.types';
 
-export class Answer extends React.Component<AnswerType, {}> {
+export class Answer extends React.Component<AnswerProps, {}> {
     private selectedAnswerDiv: HTMLDivElement | null;
 
-    constructor(props: AnswerType) {
+    constructor(props: AnswerProps) {
         super(props);
     }
 

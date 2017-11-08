@@ -21,7 +21,7 @@ export interface PreambleProps {
     innerHTML: string;
 };
 
-export interface Answer {
+export interface AnswerProps {
     id: string;
     text: string;
     example: string;
@@ -30,8 +30,8 @@ export interface Answer {
 export interface QuestionAnswerSetProps {
     question: string;
     answers: {
-        options: Answer[],
-        defaultOption?: Answer
+        options: AnswerProps[],
+        defaultOption?: AnswerProps
     };
 };
 
