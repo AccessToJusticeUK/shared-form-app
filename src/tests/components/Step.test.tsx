@@ -58,21 +58,15 @@ describe('Step ', () => {
 
     it('renders a TabsList if tabsListProps exists', () => {
         const tabsListProps = {
+            defaultTabId: 'a',
             question: 'Some question',
             tabs: [
                 { id: 'a', text: 'A', isActive: true, isDisabled: false }
             ]
-        }
-        wrapper = shallow(<Step {...stepProps} tabsListProps={tabsListProps} />)
+        };
+        wrapper = shallow(<Step {...stepProps} tabsListProps={tabsListProps} />);
         expect(wrapper.contains(
             <TabsList {...tabsListProps}/>
         )).toBe(true);
-    })
-
-
-    it('does not render a TabsList if tabsListProps does not exist', () => {
-        expect(wrapper.contains(
-            <TabsList />
-        )).toBe(false);
-    })
+    });
 });

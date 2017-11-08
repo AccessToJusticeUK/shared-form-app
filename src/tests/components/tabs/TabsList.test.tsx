@@ -62,7 +62,7 @@ describe('TabsList ', () => {
     })
 
     it('sets active tab id state as default tab id and passes active tab id as props to Tab and TabPanel', () => {
-        let instance: Object<any>;
+        let instance: any;
         instance = wrapper.instance();
 
         expect(instance.state.activeTabId).toEqual(defaultTabId);
@@ -72,7 +72,7 @@ describe('TabsList ', () => {
 
     describe('handleTabClick', () => {
         it('should change the active tab id state to tabId passed in', () => {
-            let instance: Object<any>;
+            let instance: any;
             instance = wrapper.instance();
 
             expect(instance.state.activeTabId).toEqual(defaultTabId);
