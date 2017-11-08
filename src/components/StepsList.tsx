@@ -16,11 +16,11 @@ export class StepsList extends React.Component<StepsListProps, {}> {
         return (
             <div>
                 <ul className="list-unstyled">
-                    {steps.map((step: StepProps) =>
+                    {steps.map((step: StepProps) => (
                         <li key={step.stepOrder}>
                             <Step {...step} />
                         </li>
-                    )}
+                    ))}
                 </ul>
             </div>
         );

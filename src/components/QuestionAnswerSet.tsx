@@ -12,12 +12,12 @@ export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {
         return (
             <QuestionPanel question={this.props.question}>
                 {this.props.answers.options.map(option => <Answer key={option.id} {...option} />)}
-                {this.props.answers.defaultOption !== undefined &&
+                {this.props.answers.defaultOption !== undefined && (
                     <div>
                         <hr className="default-option" />
                         <Answer {...this.props.answers.defaultOption} />
                     </div>
-                }
+                )}
             </QuestionPanel>
         );
     }

@@ -17,7 +17,7 @@ export class Step extends React.Component<StepProps, {}> {
                     <div className="step-heading">
                         <StepHeader {...this.props.questionHeaderProps} />
                     </div>
-                    {this.props.isVisible === true &&
+                    {this.props.isVisible === true && (
                         <div>
                             <hr className="step-divider" />
                             <div className="step-content">
@@ -26,7 +26,7 @@ export class Step extends React.Component<StepProps, {}> {
                                 {this.props.tabsListProps && <TabsList {...this.props.tabsListProps} />}
                             </div>
                         </div>
-                    }
+                    )}
                 </div>
             </div>
         );
