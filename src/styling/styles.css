@@ -103,6 +103,14 @@ hr.default-option {
     width: 100%;
 }
 
+.tabs-list {
+    overflow: hidden;
+}
+
+.tabs-list > .tab {
+    margin-bottom: -2px;
+}
+
 .tabs-list > .tab > .tab-inner {
     padding: 2px 3px;
     width: 24px;
@@ -111,6 +119,7 @@ hr.default-option {
     text-align: center;
     color: #000000;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .tabs-list > .tab.active > .tab-inner,
@@ -127,9 +136,9 @@ hr.default-option {
 .tabs-list > .tab > .tab-inner:hover,
 .tabs-list > .tab > .tab-inner:focus {
     border-color: rgba(0, 75, 135, 1);
-    background: transparent;
-    color: rgba(0, 75, 135, 1);
     border-width: 1px 1px 0 1px;
+    background: transparent;
+    box-shadow: 0 0 0 2px rgba(0, 75, 135, 1) inset;
 }
 
 .tabs-list > .tab.disabled > .tab-inner,
@@ -139,4 +148,9 @@ hr.default-option {
     background: transparent;
     color: #999999;
     outline: none;
+    cursor: default;
+}
+
+.tab-panel {
+    margin-top: 30px;
 }
