@@ -13,6 +13,6 @@ describe('Section ', () => {
         };
 
         wrapper = shallow(<Preamble {...preambleProps} />);
-        expect(wrapper.contains(<div className="step-preamble">Section text</div>)).toBe(true);
+        expect(wrapper.contains(<div className="preamble">Section text</div>)).toBe(true);
     });
 });

@@ -8,11 +8,9 @@ export class QuestionPanel extends React.Component<QuestionPanelProps, {}> {
 
     render() {
         return (
-            <div>
-                <div className="qas">
-                    <div className="qas-question">{this.props.question}</div>
-                    {this.props.children}
-                </div>
+            <div className="question-panel">
+                <div className="question"><h3>{this.props.question}</h3></div>
+                {this.props.children}
             </div>
         );
     }

@@ -33,6 +33,6 @@ describe('QuestionAnswerSet ', () => {
         expect(wrapper.contains(<Answer id='1' text='Answer 1' example='e.g. test' />)).toBe(true);
         expect(wrapper.contains(<Answer id='2' text='Answer 2' example='' />)).toBe(true);
         expect(wrapper.contains(<Answer id='0' text='None apply' example='' />)).toBe(true);
-        expect(wrapper.contains(<hr className="default-option" />)).toBe(true);
+        expect(wrapper.contains(<hr className="divider-dotted" />)).toBe(true);
     });
 });

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { TabsHeaderProps } from '../props.types';
 import { QuestionPanel } from '../QuestionPanel';
+import { TabsHeaderProps } from '../props.types';
 
 export const TabsHeader: React.StatelessComponent<TabsHeaderProps> = props => {
     return (

@@ -16,7 +16,7 @@ describe('QuestionPanel ', () => {
     });
 
     it('renders question panel with question and children', () => {
-        expect(wrapper.contains(<div className="qas-question">Example question</div>)).toBe(true);
+        expect(wrapper.contains(<div className="question"><h3>Example question</h3></div>)).toBe(true);
         expect(wrapper.contains(<div>Some content</div>)).toBe(true);
     });
 });

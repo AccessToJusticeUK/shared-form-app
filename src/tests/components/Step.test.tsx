@@ -37,23 +37,18 @@ describe('Step ', () => {
         wrapper = shallow(<Step {...stepProps} />)
     });
 
-    it('renders a div containing a StepHeader, Preamble and QuestionAnswerSet when isVisible is true', () => {
-        expect(wrapper.contains(
-            <div className="jumbotron">
-                <div className="step">
-                    <div className="step-heading">
-                        <StepHeader {...stepProps.questionHeaderProps} />
-                    </div>
-                    <div>
-                        <hr className="step-divider" />
-                        <div className="step-content">
-                            <Preamble {...stepProps.preambleProps} />
-                            <QuestionAnswerSet {...stepProps.questionAnswerSetProps} />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )).toBe(true);
+    it('contains a StepHeader, Preamble and QuestionAnswerSet when isVisible is true', () => {
+        expect(wrapper.find(StepHeader).length).toEqual(1);
+        expect(wrapper.find(Preamble).length).toEqual(1);
+        expect(wrapper.find(QuestionAnswerSet).length).toEqual(1);
+    });
+
+    it('does not contain a Preamble and QuestionAnswerSet when isVisible is false', () => {
+        wrapper = shallow(<Step {...stepProps} isVisible={false} />)
+
+        expect(wrapper.find(StepHeader).length).toEqual(1);
+        expect(wrapper.find(Preamble).length).toEqual(0);
+        expect(wrapper.find(QuestionAnswerSet).length).toEqual(0);
     });
 
     it('renders a TabsList if tabsListProps exists', () => {

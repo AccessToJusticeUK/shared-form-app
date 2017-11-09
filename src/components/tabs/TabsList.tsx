@@ -34,15 +34,19 @@ export class TabsList extends React.Component<TabsListProps, TabsListState> {
                 </TabsHeader>
 
                 <TabPanel id="a" activeTabId={this.state.activeTabId}>
-                    <Answer id="1" text="AA" example="" />
-                    <Answer id="2" text="Admiral" example="" />
-                    <Answer id="3" text="AXA" example="" />
+                    <div className="question-panel">
+                        <Answer id="1" text="AA" example="" />
+                        <Answer id="2" text="Admiral" example="" />
+                        <Answer id="3" text="AXA" example="" />
+                    </div>
                 </TabPanel>
 
                 <TabPanel id="b" activeTabId={this.state.activeTabId}>
-                    <Answer id="1" text="BB" example="" />
-                    <Answer id="2" text="Badmiral" example="" />
-                    <Answer id="3" text="BAXA" example="" />
+                    <div className="question-panel">
+                        <Answer id="1" text="BB" example="" />
+                        <Answer id="2" text="Badmiral" example="" />
+                        <Answer id="3" text="BAXA" example="" />
+                    </div>
                 </TabPanel>
             </div>
         );

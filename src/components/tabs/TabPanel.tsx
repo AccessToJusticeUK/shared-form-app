@@ -5,9 +5,7 @@ export const TabPanel: React.StatelessComponent<TabPanelProps> = (props) => {
     if (props.id === props.activeTabId) {
         return (
             <div className="tab-panel">
-                <div className="qas">
-                    {props.children}
-                </div>
+                {props.children}
             </div>
         );
     }

@@ -1,0 +1,26 @@
+html {
+  font-family: $font-family-default;
+  line-height: $line-height-default;
+  color: $color-black;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+h1, h2 {
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold;
+}
+
+h3, h4 {
+  font-weight: $font-weight-semi-bold;
+}
+
+.divider {
+  box-shadow: 0px 0.7px 0px 0px $color-light-grey;
+
+  &-dotted {
+    border-top: 1.5px dashed $color-light-grey;
+  }
+}

@@ -1,0 +1,12 @@
+.step {
+
+  .divider {
+    margin: 15px 5px 20px;
+  }
+
+  &-content {
+    width: 50%;
+    word-wrap: break-word;
+    padding: 0 25px;
+  }
+}

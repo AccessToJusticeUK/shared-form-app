@@ -8,7 +8,7 @@ export class Preamble extends React.Component<PreambleProps, {}> {
 
     render() {
         return (
-            <div className="step-preamble">
+            <div className="preamble">
                 {this.props.innerHTML}
             </div>
         );

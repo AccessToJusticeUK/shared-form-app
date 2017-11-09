@@ -1,0 +1,56 @@
+.tabs-list {
+  overflow: hidden;
+
+  &-container .question-panel {
+    width: 100%;
+  }
+
+  > .tab {
+    margin-bottom: -2px;
+  }
+
+  > .tab > .tab-inner {
+    padding: 2px 3px;
+    width: 24px;
+    border-color: $color-light-grey;
+    border-width: 1px 1px 0 1px;
+    text-align: center;
+    color: $color-black;
+    font-weight: $font-weight-semi-bold;
+    cursor: pointer;
+  }
+
+  > .tab.active > .tab-inner,
+  > .tab.active > .tab-inner:hover,
+  > .tab.active > .tab-inner:focus {
+    background-color: $color-blue;
+    color: $color-white;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    border-width: 1px 1px 0 1px;
+    border-color: $color-light-grey;
+  }
+
+  > .tab > .tab-inner:hover,
+  > .tab > .tab-inner:focus {
+    border-color: $color-blue;
+    border-width: 1px 1px 0 1px;
+    background: transparent;
+    box-shadow: $link-box-shadow;
+  }
+
+  > .tab.disabled > .tab-inner,
+  > .tab.disabled > .tab-inner:hover,
+  > .tab.disabled > .tab-inner:focus {
+    border: none;
+    background: transparent;
+    color: $color-grey;
+    outline: none;
+    cursor: default;
+    box-shadow: none;
+  }
+}
+
+.tab-panel {
+  margin-top: 30px;
+}

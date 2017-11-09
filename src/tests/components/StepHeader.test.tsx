@@ -21,7 +21,7 @@ describe('StepHeader ', () => {
     });
 
     it('renders header with a title and description that were passed to it', () => {
-        expect(wrapper.contains(<div className="step-heading-number">Example question&nbsp;1 -&nbsp;</div>)).toBe(true);
-        expect(wrapper.contains(<div className="step-heading-question">hey?</div>)).toBe(true);
+        expect(wrapper.contains(<span className="step-header-number">Example question&nbsp;1 -&nbsp;</span>)).toBe(true);
+        expect(wrapper.contains(<span className="step-header-question">hey?</span>)).toBe(true);
     });
 });

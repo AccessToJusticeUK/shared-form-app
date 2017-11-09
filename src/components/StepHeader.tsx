@@ -8,9 +8,11 @@ export class StepHeader extends React.Component<StepHeaderProps, {}> {
 
     render() {
         return (
-            <div>
-                <div className="step-heading-number">{this.props.title}&nbsp;{this.props.stepOrder} -&nbsp;</div>
-                <div className="step-heading-question">{this.props.description}</div>
+            <div className="step-header">
+                <h2>
+                    <span className="step-header-number">{this.props.title}&nbsp;{this.props.stepOrder} -&nbsp;</span>
+                    <span className="step-header-question">{this.props.description}</span>
+                </h2>
             </div>
         );
     }

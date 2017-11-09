@@ -17,7 +17,7 @@ describe('Answer ', () => {
     });
 
     it('renders section with an answer that was passed to it', () => {
-        expect(wrapper.contains(<div className='qas-answer-text'>Answer 1</div>)).toBe(true);
-        expect(wrapper.contains(<div className='qas-answer-example'>e.g. test</div>)).toBe(true);
+        expect(wrapper.contains(<span className='answer-text'>Answer 1</span>)).toBe(true);
+        expect(wrapper.contains(<span className='answer-example'>e.g. test</span>)).toBe(true);
     });
 });

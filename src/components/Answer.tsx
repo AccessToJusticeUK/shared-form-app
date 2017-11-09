@@ -25,9 +25,9 @@ export class Answer extends React.Component<AnswerProps, {}> {
 
     render() {
         return (
-            <div className="qas-answer" tabIndex={+this.props.id} ref={div => this.selectedAnswerDiv = div} onClick={e => this.selectAnswer(e)}>
-                <div className="qas-answer-text">{this.props.text}</div>
-                <div className="qas-answer-example">{this.props.example}</div>
+            <div className="answer" tabIndex={+this.props.id} ref={div => this.selectedAnswerDiv = div} onClick={e => this.selectAnswer(e)}>
+                <span className="answer-text">{this.props.text}</span>
+                <span className="answer-example">{this.props.example}</span>
             </div>
         );
     }
