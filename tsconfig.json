@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "outDir": "build/dist",
-    "module": "esnext",
+    "module": "commonjs",
     "target": "es5",
     "lib": ["es6", "dom"],
     "sourceMap": true,
-    "allowJs": true,
+    "allowJs": false,
+    "declaration": true,
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "",
@@ -17,6 +17,10 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true
   },
+  "include": [
+    "./src/**/*.tsx",
+    "./src/**/*.ts"
+  ],
   "exclude": [
     "node_modules",
     "build",

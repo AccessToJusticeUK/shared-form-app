@@ -41,9 +41,14 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "prepublish": "rm -r build && npm run build",
     "test": "node scripts/test.js --env=jsdom --setupTestFrameworkScriptFile=raf/polyfill"
   },
-  "main": "./build/static/js/index.js",
+  "files": [
+    "build"
+  ],
+  "main": "build/static/js/main.bundle.js",
+  "types": "build/src/index.d.ts",
   "devDependencies": {
     "@types/classnames": "^2.2.3",
     "@types/enzyme": "^2.8.12",

@@ -1,7 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# IntelliJ
+# from editors
 .idea
+.vscode
 *.iml
 
 # dependencies
@@ -14,6 +15,7 @@
 /build
 /package-lock.json
 src/styling/**/*.css
+*.tgz
 
 # misc
 .DS_Store
