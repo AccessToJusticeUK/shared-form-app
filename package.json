@@ -43,6 +43,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom --setupTestFrameworkScriptFile=raf/polyfill"
   },
+  "main": "./build/static/js/index.js",
   "devDependencies": {
     "@types/classnames": "^2.2.3",
     "@types/enzyme": "^2.8.12",
