@@ -1,8 +1,17 @@
 .question {
-  margin-top: 37px;
-  margin-bottom: 20px;
+  margin-top: 35px;
+  font-family: $font-family-semi-bold, $font-family-regular, $font-family-default;
+  font-weight: $font-weight-semi-bold;
+  font-size: $font-size-normal;
+  color: $color-black;
+
+  > h3 {
+    line-height: $line-height-default;
+  }
 }
 
 .question-panel {
-  margin-left: 40px;
+  margin-left: 50px;
+  margin-top: 2px;
+  width: 100%;
 }

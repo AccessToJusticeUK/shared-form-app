@@ -2,16 +2,20 @@
   margin-top: 5px;
   margin-bottom: 13px;
   box-sizing: border-box;
-  border: $button-border;
+  border: $button-border; 
   cursor: pointer;
 
   &:hover {
     box-shadow: $link-box-shadow;
   }
-
+  
   &.selected {
     color: $color-white;
     background-color: $color-blue;
+    
+    > .answer-example {
+      color: $color-light-grey;
+    }
   }
 
   &-text {

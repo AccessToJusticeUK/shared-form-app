@@ -12,7 +12,7 @@ mockedData = {
     steps: [
         step1 = {
             stepOrder: 1,
-            isVisible: false,
+            isVisible: true,
 
             questionHeaderProps: {
                 stepOrder: 1,

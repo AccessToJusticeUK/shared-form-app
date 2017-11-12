@@ -11,7 +11,9 @@ export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {
     render() {
         return (
             <QuestionPanel question={this.props.question}>
-                {this.props.answers.options.map(option => <Answer key={option.id} {...option} />)}
+                <div>
+                    {this.props.answers.options.map(option => <Answer key={option.id} {...option} />)}
+                </div>
                 {this.props.answers.defaultOption !== undefined && (
                     <div>
                         <hr className="divider-dotted" />

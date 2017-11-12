@@ -18,7 +18,16 @@ export class Answer extends React.Component<AnswerProps, {}> {
             return;
         }
 
-        Array.from(answersGroup.children).map(answer => answer.classList.remove('selected'));
+        const ssd = answersGroup.parentElement;
+        if (ssd === null) {
+            return;
+        }
+
+        Array.from(ssd.children).map(child => 
+            Array.from(child.children).map(answer => 
+                answer.classList.remove('selected')
+            )
+        );
 
         this.selectedAnswerDiv.classList.add('selected');
     }
