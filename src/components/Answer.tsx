@@ -23,4 +23,4 @@ export const Answer: React.StatelessComponent<AnswerProps> = (props) => {
       </div>
     );
 
-}
+};

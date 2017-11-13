@@ -12,6 +12,10 @@ export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {
         };
     }
 
+    // public static defaultProps: Partial<QuestionAnswerSetProps>: {
+    //   handleNextButtonClick: (data :string) => void;
+    // }
+
     handleAnswerClick = (answerId: string ) :void => {
       this.setState({
         activeAnswerId: answerId,
@@ -21,16 +25,23 @@ export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {
     render() {
         return (
             <QuestionPanel question={this.props.question}>
-                {this.props.answers.options.map(option => <Answer key={option.id} {...option} activeAnswerId={this.state.activeAnswerId} onClickHandler={this.handleAnswerClick}/>)}
+                {this.props.answers.options.map(option =>
+                  <Answer key={option.id} {...option}
+                    activeAnswerId={this.state.activeAnswerId}
+                    onClickHandler={this.handleAnswerClick}
+                  />)}
                 {this.props.answers.defaultOption && (
                     <div>
                         <hr className="divider-dotted" />
-                        <Answer {...this.props.answers.defaultOption} activeAnswerId={this.state.activeAnswerId} onClickHandler={this.handleAnswerClick} />
+                        <Answer {...this.props.answers.defaultOption}
+                          activeAnswerId={this.state.activeAnswerId}
+                          onClickHandler={this.handleAnswerClick}
+                        />
                     </div>
                 )}
                 <div>
                   {}
-                  <NextButton text="Next" isVisible={ true }/>
+                  <NextButton text="Next" isVisible={(this.state.activeAnswerId !== '')} onClickHandler={() => this.props.handleNextButtonClick && this.props.handleNextButtonClick(this.state.activeAnswerId)}/>
                 </div>
             </QuestionPanel>
         );

@@ -15,7 +15,7 @@ describe('Step ', () => {
     beforeEach(() => {
         stepProps = {
             stepOrder: 1,
-            isVisible: true,
+            isInitiallyOpen: false,
             questionHeaderProps: {
                 stepOrder: 1,
                 title: 'Step 1',
@@ -44,8 +44,8 @@ describe('Step ', () => {
     });
 
     it('does not contain a Preamble and QuestionAnswerSet when isVisible is false', () => {
-        wrapper = shallow(<Step {...stepProps} isVisible={false} />)
-
+        wrapper = shallow(<Step {...stepProps} />)
+//TODO change this because isVisible no longer exists!
         expect(wrapper.find(StepHeader).length).toEqual(1);
         expect(wrapper.find(Preamble).length).toEqual(0);
         expect(wrapper.find(QuestionAnswerSet).length).toEqual(0);

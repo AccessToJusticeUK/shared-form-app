@@ -12,8 +12,7 @@ mockedData = {
     steps: [
         step1 = {
             stepOrder: 1,
-            isVisible: true,
-
+            isInitiallyOpen: true,
             questionHeaderProps: {
                 stepOrder: 1,
                 title: 'Step',
@@ -45,8 +44,7 @@ mockedData = {
 
         step2 = {
             stepOrder: 2,
-            isVisible: true,
-
+            isInitiallyOpen: false,
             questionHeaderProps: {
                 stepOrder: 2,
                 title: 'Step',
@@ -119,8 +117,7 @@ mockedData = {
 
         step3 = {
             stepOrder: 3,
-            isVisible: false,
-
+            isInitiallyOpen: false,
             questionHeaderProps: {
                 stepOrder: 3,
                 title: 'Step',
@@ -142,8 +139,7 @@ mockedData = {
 
         step4 = {
             stepOrder: 4,
-            isVisible: false,
-
+            isInitiallyOpen: false,
             questionHeaderProps: {
                 stepOrder: 4,
                 title: 'Step',
@@ -164,8 +160,7 @@ mockedData = {
 
         step5 = {
             stepOrder: 5,
-            isVisible: false,
-
+            isInitiallyOpen: false,
             questionHeaderProps: {
                 stepOrder: 5,
                 title: 'Step',
