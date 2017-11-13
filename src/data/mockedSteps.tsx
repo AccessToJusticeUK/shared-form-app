@@ -28,16 +28,16 @@ mockedData = {
             questionAnswerSetProps: {
                 question: 'Which of the following options best describes your legal issue?',
                 answers: {
-                    defaultOption: { id: '0', text: 'My issue is not listed above', example: '' },
+                    defaultOption: { id: '0', text: 'My issue is not listed above' },
                     options: [
-                        { id: '1', text: 'Consumer disputes', example: '' },
-                        { id: '2', text: 'Criminal defence', example: '' },
+                        { id: '1', text: 'Consumer disputes'},
+                        { id: '2', text: 'Criminal defence'},
                         { id: '3', text: 'Employment disputes', example: 'e.g. redundancy or conflict in work' },
-                        { id: '4', text: 'Identity theft', example: '' },
-                        { id: '5', text: 'Neighbour disputes', example: '' },
-                        { id: '6', text: 'Personal injury', example: '' },
-                        { id: '7', text: 'Provision of an inadequate service', example: '' },
-                        { id: '8', text: 'Tax investigation', example: '' }
+                        { id: '4', text: 'Identity theft'},
+                        { id: '5', text: 'Neighbour disputes'},
+                        { id: '6', text: 'Personal injury'},
+                        { id: '7', text: 'Provision of an inadequate service'},
+                        { id: '8', text: 'Tax investigation'}
                     ]
                 }
             }
@@ -61,14 +61,14 @@ mockedData = {
                 question: 'What is the first type of insurance you would like to add?',
                 answers: {
                     options: [
-                        { id: '1', text: 'Car', example: '' },
-                        { id: '2', text: 'Home', example: '' },
+                        { id: '1', text: 'Car' },
+                        { id: '2', text: 'Home' },
                         { id: '3', text: 'Life', example: 'e.g. redundancy or conflict in work' },
-                        { id: '4', text: 'Pet', example: '' },
-                        { id: '5', text: 'Private medical', example: '' },
-                        { id: '6', text: 'Life', example: '' }
+                        { id: '4', text: 'Pet' },
+                        { id: '5', text: 'Private medical' },
+                        { id: '6', text: 'Life' }
                     ],
-                    defaultOption: { id: '', text: 'I have no insurance policies - skip this step', example: '' }
+                    defaultOption: { id: '', text: 'I have no insurance policies - skip this step' }
                 }
             },
 
@@ -135,7 +135,7 @@ mockedData = {
                 question: '',
                 answers: {
                     options: [],
-                    defaultOption: { id: '0', text: 'I have no paid Bank accounts or Credit Cards - skip this step', example: '' }
+                    defaultOption: { id: '0', text: 'I have no paid Bank accounts or Credit Cards - skip this step' }
                 }
             }
         },

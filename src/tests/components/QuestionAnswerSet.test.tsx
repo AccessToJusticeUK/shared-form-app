@@ -7,15 +7,14 @@ import { QuestionPanel } from '../../components/QuestionPanel';
 
 describe('QuestionAnswerSet ', () => {
     let wrapper: ShallowWrapper;
-
     beforeEach(() => {
         const question = 'Example question';
         const answers = {
             options: [
                 {id: '1', text: 'Answer 1', example: 'e.g. test'},
-                {id: '2', text: 'Answer 2', example: ''}
+                {id: '2', text: 'Answer 2', example: 'e.g. test', }
             ],
-            defaultOption: {id: '0', text: 'None apply', example: ''}
+            defaultOption: {id: '0', text: 'None apply'}
         };
 
         const testQuestionAnswerSet = {
@@ -30,9 +29,19 @@ describe('QuestionAnswerSet ', () => {
         expect(questionPanel.length).toEqual(1);
         expect(questionPanel.props().question).toEqual('Example question');
 
-        expect(wrapper.contains(<Answer id='1' text='Answer 1' example='e.g. test' />)).toBe(true);
-        expect(wrapper.contains(<Answer id='2' text='Answer 2' example='' />)).toBe(true);
-        expect(wrapper.contains(<Answer id='0' text='None apply' example='' />)).toBe(true);
-        expect(wrapper.contains(<hr className="divider-dotted" />)).toBe(true);
+        const answers = wrapper.find(Answer);
+        expect(answers.length).toEqual(3);
+        expect(answers.at(0).props().text).toEqual("Answer 1");
+        expect(answers.at(1).props().text).toEqual("Answer 2");
+        expect(answers.at(2).props().text).toEqual("None apply");
+    });
+
+    it('changes active answer id state to the id of the selected answer', () => {
+        let instance: any;
+        instance = wrapper.instance();
+
+        expect(instance.state.activeAnswerId).toEqual('');
+        instance.handleAnswerClick('someId');
+        expect(instance.state.activeAnswerId).toEqual('someId');
     });
 });

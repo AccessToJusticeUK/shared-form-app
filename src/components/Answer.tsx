@@ -1,43 +1,26 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
 import { AnswerProps } from './props.types';
 
-export class Answer extends React.Component<AnswerProps, {}> {
-    private selectedAnswerDiv: HTMLDivElement | null;
+export const Answer: React.StatelessComponent<AnswerProps> = (props) => {
 
-    constructor(props: AnswerProps) {
-        super(props);
-    }
+    const answerClasses = classNames({
+        'answer': true,
+        'selected': props.activeAnswerId === props.id
+    });
 
-    selectAnswer(event: {}): void {
-        if (this.selectedAnswerDiv === null) {
-            return;
+    const clickAnswer = (event: { preventDefault: () => void }): void => {
+        event.preventDefault();
+        if (props.onClickHandler) {
+            props.onClickHandler(props.id);
         }
+    };
 
-        const answersGroup = this.selectedAnswerDiv.parentElement;
-        if (answersGroup === null) {
-            return;
-        }
+    return (
+      <div className={answerClasses} tabIndex={+props.id} onClick={clickAnswer}>
+        <span className="answer-text">{props.text}</span>
+        <span className="answer-example">{props.example}</span>
+      </div>
+    );
 
-        const ssd = answersGroup.parentElement;
-        if (ssd === null) {
-            return;
-        }
-
-        Array.from(ssd.children).map(child => 
-            Array.from(child.children).map(answer => 
-                answer.classList.remove('selected')
-            )
-        );
-
-        this.selectedAnswerDiv.classList.add('selected');
-    }
-
-    render() {
-        return (
-            <div className="answer" tabIndex={+this.props.id} ref={div => this.selectedAnswerDiv = div} onClick={e => this.selectAnswer(e)}>
-                <span className="answer-text">{this.props.text}</span>
-                <span className="answer-example">{this.props.example}</span>
-            </div>
-        );
-    }
 }

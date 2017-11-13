@@ -24,7 +24,14 @@ export interface PreambleProps {
 export interface AnswerProps {
     id: string;
     text: string;
-    example: string;
+    example?: string;
+    activeAnswerId?: string;
+    onClickHandler?: (id : string) => void ;
+}
+
+export interface NextButtonProps {
+    text: string;
+    isVisible: boolean;
 }
 
 export interface QuestionAnswerSetProps {
