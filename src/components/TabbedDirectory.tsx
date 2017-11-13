@@ -4,6 +4,7 @@ import { TabbedDirectoryState } from './state.types';
 import { Tab } from './tabs/Tab';
 import { TabPanel } from './tabs/TabPanel';
 import { TabsHeader } from './tabs/TabsHeader';
+import { Answer } from './Answer';
 import { formatDirectoryTab } from '../helpers/formatters';
 
 export class TabbedDirectory extends React.Component<TabbedDirectoryProps, TabbedDirectoryState> {
@@ -27,6 +28,27 @@ export class TabbedDirectory extends React.Component<TabbedDirectoryProps, Tabbe
         return false;
     }
 
+    getTabPanel = (key: string, entries: Array<string>) => {
+        const panelContent = () => {
+            return (
+                <div key={key} className="question-panel">
+                    { entries.map((entry, index) => (
+                        <Answer key={index} id={index.toString()} text={entry} />
+                    ))}
+                </div>
+            );
+        };
+
+        return (
+            <TabPanel
+                key={key}
+                id={key}
+                activeTabId={this.state.activeTabId}
+                panelContentFactory={panelContent}
+            />
+        );
+    }
+
     render() {
         const { results } = this.props;
         const resultsKeys = Object.keys(results);
@@ -34,7 +56,7 @@ export class TabbedDirectory extends React.Component<TabbedDirectoryProps, Tabbe
         return (
             <div>
                 <TabsHeader question={this.props.question}>
-                    { results && resultsKeys.map((resultKey, resultIndex) => (
+                    { results && resultsKeys.map((resultKey) => (
                         <Tab
                             key={resultKey}
                             id={resultKey}
@@ -46,14 +68,8 @@ export class TabbedDirectory extends React.Component<TabbedDirectoryProps, Tabbe
                     ))}
                 </TabsHeader>
 
-                { results && resultsKeys.map((resultKey, index) => (
-                    <TabPanel
-                        key={resultKey}
-                        id={resultKey}
-                        activeTabId={this.state.activeTabId}
-                    >
-                        <div>Something</div>
-                    </TabPanel>
+                { results && resultsKeys.map((resultKey) => (
+                    this.getTabPanel(resultKey, results[resultKey])
                 ))}
             </div>
         );

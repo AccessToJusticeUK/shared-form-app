@@ -26,7 +26,7 @@ export interface AnswerProps {
     text: string;
     example?: string;
     activeAnswerId?: string;
-    onClickHandler?: (id : string) => void ;
+    onClickHandler?: (id : string) => void;
 }
 
 export interface NextButtonProps {
@@ -67,4 +67,5 @@ export interface TabbedDirectoryProps {
 export interface TabPanelProps {
     id: string;
     activeTabId: string;
+    panelContentFactory?: () => any;
 }

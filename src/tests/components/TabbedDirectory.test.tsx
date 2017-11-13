@@ -49,6 +49,16 @@ describe('TabbedDirectory', () => {
         expect(renderedTab3.props().isDisabled).toBe(false);
     })
 
+    it('renders all tab panels with correct props', () => {
+        const renderedTabPanel1 = wrapper.find(TabPanel).at(0);
+        const renderedTabPanel2 = wrapper.find(TabPanel).at(1);
+        const renderedTabPanel3 = wrapper.find(TabPanel).at(2);
+
+        expect(renderedTabPanel1.props().id).toEqual('a');
+        expect(renderedTabPanel2.props().id).toEqual('b');
+        expect(renderedTabPanel3.props().id).toEqual('c');
+    })
+
     it('sets active tab id state as default tab id and passes active tab id as props to Tab and TabPanel', () => {
         let instance: any;
         instance = wrapper.instance();

@@ -4,15 +4,19 @@ import '../../../setupTests';
 import { TabPanel } from '../../../components/tabs/TabPanel';
 
 describe('TabPanel ', () => {
-    it('renders nothing if id passed in does not equal active tab id', () => {
-       const wrapper = shallow(<TabPanel id='someId' activeTabId='someOtherId' />);
+    const panelContentFactory = () => {
+        return (
+            <div className="content">Some content</div>
+        )
+    }
 
+    it('renders nothing if id passed in does not equal active tab id', () => {
+        const wrapper = shallow(<TabPanel id='someId' panelContentFactory={panelContentFactory} activeTabId='someOtherId' />);
        expect(wrapper.getElement()).toEqual(null)
     });
 
-    it('renders the tab panel with children if id passed in equals active tab id', () => {
-        const content = <div className="content">Some panel content</div>;
-        const wrapper = shallow(<TabPanel id='someId' activeTabId='someId'>{content}</TabPanel>);
+    it('renders the tab panel with whatever panel content factory returns if id passed in equals active tab id', () => {
+        const wrapper = shallow(<TabPanel id='someId' panelContentFactory={panelContentFactory} activeTabId='someId' />);
 
         expect(wrapper.find('.tab-panel').length).toEqual(1);
         expect(wrapper.find('.content').length).toEqual(1);
