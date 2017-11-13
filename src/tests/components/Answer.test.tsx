@@ -2,7 +2,7 @@ import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { spy } from 'sinon';
 import { Answer } from '../../components/Answer';
-import { AnswerProps } from './props.types';
+import { AnswerProps } from '../../components/props.types';
 import '../../setupTests';
 
 describe('Answer ', () => {
