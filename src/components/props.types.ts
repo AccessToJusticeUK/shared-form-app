@@ -1,10 +1,10 @@
 export interface StepProps {
     stepOrder: number;
-    isVisible: boolean;    
+    isVisible: boolean;
     questionHeaderProps: StepHeaderProps;
     preambleProps: PreambleProps;
     questionAnswerSetProps: QuestionAnswerSetProps;
-    tabsListProps?: TabsListProps;
+    tabbedDirectoryProps?: TabbedDirectoryProps;
 }
 
 export interface StepsListProps {
@@ -51,10 +51,10 @@ export interface TabProps {
     activeTabId?: string;
 }
 
-export interface TabsListProps {
+export interface TabbedDirectoryProps {
     question: string;
-    tabs: TabProps[];
     defaultTabId: string;
+    results: Object;
 }
 
 export interface TabPanelProps {

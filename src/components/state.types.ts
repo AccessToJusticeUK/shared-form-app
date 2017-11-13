@@ -1,3 +1,3 @@
-export interface TabsListState {
+export interface TabbedDirectoryState {
     activeTabId: string;
 }

@@ -72,36 +72,48 @@ mockedData = {
                 }
             },
 
-            tabsListProps: {
+            tabbedDirectoryProps: {
                 question: 'Who supplies your home insurance?',
                 defaultTabId: 'a',
-                tabs: [
-                    { id: 'a', text: 'A', isDisabled: false },
-                    { id: 'b', text: 'B', isDisabled: false },
-                    { id: 'c', text: 'C', isDisabled: false },
-                    { id: 'd', text: 'D', isDisabled: false },
-                    { id: 'e', text: 'E', isDisabled: false },
-                    { id: 'f', text: 'F', isDisabled: false },
-                    { id: 'g', text: 'G', isDisabled: false },
-                    { id: 'h', text: 'H', isDisabled: false },
-                    { id: 'i', text: 'I', isDisabled: false },
-                    { id: 'j', text: 'K', isDisabled: true },
-                    { id: 'l', text: 'L', isDisabled: false },
-                    { id: 'm', text: 'M', isDisabled: false },
-                    { id: 'n', text: 'N', isDisabled: false },
-                    { id: 'o', text: 'O', isDisabled: false },
-                    { id: 'p', text: 'P', isDisabled: false },
-                    { id: 'q', text: 'Q', isDisabled: false },
-                    { id: 'r', text: 'R', isDisabled: false },
-                    { id: 's', text: 'S', isDisabled: false },
-                    { id: 't', text: 'T', isDisabled: false },
-                    { id: 'u', text: 'U', isDisabled: false },
-                    { id: 'v', text: 'V', isDisabled: false },
-                    { id: 'w', text: 'W', isDisabled: false },
-                    { id: 'x', text: 'X', isDisabled: true },
-                    { id: 'y', text: 'Y', isDisabled: false },
-                    { id: 'z', text: 'Z', isDisabled: false }
-                ]
+                results: {
+                    'a': [
+                        'AXA',
+                        'Admiral'
+                    ],
+                    'b': [
+                        'BAXA',
+                        'Badmiral'
+                    ],
+                    'c': [
+                        'CAXA',
+                        'Cadmiral'
+                    ],
+                    'd': [
+                        'DAXA',
+                        'Dadmiral'
+                    ],
+                    'e': [],
+                    'f': [],
+                    'g': [],
+                    'h': [],
+                    'i': [],
+                    'j': [],
+                    'l': [],
+                    'm': [],
+                    'n': [],
+                    'o': [],
+                    'p': [],
+                    'q': [],
+                    'r': [],
+                    's': [],
+                    't': [],
+                    'u': [],
+                    'v': [],
+                    'w': [],
+                    'x': [],
+                    'y': [],
+                    'z': []
+                }
             }
         },
 
@@ -122,7 +134,7 @@ mockedData = {
             questionAnswerSetProps: {
                 question: '',
                 answers: {
-                    options: [], 
+                    options: [],
                     defaultOption: { id: '0', text: 'I have no paid Bank accounts or Credit Cards - skip this step', example: '' }
                 }
             }
@@ -131,7 +143,7 @@ mockedData = {
         step4 = {
             stepOrder: 4,
             isVisible: false,
-            
+
             questionHeaderProps: {
                 stepOrder: 4,
                 title: 'Step',
@@ -145,7 +157,7 @@ mockedData = {
             questionAnswerSetProps: {
                 question: '',
                 answers: {
-                    options: [] 
+                    options: []
                 }
             }
         },
@@ -153,7 +165,7 @@ mockedData = {
         step5 = {
             stepOrder: 5,
             isVisible: false,
-            
+
             questionHeaderProps: {
                 stepOrder: 5,
                 title: 'Step',
@@ -167,7 +179,7 @@ mockedData = {
             questionAnswerSetProps: {
                 question: '',
                 answers: {
-                    options: [] 
+                    options: []
                 }
             }
         }

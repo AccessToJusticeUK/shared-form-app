@@ -6,7 +6,7 @@ import { StepHeader } from '../../components/StepHeader';
 import { Preamble } from '../../components/Preamble';
 import { QuestionAnswerSet } from '../../components/QuestionAnswerSet';
 import '../../setupTests';
-import {TabsList} from "../../components/tabs/TabsList";
+import { TabbedDirectory } from "../../components/TabbedDirectory";
 
 describe('Step ', () => {
     let stepProps: StepProps;
@@ -51,17 +51,15 @@ describe('Step ', () => {
         expect(wrapper.find(QuestionAnswerSet).length).toEqual(0);
     });
 
-    it('renders a TabsList if tabsListProps exists', () => {
-        const tabsListProps = {
+    it('renders a TabbedDirectory if TabbedDirectoryProps exists', () => {
+        const tabbedDirectoryProps = {
             defaultTabId: 'a',
             question: 'Some question',
-            tabs: [
-                { id: 'a', text: 'A', isActive: true, isDisabled: false }
-            ]
+            results: {}
         };
-        wrapper = shallow(<Step {...stepProps} tabsListProps={tabsListProps} />);
+        wrapper = shallow(<Step {...stepProps} tabbedDirectoryProps={tabbedDirectoryProps} />);
         expect(wrapper.contains(
-            <TabsList {...tabsListProps}/>
+            <TabbedDirectory {...tabbedDirectoryProps}/>
         )).toBe(true);
     });
 });

@@ -1,45 +1,28 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import '../../../setupTests';
-import { TabsList } from '../../../components/tabs/TabsList';
-import { Tab } from '../../../components/tabs/Tab';
-import { TabPanel } from '../../../components/tabs/TabPanel';
-import { TabProps, TabsListProps } from '../../../components/props.types';
-import { TabsHeader } from '../../../components/tabs/TabsHeader';
+import '../../setupTests';
+import { TabbedDirectory } from '../../components/TabbedDirectory';
+import { Tab } from '../../components/tabs/Tab';
+import { TabPanel } from '../../components/tabs/TabPanel';
+import { TabbedDirectoryProps } from '../../components/props.types';
+import { TabsHeader } from '../../components/tabs/TabsHeader';
 
-describe('TabsList ', () => {
+describe('TabbedDirectory', () => {
     let wrapper: ShallowWrapper;
-    let testData: TabsListProps;
-    let tab1 : TabProps;
-    let tab2 : TabProps;
-    let tab3 : TabProps;
+    let testData: TabbedDirectoryProps;
     let defaultTabId: string;
 
     beforeEach(() => {
         testData = {
             question: 'Example question',
             defaultTabId: defaultTabId = 'a',
-            tabs: [
-                tab1 = {
-                    id: 'a',
-                    text: 'A',
-                    isDisabled: false
-                },
-
-                tab2 = {
-                    id: 'b',
-                    text: 'B',
-                    isDisabled: false
-                },
-
-                tab3 = {
-                    id: 'c',
-                    text: 'C',
-                    isDisabled: true
-                }
-            ]
+            results: {
+                a: [ 'AXA', 'Admiral' ],
+                b: [],
+                c: [ 'CAXA', 'Cadmiral' ]
+            }
         };
-        wrapper = shallow(<TabsList {...testData} />)
+        wrapper = shallow(<TabbedDirectory {...testData} />)
     });
 
     it('contains a tabs header with question props', () => {
@@ -48,17 +31,22 @@ describe('TabsList ', () => {
         expect(tabsHeader.props().question).toEqual('Example question')
     });
 
-    it('renders all tabs correctly', () => {
+    it('renders all tabs with correct props', () => {
         const renderedTab1 = wrapper.find(Tab).at(0);
         const renderedTab2 = wrapper.find(Tab).at(1);
         const renderedTab3 = wrapper.find(Tab).at(2);
 
-        expect(renderedTab1.props().id).toEqual(tab1.id);
-        expect(renderedTab1.props().text).toEqual(tab1.text);
-        expect(renderedTab2.props().id).toEqual(tab2.id);
-        expect(renderedTab2.props().text).toEqual(tab2.text);
-        expect(renderedTab3.props().id).toEqual(tab3.id);
-        expect(renderedTab3.props().text).toEqual(tab3.text);
+        expect(renderedTab1.props().id).toEqual('a');
+        expect(renderedTab1.props().text).toEqual('A');
+        expect(renderedTab1.props().isDisabled).toBe(false);
+
+        expect(renderedTab2.props().id).toEqual('b');
+        expect(renderedTab2.props().text).toEqual('B');
+        expect(renderedTab2.props().isDisabled).toBe(true);
+
+        expect(renderedTab3.props().id).toEqual('c');
+        expect(renderedTab3.props().text).toEqual('C');
+        expect(renderedTab3.props().isDisabled).toBe(false);
     })
 
     it('sets active tab id state as default tab id and passes active tab id as props to Tab and TabPanel', () => {
