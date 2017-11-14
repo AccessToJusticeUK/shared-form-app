@@ -1,3 +1,7 @@
+.app-content {
+  margin-top: $sticky-header-height;
+}
+
 .page-nav {
   &.nav-tabs {
     border-bottom: 1px solid $color-grey;

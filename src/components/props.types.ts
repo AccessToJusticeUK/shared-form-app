@@ -69,3 +69,8 @@ export interface TabPanelProps {
     activeTabId: string;
     panelContentFactory?: () => any;
 }
+
+export interface StickyHeaderProps {
+    title: string;
+    logoSrc: string
+}

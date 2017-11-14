@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { mockedData } from './data/mockedSteps';
 import { StepsList } from './components/StepsList';
+import { StickyHeader } from './components/StickyHeader';
 import { DesignSystem } from './pages/DesignSystem';
 import { AppState } from './state.types';
 import * as classNames from 'classnames';
@@ -30,27 +31,30 @@ export class App extends React.Component<{}, AppState> {
 
     render() {
         return (
-            <div>
-                <ul className="nav nav-tabs nav-justified page-nav">
-                    <li className={this.getItemClasses(EXAMPLES_PAGE)}>
-                        <a onClick={event => this.clickPageTab(event, EXAMPLES_PAGE)}>
-                            Examples
-                        </a>
-                    </li>
-                    <li className={this.getItemClasses(DESIGN_SYSTEM_PAGE)}>
-                        <a onClick={event => this.clickPageTab(event, DESIGN_SYSTEM_PAGE)}>
-                            Design System
-                        </a>
-                    </li>
-                </ul>
-                {
-                    this.state.activePage === EXAMPLES_PAGE &&
-                    <StepsList steps={mockedData.steps} />
-                }
-                {
-                    this.state.activePage === DESIGN_SYSTEM_PAGE &&
-                    <DesignSystem />
-                }
+            <div className="app">
+                <StickyHeader logoSrc={require('./styling/images/logo.png')} title="Do I have Legal Expense Insurance?" />
+                <div className="app-content">
+                    <ul className="nav nav-tabs nav-justified page-nav">
+                        <li className={this.getItemClasses(EXAMPLES_PAGE)}>
+                            <a onClick={event => this.clickPageTab(event, EXAMPLES_PAGE)}>
+                                Examples
+                            </a>
+                        </li>
+                        <li className={this.getItemClasses(DESIGN_SYSTEM_PAGE)}>
+                            <a onClick={event => this.clickPageTab(event, DESIGN_SYSTEM_PAGE)}>
+                                Design System
+                            </a>
+                        </li>
+                    </ul>
+                    {
+                        this.state.activePage === EXAMPLES_PAGE &&
+                        <StepsList steps={mockedData.steps} />
+                    }
+                    {
+                        this.state.activePage === DESIGN_SYSTEM_PAGE &&
+                        <DesignSystem />
+                    }
+                </div>
             </div>
         );
     }
