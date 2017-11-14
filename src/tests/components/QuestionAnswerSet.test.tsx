@@ -37,8 +37,7 @@ describe('QuestionAnswerSet ', () => {
     });
 
     it('changes active answer text state to the text of the selected answer', () => {
-        let instance: any;
-        instance = wrapper.instance();
+        const instance :any = wrapper.instance();
 
         expect(instance.state.activeAnswerText).toEqual('');
         instance.handleAnswerClick('someText');

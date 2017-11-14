@@ -7,7 +7,7 @@ import { TabbedDirectory } from './TabbedDirectory';
 
 export class Step extends React.Component<StepProps, {}> {
 
-    close = (previousStepsAnswerIdData: string): void => {
+    handleNextButtonClick = (previousStepsAnswerIdData: string): void => {
       if (this.props.openNextStep) {
         this.props.openNextStep(previousStepsAnswerIdData);
       }
@@ -26,7 +26,7 @@ export class Step extends React.Component<StepProps, {}> {
                                 {this.props.questionAnswerSetProps &&
                                     <QuestionAnswerSet
                                         {...this.props.questionAnswerSetProps}
-                                        handleNextButtonClick={(data) => this.close(data)}
+                                        handleNextButtonClick={(data) => this.handleNextButtonClick(data)}
                                     />
                                 }
                                 {this.props.tabbedDirectoryProps && <TabbedDirectory {...this.props.tabbedDirectoryProps} />}

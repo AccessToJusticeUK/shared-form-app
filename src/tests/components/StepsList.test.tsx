@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { mount, ReactWrapper} from 'enzyme';
 import { StepsList } from '../../components/StepsList';
-// import { Step } from '../../components/Step';
+import { Step } from '../../components/Step';
 import { StepsListProps, StepProps } from '../../components/props.types';
 import '../../setupTests';
 
@@ -82,15 +82,27 @@ describe('StepsList', () => {
      wrapper = mount(<StepsList steps={testData.steps}/>)
     });
 
-
-    it('renders a list of steps', () => {
-        expect(wrapper.contains(
-            <StepsList steps={testData.steps}/>
-        )).toBe(true);
+    it('renders all steps in the correct order', () => {
+        const steps = wrapper.find(Step);
+        expect(steps.length).toEqual(3);
+        expect(steps.at(0).props().stepOrder).toEqual(1);
+        expect(steps.at(1).props().stepOrder).toEqual(2);
+        expect(steps.at(2).props().stepOrder).toEqual(3);
     });
 
-    it('renders all steps in the correct order', () => {
-        //TO DO
-    })
+    it('moveToNextStep increments openAtIndex state when called', () => {
+        const instance :any = wrapper.instance();
+        expect(instance.state.openAtIndex).toEqual(1);
+        instance.moveToNextStep('someText');
+        expect(instance.state.openAtIndex).toEqual(2);
+    });
+
+    it('the only step open is the one who matches openAtIndex in state',() => {
+      const steps = wrapper.find(Step);
+      //starts off with the first step which is open
+      expect(steps.at(0).props().shouldBeOpen).toEqual(true);
+      expect(steps.at(1).props().shouldBeOpen).toEqual(false);
+      expect(steps.at(2).props().shouldBeOpen).toEqual(false);
+    });
 
 });

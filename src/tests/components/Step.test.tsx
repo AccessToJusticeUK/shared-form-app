@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
+import { spy } from 'sinon';
 import { Step } from '../../components/Step';
 import { StepProps } from '../../components/props.types';
 import { StepHeader } from '../../components/StepHeader';
@@ -48,6 +49,16 @@ describe('Step ', () => {
         expect(wrapper.find(StepHeader).length).toEqual(1);
         expect(wrapper.find(Preamble).length).toEqual(0);
         expect(wrapper.find(QuestionAnswerSet).length).toEqual(0);
+    });
+
+    it('handleNextButtonClick calls openNextStep with data',() => {
+      const openNextStepSpy = spy();
+      wrapper = shallow(<Step {...stepProps} openNextStep={openNextStepSpy} />)
+      const instance :any = wrapper.instance();
+
+      expect(openNextStepSpy.called).toEqual(false);
+      instance.handleNextButtonClick('someText');
+      expect(openNextStepSpy.called).toEqual(true);
     });
 
     it('renders a TabbedDirectory if TabbedDirectoryProps exists', () => {

@@ -13,9 +13,9 @@ export class StepsList extends React.Component<StepsListProps, { openAtIndex: nu
         };
     }
 
-    moveToNextStep = (data: string, step: StepProps): void => {
+    moveToNextStep = (data: string): void => {
       this.setState((prevState) => (
-        {openAtIndex: prevState.openAtIndex + 1 }
+        { openAtIndex: prevState.openAtIndex + 1 }
       ));
     }
 
@@ -40,7 +40,7 @@ export class StepsList extends React.Component<StepsListProps, { openAtIndex: nu
                     <li key={step.stepOrder}>
                         <Step
                             {...step}
-                            openNextStep={(data) => this.moveToNextStep(data, step)}
+                            openNextStep={(data) => this.moveToNextStep(data)}
                             shouldBeOpen={this.state.openAtIndex === step.stepOrder}
                         />
                     </li>
