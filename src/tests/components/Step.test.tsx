@@ -61,6 +61,16 @@ describe('Step ', () => {
       expect(openNextStepSpy.called).toEqual(true);
     });
 
+    it('handleNextButtonClick sets isStepComplete state to true',() => {
+        const openNextStepSpy = spy();
+        wrapper = shallow(<Step {...stepProps} openNextStep={openNextStepSpy} />)
+        const instance :any = wrapper.instance();
+
+        expect(instance.state.isStepComplete).toEqual(false);
+        instance.handleNextButtonClick('someText');
+        expect(instance.state.isStepComplete).toEqual(true);
+    });
+
     it('renders a TabbedDirectory if TabbedDirectoryProps exists', () => {
         const tabbedDirectoryProps = {
             defaultTabId: 'a',

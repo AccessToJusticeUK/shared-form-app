@@ -1,18 +1,20 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { StepHeader } from '../../components/StepHeader';
+import { Icon } from '../../components/Icon';
+import { StepHeaderProps } from '../../components/props.types';
 import '../../setupTests';
 
 describe('StepHeader ', () => {
-
     let wrapper: ShallowWrapper;
+    let testHeader: StepHeaderProps;
 
     beforeEach(() => {
-        let title = 'Example question';
-        let description = 'hey?';
-        let stepOrder = 1;
+        const title = 'Example question';
+        const description = 'hey?';
+        const stepOrder = 1;
 
-        let testHeader = {
+        testHeader = {
             title,
             stepOrder,
             description
@@ -23,5 +25,15 @@ describe('StepHeader ', () => {
     it('renders header with a title and description that were passed to it', () => {
         expect(wrapper.contains(<span className="step-header-number">Example question&nbsp;1 -&nbsp;</span>)).toBe(true);
         expect(wrapper.contains(<span className="step-header-question">hey?</span>)).toBe(true);
+    });
+
+    it('does not render icon if isStepComplete is false', () => {
+        wrapper = shallow(<StepHeader {...testHeader} isStepComplete={false} />)
+        expect(wrapper.find(Icon).length).toEqual(0);
+    });
+
+    it('renders icon if isStepComplete is true', () => {
+        wrapper = shallow(<StepHeader {...testHeader} isStepComplete={true} />)
+        expect(wrapper.find(Icon).length).toEqual(1);
     });
 });

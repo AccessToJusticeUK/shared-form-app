@@ -4,4 +4,12 @@
   &-number {
     font-weight: $font-weight-semi-bold;
   }
+
+  &-title {
+    display: inline-block;
+  }
+
+  .checkmark-icon {
+    float: right;
+  }
 }

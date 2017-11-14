@@ -1,11 +1,12 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
 import { QuestionAnswerSetProps } from './props.types';
+import { QuestionAnswerSetState } from './state.types';
 import { Answer } from './Answer';
 import { QuestionPanel } from './QuestionPanel';
 import { Button } from './Button';
-import * as classNames from 'classnames';
 
-export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {activeAnswerText: string}> {
+export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, QuestionAnswerSetState> {
     constructor(props: QuestionAnswerSetProps) {
         super(props);
         this.state = {

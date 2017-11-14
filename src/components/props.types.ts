@@ -16,6 +16,7 @@ export interface StepHeaderProps {
     title: string;
     stepOrder: number;
     description: string;
+    isStepComplete?: boolean;
 }
 
 export interface PreambleProps {
