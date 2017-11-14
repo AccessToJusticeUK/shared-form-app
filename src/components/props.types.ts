@@ -30,10 +30,9 @@ export interface AnswerProps {
     onClickHandler?: (id: string) => void ;
 }
 
-export interface NextButtonProps {
-    text: string;
-    isVisible: boolean;
-    onClickHandler?: () => void ;
+export interface ButtonProps {
+    classNames: string;
+    onClickHandler?: () => void;
 }
 
 export interface QuestionAnswerSetProps {

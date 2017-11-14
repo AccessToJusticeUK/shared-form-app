@@ -17,8 +17,7 @@ export const Answer: React.StatelessComponent<AnswerProps> = (props) => {
 
     return (
       <div className={answerClasses} tabIndex={+props.id} onClick={clickAnswer}>
-        <span className="answer-text">{props.text}</span>
-        <span className="answer-example">{props.example}</span>
+        {props.text}<span className="answer-example">{props.example}</span>
       </div>
     );
 

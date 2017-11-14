@@ -1,3 +1,5 @@
+/* This file is for common styles across HTML types or shared classes */
+
 html {
   font-family: $font-family-default;
   line-height: $line-height-default;
@@ -31,4 +33,9 @@ h3, h4 {
     margin-top: 16px;
     margin-bottom: 15px;
   }
+}
+
+.form-actions {
+  text-align: right;
+  margin: 25px 0;
 }

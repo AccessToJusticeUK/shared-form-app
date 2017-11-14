@@ -4,7 +4,7 @@ import { Preamble } from '../../components/Preamble';
 import { PreambleProps } from '../../components/props.types';
 import '../../setupTests';
 
-describe('Section ', () => {
+describe('Preamble', () => {
     let wrapper: ShallowWrapper<PreambleProps, any>;
 
     it('renders a div with innerHTML', () => {

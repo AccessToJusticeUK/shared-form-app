@@ -2,7 +2,8 @@ import * as React from 'react';
 import { QuestionAnswerSetProps } from './props.types';
 import { Answer } from './Answer';
 import { QuestionPanel } from './QuestionPanel';
-import { NextButton } from './NextButton';
+import { Button } from './Button';
+import * as classNames from 'classnames';
 
 export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {activeAnswerText: string}> {
     constructor(props: QuestionAnswerSetProps) {
@@ -19,6 +20,11 @@ export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {
     }
 
     render() {
+        const nextButtonClassNames = classNames({
+            'next-button button button-large': true,
+            'hidden': this.state.activeAnswerText === ''
+        });
+
         return (
             <QuestionPanel question={this.props.question}>
                 {this.props.answers.options.map(option =>
@@ -38,13 +44,13 @@ export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {
                         />
                     </div>
                 )}
-                <div>
-                  {}
-                  <NextButton
-                    text="Next"
-                    isVisible={(this.state.activeAnswerText !== '')}
+                <div className="form-actions">
+                  <Button
+                    classNames={nextButtonClassNames}
                     onClickHandler={() => this.props.handleNextButtonClick && this.props.handleNextButtonClick(this.state.activeAnswerText)}
-                  />
+                  >
+                    Next
+                  </Button>
                 </div>
             </QuestionPanel>
         );

@@ -66,7 +66,6 @@ mockedData = {
                         { id: '3', text: 'Life', example: 'e.g. redundancy or conflict in work' },
                         { id: '4', text: 'Pet' },
                         { id: '5', text: 'Private medical' },
-                        { id: '6', text: 'Life' }
                     ],
                     defaultOption: { id: '', text: 'I have no insurance policies - skip this step' }
                 }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Step } from '../components/Step';
+import { Button } from '../components/Button';
 import { TabbedDirectory } from '../components/TabbedDirectory';
 import { PagePreamble, PagePreambleSection } from '../components/PagePreamble';
 
@@ -37,6 +38,10 @@ const pagePreambleCode = `<PagePreamble>
         <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage.</p>
     </PagePreambleSection>
 </PagePreamble>`;
+
+const buttonCode = `<Button classNames="button button-large" onClickHandler={(): void => undefined}>
+    Some button content
+</Button>`;
 
 export const DesignSystem: React.StatelessComponent<{}> = props => {
     return (
@@ -86,6 +91,17 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
                         <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage.</p>
                     </PagePreambleSection>
                 </PagePreamble>
+            </div>
+            <div className="design-system-panel">
+                <h2>Button</h2>
+                <pre>
+                    {buttonCode}
+                </pre>
+                <div className="jumbotron">
+                    <Button classNames="button button-large" onClickHandler={(): void => undefined}>
+                        Some button content
+                    </Button>
+                </div>
             </div>
         </div>
     );
