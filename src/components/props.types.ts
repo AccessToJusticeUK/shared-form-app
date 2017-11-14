@@ -1,9 +1,9 @@
 export interface StepProps {
     stepOrder: number;
     isVisible: boolean;
-    questionHeaderProps: StepHeaderProps;
+    stepHeaderProps: StepHeaderProps;
     preambleProps: PreambleProps;
-    questionAnswerSetProps: QuestionAnswerSetProps;
+    questionAnswerSetProps?: QuestionAnswerSetProps;
     tabbedDirectoryProps?: TabbedDirectoryProps;
 }
 

@@ -1,5 +1,5 @@
 .question {
-  margin-top: 35px;
+  padding-top: 35px;
   font-family: $font-family-semi-bold, $font-family-regular, $font-family-default;
   font-weight: $font-weight-semi-bold;
   font-size: $font-size-normal;
@@ -8,10 +8,9 @@
   > h3 {
     line-height: $line-height-default;
   }
-}
 
-.question-panel {
-  margin-left: 50px;
-  margin-top: 2px;
-  width: 100%;
+  &-panel {
+    padding-left: 50px;
+    width: 100%;
+  }
 }

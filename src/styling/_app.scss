@@ -1,0 +1,18 @@
+.page-nav {
+  &.nav-tabs {
+    border-bottom: 1px solid $color-grey;
+  }
+
+  > .page-nav-item > a {
+    cursor: pointer;
+  }
+
+  > .page-nav-item.active > a,
+  > .page-nav-item.active > a:focus,
+  > .page-nav-item.active > a:active,
+  > .page-nav-item.active > a:hover {
+    cursor: pointer;
+    background-color: $color-blue;
+    color: $color-white;
+  }
+}

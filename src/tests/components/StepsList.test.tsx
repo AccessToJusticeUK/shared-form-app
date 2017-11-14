@@ -13,18 +13,18 @@ describe('StepsList', () => {
     let testData: StepsListProps;
 
     beforeEach( () => {
-        testData = { 
+        testData = {
          steps: [
             step1 = {
                 stepOrder: 2,
                 isVisible: true,
 
-                questionHeaderProps: {
+                stepHeaderProps: {
                     stepOrder: 2,
                     title: 'Step ',
                     description: ' - Question one'
                 },
-            
+
                 preambleProps: {
                     innerHTML: 'Section'
                 },
@@ -41,12 +41,12 @@ describe('StepsList', () => {
                 stepOrder: 3,
                 isVisible: false,
 
-                questionHeaderProps: {
+                stepHeaderProps: {
                     stepOrder: 3,
                     title: 'Step ',
                     description: ' - Question two'
                 },
-            
+
                 preambleProps: {
                     innerHTML: 'Section'
                 },
@@ -63,7 +63,7 @@ describe('StepsList', () => {
                 stepOrder: 1,
                 isVisible: false,
 
-                questionHeaderProps: {
+                stepHeaderProps: {
                     stepOrder: 1,
                     title: 'Step ',
                     description: ' - Question three'
@@ -100,6 +100,6 @@ describe('StepsList', () => {
 
     it('renders all steps in the correct order', () => {
         //TO DO
-    })     
+    })
 
 });

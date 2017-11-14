@@ -14,7 +14,7 @@ mockedData = {
             stepOrder: 1,
             isVisible: true,
 
-            questionHeaderProps: {
+            stepHeaderProps: {
                 stepOrder: 1,
                 title: 'Step',
                 description: 'What type of issue do you have?'
@@ -47,7 +47,7 @@ mockedData = {
             stepOrder: 2,
             isVisible: true,
 
-            questionHeaderProps: {
+            stepHeaderProps: {
                 stepOrder: 2,
                 title: 'Step',
                 description: 'Existing insurance'
@@ -70,50 +70,6 @@ mockedData = {
                     ],
                     defaultOption: { id: '', text: 'I have no insurance policies - skip this step' }
                 }
-            },
-
-            tabbedDirectoryProps: {
-                question: 'Who supplies your home insurance?',
-                defaultTabId: 'a',
-                results: {
-                    'a': [
-                        'AXA',
-                        'Admiral'
-                    ],
-                    'b': [
-                        'BAXA',
-                        'Badmiral'
-                    ],
-                    'c': [
-                        'CAXA',
-                        'Cadmiral'
-                    ],
-                    'd': [
-                        'DAXA',
-                        'Dadmiral'
-                    ],
-                    'e': [],
-                    'f': [],
-                    'g': [],
-                    'h': [],
-                    'i': [],
-                    'j': [],
-                    'l': [],
-                    'm': [],
-                    'n': [],
-                    'o': [],
-                    'p': [],
-                    'q': [],
-                    'r': [],
-                    's': [],
-                    't': [],
-                    'u': [],
-                    'v': [],
-                    'w': [],
-                    'x': [],
-                    'y': [],
-                    'z': []
-                }
             }
         },
 
@@ -121,7 +77,7 @@ mockedData = {
             stepOrder: 3,
             isVisible: false,
 
-            questionHeaderProps: {
+            stepHeaderProps: {
                 stepOrder: 3,
                 title: 'Step',
                 description: 'Question three'
@@ -144,7 +100,7 @@ mockedData = {
             stepOrder: 4,
             isVisible: false,
 
-            questionHeaderProps: {
+            stepHeaderProps: {
                 stepOrder: 4,
                 title: 'Step',
                 description: 'Question four'
@@ -152,13 +108,6 @@ mockedData = {
 
             preambleProps: {
                 innerHTML: 'Section'
-            },
-
-            questionAnswerSetProps: {
-                question: '',
-                answers: {
-                    options: []
-                }
             }
         },
 
@@ -166,7 +115,7 @@ mockedData = {
             stepOrder: 5,
             isVisible: false,
 
-            questionHeaderProps: {
+            stepHeaderProps: {
                 stepOrder: 5,
                 title: 'Step',
                 description: 'Question five'
@@ -174,13 +123,6 @@ mockedData = {
 
             preambleProps: {
                 innerHTML: 'Section'
-            },
-
-            questionAnswerSetProps: {
-                question: '',
-                answers: {
-                    options: []
-                }
             }
         }
     ]

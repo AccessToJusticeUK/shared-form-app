@@ -16,7 +16,7 @@ describe('Step ', () => {
         stepProps = {
             stepOrder: 1,
             isVisible: true,
-            questionHeaderProps: {
+            stepHeaderProps: {
                 stepOrder: 1,
                 title: 'Step 1',
                 description: 'Question'

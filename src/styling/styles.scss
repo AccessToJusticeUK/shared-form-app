@@ -1,8 +1,11 @@
 @import 'variables';
 @import 'base';
+@import 'app';
 
 @import 'components/step';
 @import 'components/step-header';
 @import 'components/question';
 @import 'components/answer';
 @import 'components/tabs';
+
+@import 'pages/design-system';
