@@ -22,12 +22,12 @@ describe('Answer ', () => {
         expect(wrapper.contains(<span className='answer-example'>e.g. test</span>)).toBe(true);
     });
 
-    it('should append active class to tab if activeAnswerId is the same as id', () => {
+    it('should append active class to tab if activeAnswerText is the same as answer text', () => {
         const clickedAnswer = {
             id: '1',
             text: 'Answer 1',
             example: 'e.g. test',
-            activeAnswerId: '1'
+            activeAnswerText: 'Answer 1'
         };
         const clickedWrapper = shallow(<Answer {...clickedAnswer} />)
         const answer = clickedWrapper.find('.answer');
@@ -40,6 +40,6 @@ describe('Answer ', () => {
 
         const clickEvent = { preventDefault: spy() };
         wrapper.find('.answer').simulate('click', clickEvent);
-        expect(onClickHandlerSpy.firstCall.args[0]).toEqual(answer.id)
+        expect(onClickHandlerSpy.firstCall.args[0]).toEqual(answer.text)
     });
 });

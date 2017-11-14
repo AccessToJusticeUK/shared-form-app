@@ -4,33 +4,47 @@ import { Answer } from './Answer';
 import { QuestionPanel } from './QuestionPanel';
 import { NextButton } from './NextButton';
 
-export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {activeAnswerId: string}> {
+export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {activeAnswerText: string}> {
     constructor(props: QuestionAnswerSetProps) {
         super(props);
         this.state = {
-          activeAnswerId: '',
+          activeAnswerText: '',
         };
     }
 
-    handleAnswerClick = (answerId: string ) :void => {
+    handleAnswerClick = (AnswerText: string ): void => {
       this.setState({
-        activeAnswerId: answerId,
+        activeAnswerText: AnswerText,
       });
     }
 
     render() {
         return (
             <QuestionPanel question={this.props.question}>
-                {this.props.answers.options.map(option => <Answer key={option.id} {...option} activeAnswerId={this.state.activeAnswerId} onClickHandler={this.handleAnswerClick}/>)}
+                {this.props.answers.options.map(option =>
+                  <Answer
+                    key={option.id}
+                    {...option}
+                    activeAnswerText={this.state.activeAnswerText}
+                    onClickHandler={this.handleAnswerClick}
+                  />)}
                 {this.props.answers.defaultOption && (
                     <div>
                         <hr className="divider-dotted" />
-                        <Answer {...this.props.answers.defaultOption} activeAnswerId={this.state.activeAnswerId} onClickHandler={this.handleAnswerClick} />
+                        <Answer
+                          {...this.props.answers.defaultOption}
+                          activeAnswerText={this.state.activeAnswerText}
+                          onClickHandler={this.handleAnswerClick}
+                        />
                     </div>
                 )}
                 <div>
                   {}
-                  <NextButton text="Next" isVisible={ true }/>
+                  <NextButton
+                    text="Next"
+                    isVisible={(this.state.activeAnswerText !== '')}
+                    onClickHandler={() => this.props.handleNextButtonClick && this.props.handleNextButtonClick(this.state.activeAnswerText)}
+                  />
                 </div>
             </QuestionPanel>
         );

@@ -6,8 +6,11 @@ import { StepProps } from './props.types';
 import { TabbedDirectory } from './TabbedDirectory';
 
 export class Step extends React.Component<StepProps, {}> {
-    constructor(props: StepProps) {
-        super(props);
+
+    close = (previousStepsAnswerIdData: string): void => {
+      if (this.props.openNextStep) {
+        this.props.openNextStep(previousStepsAnswerIdData);
+      }
     }
 
     render() {
@@ -15,12 +18,12 @@ export class Step extends React.Component<StepProps, {}> {
             <div className="jumbotron">
                 <div className="step">
                     <StepHeader {...this.props.stepHeaderProps} />
-                    {this.props.isVisible === true && (
+                    {this.props.shouldBeOpen && (
                         <div>
                             <hr className="divider" />
                             <div className="step-content">
                                 <Preamble {...this.props.preambleProps} />
-                                {this.props.questionAnswerSetProps && <QuestionAnswerSet {...this.props.questionAnswerSetProps} />}
+                                {this.props.questionAnswerSetProps && <QuestionAnswerSet {...this.props.questionAnswerSetProps} handleNextButtonClick={(data) => this.close(data)}/>}
                                 {this.props.tabbedDirectoryProps && <TabbedDirectory {...this.props.tabbedDirectoryProps} />}
                             </div>
                         </div>

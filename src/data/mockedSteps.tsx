@@ -12,8 +12,7 @@ mockedData = {
     steps: [
         step1 = {
             stepOrder: 1,
-            isVisible: true,
-
+            shouldBeOpen: true,
             stepHeaderProps: {
                 stepOrder: 1,
                 title: 'Step',
@@ -45,8 +44,7 @@ mockedData = {
 
         step2 = {
             stepOrder: 2,
-            isVisible: true,
-
+            shouldBeOpen: false,
             stepHeaderProps: {
                 stepOrder: 2,
                 title: 'Step',
@@ -75,8 +73,7 @@ mockedData = {
 
         step3 = {
             stepOrder: 3,
-            isVisible: false,
-
+            shouldBeOpen: false,
             stepHeaderProps: {
                 stepOrder: 3,
                 title: 'Step',
@@ -98,8 +95,7 @@ mockedData = {
 
         step4 = {
             stepOrder: 4,
-            isVisible: false,
-
+            shouldBeOpen: false,
             stepHeaderProps: {
                 stepOrder: 4,
                 title: 'Step',
@@ -113,8 +109,7 @@ mockedData = {
 
         step5 = {
             stepOrder: 5,
-            isVisible: false,
-
+            shouldBeOpen: false,
             stepHeaderProps: {
                 stepOrder: 5,
                 title: 'Step',

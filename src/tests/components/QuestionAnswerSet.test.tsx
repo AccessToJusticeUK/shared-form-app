@@ -36,12 +36,12 @@ describe('QuestionAnswerSet ', () => {
         expect(answers.at(2).props().text).toEqual("None apply");
     });
 
-    it('changes active answer id state to the id of the selected answer', () => {
+    it('changes active answer text state to the text of the selected answer', () => {
         let instance: any;
         instance = wrapper.instance();
 
-        expect(instance.state.activeAnswerId).toEqual('');
-        instance.handleAnswerClick('someId');
-        expect(instance.state.activeAnswerId).toEqual('someId');
+        expect(instance.state.activeAnswerText).toEqual('');
+        instance.handleAnswerClick('someText');
+        expect(instance.state.activeAnswerText).toEqual('someText');
     });
 });

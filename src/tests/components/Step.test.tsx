@@ -15,7 +15,7 @@ describe('Step ', () => {
     beforeEach(() => {
         stepProps = {
             stepOrder: 1,
-            isVisible: true,
+            shouldBeOpen: true,
             stepHeaderProps: {
                 stepOrder: 1,
                 title: 'Step 1',
@@ -37,15 +37,14 @@ describe('Step ', () => {
         wrapper = shallow(<Step {...stepProps} />)
     });
 
-    it('contains a StepHeader, Preamble and QuestionAnswerSet when isVisible is true', () => {
+    it('contains a StepHeader, Preamble and QuestionAnswerSet when shouldBeOpen is true', () => {
         expect(wrapper.find(StepHeader).length).toEqual(1);
         expect(wrapper.find(Preamble).length).toEqual(1);
         expect(wrapper.find(QuestionAnswerSet).length).toEqual(1);
     });
 
-    it('does not contain a Preamble and QuestionAnswerSet when isVisible is false', () => {
-        wrapper = shallow(<Step {...stepProps} isVisible={false} />)
-
+    it('does not contain a Preamble and QuestionAnswerSet when shouldBeOpen is false', () => {
+        wrapper = shallow(<Step {...stepProps} shouldBeOpen={false} />)
         expect(wrapper.find(StepHeader).length).toEqual(1);
         expect(wrapper.find(Preamble).length).toEqual(0);
         expect(wrapper.find(QuestionAnswerSet).length).toEqual(0);

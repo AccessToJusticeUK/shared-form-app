@@ -16,7 +16,7 @@ const tabbedDirectoryCode = `<TabbedDirectory
 
 const stepCode = `<Step
     stepOrder={1}
-    isVisible={true}
+    shouldBeOpen={true}
     stepHeaderProps={{
         stepOrder: 1,
         title: 'Step',
@@ -35,7 +35,7 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
                 <pre>{stepCode}</pre>
                 <Step
                     stepOrder={1}
-                    isVisible={true}
+                    shouldBeOpen={true}
                     stepHeaderProps={{
                         stepOrder: 1,
                         title: 'Step',

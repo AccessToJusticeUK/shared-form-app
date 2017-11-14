@@ -17,8 +17,7 @@ describe('StepsList', () => {
          steps: [
             step1 = {
                 stepOrder: 2,
-                isVisible: true,
-
+                shouldBeOpen: true,
                 stepHeaderProps: {
                     stepOrder: 2,
                     title: 'Step ',
@@ -39,8 +38,7 @@ describe('StepsList', () => {
             },
             step2 = {
                 stepOrder: 3,
-                isVisible: false,
-
+                shouldBeOpen: true,
                 stepHeaderProps: {
                     stepOrder: 3,
                     title: 'Step ',
@@ -61,8 +59,7 @@ describe('StepsList', () => {
             },
             step3 = {
                 stepOrder: 1,
-                isVisible: false,
-
+                shouldBeOpen: true,
                 stepHeaderProps: {
                     stepOrder: 1,
                     title: 'Step ',
@@ -91,12 +88,6 @@ describe('StepsList', () => {
             <StepsList steps={testData.steps}/>
         )).toBe(true);
     });
-
-    it('renders all steps correctly', () => {
-        expect(wrapper.contains(<Step {...testData.steps[0]}/>)).toBe(true);
-        expect(wrapper.contains(<Step {...testData.steps[1]}/>)).toBe(true);
-        expect(wrapper.contains(<Step {...testData.steps[2]}/>)).toBe(true);
-    })
 
     it('renders all steps in the correct order', () => {
         //TO DO

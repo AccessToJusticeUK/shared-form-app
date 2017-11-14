@@ -1,25 +1,17 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
 import { NextButtonProps } from './props.types';
 
-export class NextButton extends React.Component<NextButtonProps, {}> {
+export const NextButton: React.StatelessComponent<NextButtonProps> = (props) => {
 
-    constructor(props: NextButtonProps) {
-        super(props);
-    }
+    const nextButtonClasses = classNames({
+        'nextbutton': true,
+        'hidden': !props.isVisible,
+    });
 
-    goToNextStep(event: {}): void {
-      console.log("yayy");
-    }
-
-    render() {
-        return (
-            <div className="nextbutton" onClick={e => this.goToNextStep(e)}>
-                <span className="nextbutton-text">{this.props.text}</span>
-            </div>
-        );
-    }
-}
-
-
-
-// /ref={div => this.selectedAnswerDiv = div}
+    return (
+        <div className={nextButtonClasses} onClick={props.onClickHandler}>
+            <span className="nextbutton-text">{props.text}</span>
+        </div>
+    );
+};
