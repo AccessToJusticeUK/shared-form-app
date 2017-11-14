@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Step } from '../components/Step';
 import { Button } from '../components/Button';
+import { Icon } from '../components/Icon';
 import { TabbedDirectory } from '../components/TabbedDirectory';
 import { PagePreamble, PagePreambleSection } from '../components/PagePreamble';
 
@@ -42,6 +43,8 @@ const pagePreambleCode = `<PagePreamble>
 const buttonCode = `<Button classNames="button button-large" onClickHandler={(): void => undefined}>
     Some button content
 </Button>`;
+
+const iconCode = `<Icon text="Step complete" classNames="checkmark-icon" imgSrc={require('../styling/images/checkmark-icon.png')} />`
 
 export const DesignSystem: React.StatelessComponent<{}> = props => {
     return (
@@ -101,6 +104,15 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
                     <Button classNames="button button-large" onClickHandler={(): void => undefined}>
                         Some button content
                     </Button>
+                </div>
+            </div>
+            <div className="design-system-panel">
+                <h2>Icon (with text)</h2>
+                <pre>
+                    {iconCode}
+                </pre>
+                <div className="jumbotron">
+                    <Icon text="Step complete" classNames="checkmark-icon" imgSrc={require('../styling/images/checkmark-icon.png')} />
                 </div>
             </div>
         </div>

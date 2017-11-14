@@ -31,7 +31,7 @@ export interface AnswerProps {
 }
 
 export interface ButtonProps {
-    classNames: string;
+    classNames?: string;
     onClickHandler?: () => void;
 }
 
@@ -75,4 +75,10 @@ export interface TabPanelProps {
 export interface StickyHeaderProps {
     title: string;
     logoSrc: string
+}
+
+export interface IconProps {
+    text: string;
+    imgSrc: string;
+    classNames?: string;
 }

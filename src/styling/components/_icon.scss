@@ -1,0 +1,15 @@
+.icon {
+  &-img {
+    height: 30px;
+  }
+
+  &-text {
+    font-size: $font-size-small;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+}
+
+.checkmark-icon {
+  color: $color-green;
+}

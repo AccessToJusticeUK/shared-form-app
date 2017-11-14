@@ -21,7 +21,7 @@ export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {
 
     render() {
         const nextButtonClassNames = classNames({
-            'next-button button button-large': true,
+            'next-button button-large': true,
             'hidden': this.state.activeAnswerText === ''
         });
 
