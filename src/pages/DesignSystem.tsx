@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Step } from '../components/Step';
 import { TabbedDirectory } from '../components/TabbedDirectory';
+import { PagePreamble, PagePreambleSection } from '../components/PagePreamble';
 
 const tabbedDirectoryCode = `<TabbedDirectory
     question="Who supplies your home insurance?"
@@ -26,6 +27,16 @@ const stepCode = `<Step
         innerHTML: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     }}
 />`;
+
+const pagePreambleCode = `<PagePreamble>
+    <PagePreambleSection>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+    </PagePreambleSection>
+    <PagePreambleSection>
+        <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </PagePreambleSection>
+</PagePreamble>`;
 
 export const DesignSystem: React.StatelessComponent<{}> = props => {
     return (
@@ -62,6 +73,19 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
                         }}
                     />
                 </div>
+            </div>
+            <div className="design-system-panel">
+                <h2>Page Preamble</h2>
+                <pre>{pagePreambleCode}</pre>
+                <PagePreamble>
+                    <PagePreambleSection>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    </PagePreambleSection>
+                    <PagePreambleSection>
+                        <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    </PagePreambleSection>
+                </PagePreamble>
             </div>
         </div>
     );
