@@ -27,7 +27,8 @@ export class StepsList extends React.Component<StepsListProps, { openAtIndex: nu
             <PagePreamble>
                 <PagePreambleSection>
                     <p><span className="text-large">You may already have legal insurance that you did not know about!</span></p>
-                    <p>This page will walk you through the most likely sources of LEI (Legal Expenses Insurance) that are often bundled with your existing financial products.</p>
+                    <p>This page will walk you through the most likely sources of LEI (Legal Expenses Insurance) that
+                    are often bundled with your existing financial products.</p>
                     <p>Having funds to cover your legal expenses will ensure your problem gets priority and resolved quickly</p>
                 </PagePreambleSection>
                 <PagePreambleSection>
@@ -38,9 +39,9 @@ export class StepsList extends React.Component<StepsListProps, { openAtIndex: nu
                 {steps.map((step: StepProps) => (
                     <li key={step.stepOrder}>
                         <Step
-                        {...step}
-                        openNextStep={(data) => this.moveToNextStep(data,step)}
-                        shouldBeOpen={this.state.openAtIndex === step.stepOrder}
+                            {...step}
+                            openNextStep={(data) => this.moveToNextStep(data, step)}
+                            shouldBeOpen={this.state.openAtIndex === step.stepOrder}
                         />
                     </li>
                 ))}

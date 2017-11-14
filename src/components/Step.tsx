@@ -23,7 +23,12 @@ export class Step extends React.Component<StepProps, {}> {
                             <hr className="divider" />
                             <div className="step-content">
                                 <Preamble {...this.props.preambleProps} />
-                                {this.props.questionAnswerSetProps && <QuestionAnswerSet {...this.props.questionAnswerSetProps} handleNextButtonClick={(data) => this.close(data)}/>}
+                                {this.props.questionAnswerSetProps &&
+                                    <QuestionAnswerSet
+                                        {...this.props.questionAnswerSetProps}
+                                        handleNextButtonClick={(data) => this.close(data)}
+                                    />
+                                }
                                 {this.props.tabbedDirectoryProps && <TabbedDirectory {...this.props.tabbedDirectoryProps} />}
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { mount, ReactWrapper} from 'enzyme';
 import { StepsList } from '../../components/StepsList';
-import { Step } from '../../components/Step';
+// import { Step } from '../../components/Step';
 import { StepsListProps, StepProps } from '../../components/props.types';
 import '../../setupTests';
 

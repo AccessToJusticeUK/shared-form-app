@@ -13,6 +13,7 @@ mockedData = {
         step1 = {
             stepOrder: 1,
             shouldBeOpen: true,
+
             stepHeaderProps: {
                 stepOrder: 1,
                 title: 'Step',
@@ -44,7 +45,8 @@ mockedData = {
 
         step2 = {
             stepOrder: 2,
-            shouldBeOpen: false,
+            shouldBeOpen: true,
+
             stepHeaderProps: {
                 stepOrder: 2,
                 title: 'Step',
@@ -69,11 +71,13 @@ mockedData = {
                     defaultOption: { id: '', text: 'I have no insurance policies - skip this step' }
                 }
             }
+
         },
 
         step3 = {
             stepOrder: 3,
             shouldBeOpen: false,
+
             stepHeaderProps: {
                 stepOrder: 3,
                 title: 'Step',
@@ -96,6 +100,7 @@ mockedData = {
         step4 = {
             stepOrder: 4,
             shouldBeOpen: false,
+
             stepHeaderProps: {
                 stepOrder: 4,
                 title: 'Step',
@@ -110,6 +115,7 @@ mockedData = {
         step5 = {
             stepOrder: 5,
             shouldBeOpen: false,
+
             stepHeaderProps: {
                 stepOrder: 5,
                 title: 'Step',
