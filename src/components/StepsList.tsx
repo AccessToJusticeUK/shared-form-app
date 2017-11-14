@@ -2,20 +2,21 @@ import * as React from 'react';
 import { Step } from './Step';
 import { PagePreamble, PagePreambleSection } from './PagePreamble';
 import { StepsListProps, StepProps } from './props.types';
+import { StepsListState } from './state.types';
 import * as sortBy from 'sort-by';
 
-export class StepsList extends React.Component<StepsListProps, { stepIndexToOpen: number } > {
+export class StepsList extends React.Component<StepsListProps, StepsListState> {
 
     constructor(props: StepsListProps) {
         super(props);
         this.state = {
-          stepIndexToOpen: 1
+          openAtIndex: 1
         };
     }
 
     moveToNextStep = (data: string): void => {
       this.setState((prevState) => (
-        { stepIndexToOpen: prevState.stepIndexToOpen + 1 }
+        { openAtIndex: prevState.openAtIndex + 1 }
       ));
     }
 
@@ -41,7 +42,7 @@ export class StepsList extends React.Component<StepsListProps, { stepIndexToOpen
                         <Step
                             {...step}
                             openNextStep={(data) => this.moveToNextStep(data)}
-                            shouldBeOpen={this.state.stepIndexToOpen === step.stepOrder}
+                            shouldBeOpen={this.state.openAtIndex === step.stepOrder}
                         />
                     </li>
                 ))}

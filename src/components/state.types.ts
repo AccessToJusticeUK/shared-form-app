@@ -7,7 +7,7 @@ export interface StepState {
 }
 
 export interface StepsListState {
-    stepIndexToOpen: number;
+    openAtIndex: number;
 }
 
 export interface QuestionAnswerSetState {

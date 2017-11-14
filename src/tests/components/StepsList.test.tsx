@@ -90,14 +90,14 @@ describe('StepsList', () => {
         expect(steps.at(2).props().stepOrder).toEqual(3);
     });
 
-    it('moveToNextStep increments stepIndexToOpen state when called', () => {
+    it('moveToNextStep increments openAtIndex state when called', () => {
         const instance :any = wrapper.instance();
-        expect(instance.state.stepIndexToOpen).toEqual(1);
+        expect(instance.state.openAtIndex).toEqual(1);
         instance.moveToNextStep('someText');
-        expect(instance.state.stepIndexToOpen).toEqual(2);
+        expect(instance.state.openAtIndex).toEqual(2);
     });
 
-    it('the only step open is the one who matches stepIndexToOpen in state',() => {
+    it('the only step open is the one who matches openAtIndex in state',() => {
       const steps = wrapper.find(Step);
       //starts off with the first step which is open
       expect(steps.at(0).props().shouldBeOpen).toEqual(true);
