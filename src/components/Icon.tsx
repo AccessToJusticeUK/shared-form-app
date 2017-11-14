@@ -6,7 +6,7 @@ export const Icon: React.StatelessComponent<IconProps> = (props) => {
   return (
     <div className={concatClassNames('icon', props.classNames)}>
       <img className="icon-img" src={props.imgSrc} alt="logo" />
-      { props.text && <span className="icon-text">{props.text}</span> }
+      {props.text && <span className="icon-text">{props.text}</span>}
     </div>
   );
 };

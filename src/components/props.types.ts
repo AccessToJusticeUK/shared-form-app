@@ -78,7 +78,7 @@ export interface StickyHeaderProps {
 }
 
 export interface IconProps {
-    text: string;
     imgSrc: string;
+    text?: string;
     classNames?: string;
 }

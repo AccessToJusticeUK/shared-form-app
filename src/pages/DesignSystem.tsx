@@ -44,7 +44,7 @@ const buttonCode = `<Button classNames="button button-large" onClickHandler={():
     Some button content
 </Button>`;
 
-const iconCode = `<Icon text="Step complete" classNames="checkmark-icon" imgSrc={require('../styling/images/checkmark-icon.png')} />`
+const iconCode = `<Icon text="Step complete" classNames="checkmark-icon" imgSrc={require('../styling/images/checkmark-icon.png')} />`;
 
 export const DesignSystem: React.StatelessComponent<{}> = props => {
     return (
