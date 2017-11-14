@@ -17,7 +17,7 @@ describe('StepsList', () => {
          steps: [
             step1 = {
                 stepOrder: 2,
-                isInitiallyOpen: false,
+                shouldBeOpen: false,
                 questionHeaderProps: {
                     stepOrder: 2,
                     title: 'Step ',
@@ -38,7 +38,7 @@ describe('StepsList', () => {
             },
             step2 = {
                 stepOrder: 3,
-                isInitiallyOpen: false,
+                shouldBeOpen: false,
                 questionHeaderProps: {
                     stepOrder: 3,
                     title: 'Step ',
@@ -59,7 +59,7 @@ describe('StepsList', () => {
             },
             step3 = {
                 stepOrder: 1,
-                isInitiallyOpen: false,
+                shouldBeOpen: false,
                 questionHeaderProps: {
                     stepOrder: 1,
                     title: 'Step ',

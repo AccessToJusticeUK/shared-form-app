@@ -15,7 +15,7 @@ describe('Step ', () => {
     beforeEach(() => {
         stepProps = {
             stepOrder: 1,
-            isInitiallyOpen: false,
+            shouldBeOpen: false,
             questionHeaderProps: {
                 stepOrder: 1,
                 title: 'Step 1',

@@ -5,23 +5,9 @@ import { QuestionAnswerSet } from './QuestionAnswerSet';
 import { StepProps } from './props.types';
 import { TabbedDirectory } from './TabbedDirectory';
 
-export class Step extends React.Component<StepProps, {completed: boolean, isInitiallyOpen: boolean}> {
+export class Step extends React.Component<StepProps, {}> {
 
-    constructor(props: StepProps) {
-        super(props);
-        this.state = {
-          completed: false,
-          isInitiallyOpen: this.props.isInitiallyOpen,
-        }
-    }
-
-    close = (previousStepsAnswerIdData: string) :void => {
-      console.log(this.state.completed)
-
-      this.setState({
-        completed: true
-      })
-      console.log(this.state.completed)
+    close = (previousStepsAnswerIdData: string): void => {
       if (this.props.openNextStep) {
         this.props.openNextStep(previousStepsAnswerIdData);
       }
@@ -32,7 +18,7 @@ export class Step extends React.Component<StepProps, {completed: boolean, isInit
             <div className="jumbotron">
                 <div className="step">
                     <StepHeader {...this.props.questionHeaderProps} />
-                    {this.state.isInitiallyOpen && !this.state.completed && (
+                    {this.props.shouldBeOpen && (
                         <div>
                             <hr className="divider" />
                             <div className="step-content">

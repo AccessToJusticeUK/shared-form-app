@@ -1,11 +1,11 @@
 export interface StepProps {
     stepOrder: number;
-    isInitiallyOpen: boolean;
+    shouldBeOpen: boolean;
     questionHeaderProps: StepHeaderProps;
     preambleProps: PreambleProps;
     questionAnswerSetProps: QuestionAnswerSetProps;
     tabbedDirectoryProps?: TabbedDirectoryProps;
-    openNextStep?: (data :string) => boolean;
+    openNextStep?: (data :string) => void;
 }
 
 export interface StepsListProps {
@@ -26,7 +26,7 @@ export interface AnswerProps {
     id: string;
     text: string;
     example?: string;
-    activeAnswerId?: string;
+    activeAnswerText?: string;
     onClickHandler?: (id: string) => void ;
 }
 
