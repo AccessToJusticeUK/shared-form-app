@@ -1,14 +1,14 @@
 .step {
   .divider {
-    margin: 15px 5px 20px;
+    margin: $base-spacer*2;
   }
 
-  &-content { 
+  &-content {
     display: flex;
     flex-flow: row wrap;
-    width: 700px;
     word-wrap: break-word;
-    padding: 0 25px;
+    padding: 0 $base-spacer*2;
+    width: 700px;
 
     @media only screen and (max-width: 768px){
       width: 100%

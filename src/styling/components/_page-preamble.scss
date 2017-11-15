@@ -1,9 +1,9 @@
 .page-preamble {
-  padding: 20px;
+  padding: $base-spacer*2;
 
   &-section:not(:last-child) {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: $base-spacer*2;
+    margin-bottom: $base-spacer*2;
     border-bottom: 1px solid $color-green;
   }
 }

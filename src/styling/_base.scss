@@ -28,14 +28,12 @@ h3, h4 {
 
   &-dotted {
     border-top: 1.5px dashed $color-light-grey;
-    width: 103.4%;
-    margin-left: -10px;
-    margin-top: 16px;
-    margin-bottom: 15px;
+    margin-top: $base-spacer*2;
+    margin-bottom: $base-spacer*2;
   }
 }
 
 .form-actions {
   text-align: right;
-  margin: 25px 0;
+  margin: $base-spacer*3 0;
 }

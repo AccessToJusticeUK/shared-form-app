@@ -1,4 +1,4 @@
-$sticky-header-padding: 10px;
+$sticky-header-padding: $base-spacer;
 
 .sticky-header {
   background-color: $color-white;
@@ -12,8 +12,8 @@ $sticky-header-padding: 10px;
 
   &-left {
     display: inline-block;
-    padding-right: 30px;
-    margin-right: 30px;
+    padding-right: $base-spacer*3;
+    margin-right: $base-spacer*3;
     border-right: 4px solid $color-green;
   }
 

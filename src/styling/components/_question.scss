@@ -1,5 +1,5 @@
 .question {
-  padding-top: 35px;
+  padding-top: $base-spacer*3;
   font-family: $font-family-semi-bold, $font-family-regular, $font-family-default;
   font-weight: $font-weight-semi-bold;
   font-size: $font-size-normal;
@@ -10,7 +10,7 @@
   }
 
   &-panel {
-    padding-left: 50px;
+    padding-left: $base-spacer*3;
     width: 100%;
   }
 }

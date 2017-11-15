@@ -1,15 +1,15 @@
 .design-system {
   &-panel {
-    padding: 20px;
+    padding: $base-spacer*2;
     border-bottom: 1px solid $color-grey;
 
     &:last-child {
       border-bottom: none;
-      padding: 20px 20px 0 20px;
+      padding: $base-spacer*2 $base-spacer*2 0 $base-spacer*2;
     }
   }
 
   h2 {
-    margin-bottom: 20px;
+    margin-bottom: $base-spacer*2;
   }
 }

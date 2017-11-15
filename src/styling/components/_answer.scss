@@ -13,7 +13,7 @@
 
   &-example {
     color: $color-dark-grey;
-    margin-left: 20px;
+    margin-left: $base-spacer*2;
     vertical-align: text-bottom;
     font-size: $font-size-small;
   }
