@@ -1,6 +1,11 @@
 .answer {
   @extend .button;
   cursor: pointer;
+  width: 100%;
+
+  @media #{$tablet-and-desktop} {
+    width: $answer-width;
+  }
 
   &.selected {
     color: $color-white;

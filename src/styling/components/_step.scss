@@ -4,14 +4,6 @@
   }
 
   &-content {
-    display: flex;
-    flex-flow: row wrap;
-    word-wrap: break-word;
     padding: 0 $base-spacer*2;
-    width: 700px;
-
-    @media only screen and (max-width: 768px){
-      width: 100%
-    }
   }
 }
