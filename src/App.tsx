@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { mockedData } from './data/mockedSteps';
-import { StepsList } from './components/StepsList';
+import { NavigableStepsList } from './components/NavigableStepsList';
 import { StickyHeader } from './components/StickyHeader';
 import { DesignSystem } from './pages/DesignSystem';
 import { AppState } from './state.types';
@@ -48,7 +48,7 @@ export class App extends React.Component<{}, AppState> {
                     </ul>
                     {
                         this.state.activePage === EXAMPLES_PAGE &&
-                        <StepsList steps={mockedData.steps} />
+                        <NavigableStepsList steps={mockedData.steps} />
                     }
                     {
                         this.state.activePage === DESIGN_SYSTEM_PAGE &&

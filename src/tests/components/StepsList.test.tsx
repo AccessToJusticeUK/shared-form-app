@@ -79,7 +79,7 @@ describe('StepsList', () => {
             }
         ]
     }
-     wrapper = mount(<StepsList steps={testData.steps}/>)
+     wrapper = mount(<StepsList steps={testData.steps} openAtIndex={1}/>)
     });
 
     it('renders all steps in the correct order', () => {
@@ -90,19 +90,10 @@ describe('StepsList', () => {
         expect(steps.at(2).props().stepOrder).toEqual(3);
     });
 
-    it('moveToNextStep increments openAtIndex state when called', () => {
-        const instance :any = wrapper.instance();
-        expect(instance.state.openAtIndex).toEqual(1);
-        instance.moveToNextStep('someText');
-        expect(instance.state.openAtIndex).toEqual(2);
-    });
-
-    it('the only step open is the one who matches openAtIndex in state',() => {
+    it('the only step open is the one who matches openAtIndex in props',() => {
       const steps = wrapper.find(Step);
-      //starts off with the first step which is open
       expect(steps.at(0).props().shouldBeOpen).toEqual(true);
       expect(steps.at(1).props().shouldBeOpen).toEqual(false);
       expect(steps.at(2).props().shouldBeOpen).toEqual(false);
     });
-
 });

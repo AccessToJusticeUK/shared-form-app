@@ -1,4 +1,11 @@
-export interface StepProps {
+export interface StageProps {
+  stageOrder: number;
+  shouldBeOpen: boolean;
+  questionAnswerSetProps?: QuestionAnswerSetProps;
+  tabbedDirectoryProps?: TabbedDirectoryProps;
+}
+
+export interface StepProps extends NavigationProps {
     stepOrder: number;
     shouldBeOpen: boolean;
     stepHeaderProps: StepHeaderProps;
@@ -8,9 +15,16 @@ export interface StepProps {
     openNextStep?: (data :string) => void;
 }
 
-export interface StepsListProps {
+export interface StepsListProps extends NavigationProps {
     steps: StepProps[];
 }
+
+export interface NavigationProps {
+  openAtIndex?: number;
+  moveToNext?: (data :string) => void;
+}
+
+export interface WrappedNavigationProps extends StepsListProps, StepProps {}
 
 export interface StepHeaderProps {
     title: string;
