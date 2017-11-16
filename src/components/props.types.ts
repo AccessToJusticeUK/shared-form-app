@@ -1,8 +1,8 @@
-export interface StageProps {
+export interface StepStageProps extends NavigationProps {
   stageOrder: number;
-  shouldBeOpen: boolean;
   questionAnswerSetProps?: QuestionAnswerSetProps;
   tabbedDirectoryProps?: TabbedDirectoryProps;
+  shouldBeOpen?: boolean;
 }
 
 export interface StepProps extends NavigationProps {
@@ -10,9 +10,7 @@ export interface StepProps extends NavigationProps {
     shouldBeOpen: boolean;
     stepHeaderProps: StepHeaderProps;
     preambleProps: PreambleProps;
-    questionAnswerSetProps?: QuestionAnswerSetProps;
-    tabbedDirectoryProps?: TabbedDirectoryProps;
-    openNextStep?: (data :string) => void;
+    stages: StepStageProps[];
 }
 
 export interface StepsListProps extends NavigationProps {
@@ -21,7 +19,10 @@ export interface StepsListProps extends NavigationProps {
 
 export interface NavigationProps {
   openAtIndex?: number;
-  moveToNext?: (data :string) => void;
+  moveToNext?: () => void;
+  completeAtIndex?: number;
+  setData?: (id: number, text :string) => void;
+  canMoveToNext?: boolean;
 }
 
 export interface WrappedNavigationProps extends StepsListProps, StepProps {}
@@ -30,7 +31,7 @@ export interface StepHeaderProps {
     title: string;
     stepOrder: number;
     description: string;
-    isStepComplete?: boolean;
+    completeAtIndex?: number;
 }
 
 export interface PreambleProps {
@@ -41,8 +42,8 @@ export interface AnswerProps {
     id: string;
     text: string;
     example?: string;
-    activeAnswerText?: string;
-    onClickHandler?: (id: string) => void ;
+    isSelected?: boolean;
+    onClickHandler?: (text: string) => void;
 }
 
 export interface ButtonProps {
@@ -52,7 +53,7 @@ export interface ButtonProps {
 
 export interface QuestionAnswerSetProps {
     question: string;
-    handleNextButtonClick?: (data: string) => void;
+    otherThing?: (text: string) => void;
     answers: {
         options: AnswerProps[],
         defaultOption?: AnswerProps

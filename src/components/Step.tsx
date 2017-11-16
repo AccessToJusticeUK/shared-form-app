@@ -1,50 +1,46 @@
 import * as React from 'react';
 import { StepHeader } from './StepHeader';
 import { Preamble } from './Preamble';
-import { QuestionAnswerSet } from './QuestionAnswerSet';
-import { StepProps } from './props.types';
-import { StepState } from './state.types';
-import { TabbedDirectory } from './TabbedDirectory';
+import { StepProps, StepStageProps } from './props.types';
+import { StepStage } from './StepStage';
+import { Button } from './Button';
+import * as classNames from 'classnames';
 
-export class Step extends React.Component<StepProps, StepState> {
-    constructor(props: StepProps) {
-        super(props);
-        this.state = {
-            isStepComplete: false
-        };
-    }
+export const Step: React.StatelessComponent<StepProps> = (props) => {
+    const nextButtonClassNames = classNames({
+        'next-button button-large': true,
+        'hidden': !props.canMoveToNext,
+    });
 
-    handleNextButtonClick = (previousStepsAnswerIdData: string): void => {
-      if (this.props.openNextStep) {
-        this.props.openNextStep(previousStepsAnswerIdData);
-      }
-      this.setState({
-          isStepComplete: true
-      });
-    }
-
-    render() {
-        return (
-            <div className="jumbotron">
-                <div className="step">
-                    <StepHeader {...this.props.stepHeaderProps} isStepComplete={this.state.isStepComplete} />
-                    {this.props.shouldBeOpen && (
-                        <div>
-                            <hr className="divider" />
-                            <div className="step-content">
-                                <Preamble {...this.props.preambleProps} />
-                                {this.props.questionAnswerSetProps &&
-                                    <QuestionAnswerSet
-                                        {...this.props.questionAnswerSetProps}
-                                        handleNextButtonClick={(data) => this.handleNextButtonClick(data)}
-                                    />
-                                }
-                                {this.props.tabbedDirectoryProps && <TabbedDirectory {...this.props.tabbedDirectoryProps} />}
-                            </div>
+    return (
+        <div className="jumbotron">
+            <div className="step">
+                <StepHeader {...props.stepHeaderProps} completeAtIndex={props.completeAtIndex} />
+                {props.shouldBeOpen && (
+                    <div>
+                        <hr className="divider" />
+                        <Preamble {...props.preambleProps} />
+                        {
+                            props.stages.map((stage: StepStageProps) => (
+                                <StepStage {...stage}
+                                    key={stage.stageOrder}
+                                    canMoveToNext={props.canMoveToNext}
+                                    setData={props.setData}
+                                    shouldBeOpen={(props.openAtIndex || 0) % props.stages.length === stage.stageOrder}                                                                        
+                                />
+                            ))
+                        }
+                        <div className="form-actions">
+                            <Button
+                                classNames={nextButtonClassNames}
+                                onClickHandler={props.moveToNext}
+                            >
+                            Next Step
+                            </Button>
                         </div>
-                    )}
-                </div>
+                    </div>
+                )}
             </div>
-        );
-    }
-}
+        </div>
+    );
+};

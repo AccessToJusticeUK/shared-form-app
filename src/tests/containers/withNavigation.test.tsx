@@ -9,7 +9,7 @@ describe('NavigableStepsList', () => {
     const MockWrappedComponent = (props: NavigationProps) => {
       const onClickHandler = () => {
         if (props.moveToNext) {
-          props.moveToNext('Some data string');
+          props.moveToNext();
         }
       }
       return (

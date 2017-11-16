@@ -27,8 +27,11 @@ export class StepsList extends React.Component<StepsListProps, {} > {
                     <li key={step.stepOrder}>
                         <Step
                             {...step}
-                            openNextStep={(data) => this.props.moveToNext && this.props.moveToNext(data)}
-                            shouldBeOpen={this.props.openAtIndex === step.stepOrder}
+                            canMoveToNext={this.props.canMoveToNext}
+                            setData={this.props.setData}
+                            completeAtIndex={this.props.completeAtIndex}
+                            moveToNext={this.props.moveToNext}
+                            shouldBeOpen={this.props.openAtIndex === step.stepOrder }
                         />
                     </li>
                 ))}

@@ -1,23 +1,45 @@
 import * as React from 'react';
-// import { WrappedNavigationProps } from '../components/props.types';
 
 export const withNavigation = (WrappedComponent: any) => {
-  return class extends React.Component<any, any> {
-    constructor(props: any) {
-      super(props);
-      this.state = {
-        openAtIndex: 1
-      };
-    }
+    return class extends React.Component<any, any> {
+        constructor(props: any) {
+            super(props);
+            this.state = {
+                currentId: 1,
+                data: {}
+            };
+        }
 
-    moveToNext = (data: string): void => {
-      this.setState((prevState) => (
-        { openAtIndex: prevState.openAtIndex + 1 }
-      ));
-    }
+        setData = (id: number, text: string): void => {
+            this.setState((prevState) => ({
+                data: {
+                    ...prevState.data,
+                    [id]: text
+                }
+            }));
+        }
 
-    render() {
-      return <WrappedComponent {...this.props} openAtIndex={this.state.openAtIndex} moveToNext={this.moveToNext} />;
-    }
-  };
+        moveToNext = (): void => {
+            this.setState((prevState) => ({
+                currentId: prevState.currentId + 1
+            }));
+        }
+
+        render() {
+            console.log('data', this.state.data);
+            const canMoveToNext = this.state.data[this.state.currentId] ? true : false;
+            console.log('canMoveToNext',canMoveToNext)
+            console.log('currentId', this.state.currentId)
+            return (
+                <WrappedComponent 
+                    {...this.props}
+                    openAtIndex={this.state.currentId}
+                    moveToNext={this.moveToNext}
+                    setData={this.setData}
+                    canMoveToNext={canMoveToNext}
+                    completeAtIndex={this.state.currentId - 1}
+                />
+            );
+        }
+    };
 };

@@ -16,7 +16,9 @@ describe('StepsList', () => {
         testData = {
          steps: [
             step1 = {
+                stages: [],
                 stepOrder: 2,
+                completeAtIndex: 0,
                 shouldBeOpen: true,
                 stepHeaderProps: {
                     stepOrder: 2,
@@ -26,18 +28,12 @@ describe('StepsList', () => {
 
                 preambleProps: {
                     innerHTML: 'Section'
-                },
-
-                questionAnswerSetProps: {
-                    question: 'Which of the following options best describes your legal issue?',
-                    answers: {
-                        options: [],
-                        defaultOption: {id: '0', text: '', example: ''}
-                    }
                 }
             },
             step2 = {
+                stages: [],                
                 stepOrder: 3,
+                completeAtIndex: 0,
                 shouldBeOpen: true,
                 stepHeaderProps: {
                     stepOrder: 3,
@@ -47,18 +43,12 @@ describe('StepsList', () => {
 
                 preambleProps: {
                     innerHTML: 'Section'
-                },
-
-                questionAnswerSetProps: {
-                    question: 'Which of the following options best describes your legal issue?',
-                    answers: {
-                        options: [],
-                        defaultOption: {id: '0', text: '', example: ''}
-                    }
                 }
             },
             step3 = {
+                stages: [],                
                 stepOrder: 1,
+                completeAtIndex: 0,
                 shouldBeOpen: true,
                 stepHeaderProps: {
                     stepOrder: 1,
@@ -67,15 +57,7 @@ describe('StepsList', () => {
                 },
                 preambleProps: {
                     innerHTML: 'Section'
-                },
-
-                questionAnswerSetProps: {
-                    question: 'Which of the following options best describes your legal issue?',
-                    answers: {
-                        options: [],
-                        defaultOption: {id: '0', text: '', example: ''}
-                    }
-                 }
+                }
             }
         ]
     }
