@@ -1,9 +1,13 @@
 .step {
   .divider {
-    margin: $base-spacer*2;
+    margin: $base-spacer*2 $base-spacer;
   }
 
   &-content {
-    padding: 0 $base-spacer*2;
+    padding: 0 $base-spacer;
+
+    @media #{$tablet-and-desktop} {
+      padding: 0 $base-spacer*2;
+    }
   }
 }

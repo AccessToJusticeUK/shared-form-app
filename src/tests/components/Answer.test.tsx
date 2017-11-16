@@ -19,7 +19,7 @@ describe('Answer ', () => {
 
     it('renders section with an answer that was passed to it', () => {
         expect(wrapper.contains('Answer 1')).toBe(true);
-        expect(wrapper.contains(<span className='answer-example'>e.g. test</span>)).toBe(true);
+        expect(wrapper.contains(<div className='answer-example'>e.g. test</div>)).toBe(true);
     });
 
     it('should append active class to tab if activeAnswerText is the same as answer text', () => {

@@ -1,10 +1,11 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
 import { mockedData } from './data/mockedSteps';
 import { NavigableStepsList } from './components/NavigableStepsList';
-import { StickyHeader } from './components/StickyHeader';
+import { Home } from './pages/Home';
 import { DesignSystem } from './pages/DesignSystem';
 import { AppState } from './state.types';
-import * as classNames from 'classnames';
+import { PagePreamble, PagePreambleSection } from './components/PagePreamble';
 
 const EXAMPLES_PAGE = 'examples';
 const DESIGN_SYSTEM_PAGE = 'designSystem';
@@ -32,8 +33,7 @@ export class App extends React.Component<{}, AppState> {
     render() {
         return (
             <div className="app">
-                <StickyHeader logoSrc={require('./styling/images/logo.png')} title="Do I have Legal Expense Insurance?" />
-                <div className="app-content">
+                <Home logoSrc={require('./styling/images/logo.png')} title="Do I have Legal Expense Insurance?">
                     <ul className="nav nav-tabs nav-justified page-nav">
                         <li className={this.getItemClasses(EXAMPLES_PAGE)}>
                             <a onClick={event => this.clickPageTab(event, EXAMPLES_PAGE)}>
@@ -48,13 +48,26 @@ export class App extends React.Component<{}, AppState> {
                     </ul>
                     {
                         this.state.activePage === EXAMPLES_PAGE &&
-                        <NavigableStepsList steps={mockedData.steps} />
+                        <div>
+                            <PagePreamble>
+                                <PagePreambleSection>
+                                    <p><span className="text-large">You may already have legal insurance that you did not know about!</span></p>
+                                    <p>This page will walk you through the most likely sources of LEI (Legal Expenses Insurance) that
+                                    are often bundled with your existing financial products.</p>
+                                    <p>Having funds to cover your legal expenses will ensure your problem gets priority and resolved quickly.</p>
+                                </PagePreambleSection>
+                                <PagePreambleSection>
+                                    <p>Before you start it may be helpful to have any paperwork regarding your bank accounts, credit cards and insurance to hand.</p>
+                                </PagePreambleSection>
+                            </PagePreamble>
+                            <NavigableStepsList steps={mockedData.steps} />
+                        </div>
                     }
                     {
                         this.state.activePage === DESIGN_SYSTEM_PAGE &&
                         <DesignSystem />
                     }
-                </div>
+                </Home>
             </div>
         );
     }

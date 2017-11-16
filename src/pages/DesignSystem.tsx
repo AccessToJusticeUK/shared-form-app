@@ -14,7 +14,28 @@ const tabbedDirectoryCode = `<TabbedDirectory
         b: [ 'BAXA', 'Badmiral' ],
         c: [ 'CAXA', 'Cadmiral' ],
         d: [],
-        e: []
+        e: [],
+        f: [],
+        g: [],
+        h: [],
+        i: [],
+        j: [],
+        k: [],
+        l: [],
+        m: [],
+        n: [],
+        o: [],
+        p: [],
+        q: [],
+        r: [],
+        s: [],
+        t: [],
+        u: [],
+        v: [],
+        w: [],
+        x: [],
+        y: [],
+        z: []
     }}
 />`;
 
@@ -46,7 +67,7 @@ const questionAnswerCode = `<QuestionAnswerSet
             { id: '8', text: 'Tax investigation'}
         ]
     }}
-/>`
+/>`;
 
 const pagePreambleCode = `<PagePreamble>
     <PagePreambleSection>
@@ -95,7 +116,28 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
                             b: [ 'BAXA', 'Badmiral' ],
                             c: [ 'CAXA', 'Cadmiral' ],
                             d: [],
-                            e: []
+                            e: [],
+                            f: [],
+                            g: [],
+                            h: [],
+                            i: [],
+                            j: [],
+                            k: [],
+                            l: [],
+                            m: [],
+                            n: [],
+                            o: [],
+                            p: [],
+                            q: [],
+                            r: [],
+                            s: [],
+                            t: [],
+                            u: [],
+                            v: [],
+                            w: [],
+                            x: [],
+                            y: [],
+                            z: []
                         }}
                     />
                 </div>
@@ -140,7 +182,7 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
                 </pre>
                 <div className="jumbotron">
                 <QuestionAnswerSet
-                    question='Which of the following options best describes your legal issue?'
+                    question="Which of the following options best describes your legal issue?"
                     answers={{
                         defaultOption: { id: '0', text: 'My issue is not listed above' },
                         options: [

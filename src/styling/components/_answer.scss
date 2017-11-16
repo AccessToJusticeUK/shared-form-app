@@ -18,8 +18,12 @@
 
   &-example {
     color: $color-dark-grey;
-    margin-left: $base-spacer*2;
-    vertical-align: text-bottom;
     font-size: $font-size-small;
+
+    @media #{$tablet-and-desktop} {
+      display: inline-block;
+      vertical-align: text-bottom;
+      margin-left: $base-spacer*2;
+    }
   }
 }

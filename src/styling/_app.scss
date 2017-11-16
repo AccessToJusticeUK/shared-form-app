@@ -1,5 +1,9 @@
 .app-content {
-  margin-top: $sticky-header-height;
+  margin-top: $sticky-header-mobile-height;
+
+  @media #{$tablet-and-desktop} {
+    margin-top: $sticky-header-height;
+  }
 }
 
 .page-nav {
