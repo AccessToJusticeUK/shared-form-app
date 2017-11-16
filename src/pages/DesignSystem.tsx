@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Step } from '../components/Step';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
+import { QuestionAnswerSet } from '../components/QuestionAnswerSet';
 import { TabbedDirectory } from '../components/TabbedDirectory';
 import { PagePreamble, PagePreambleSection } from '../components/PagePreamble';
 
@@ -29,6 +30,23 @@ const stepCode = `<Step
         innerHTML: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     }}
 />`;
+
+const questionAnswerCode = `<QuestionAnswerSet
+    question='Which of the following options best describes your legal issue?'
+    answers={{
+        defaultOption: { id: '0', text: 'My issue is not listed above' },
+        options: [
+            { id: '1', text: 'Consumer disputes'},
+            { id: '2', text: 'Criminal defence'},
+            { id: '3', text: 'Employment disputes', example: 'e.g. redundancy or conflict in work' },
+            { id: '4', text: 'Identity theft'},
+            { id: '5', text: 'Neighbour disputes'},
+            { id: '6', text: 'Personal injury'},
+            { id: '7', text: 'Provision of an inadequate service'},
+            { id: '8', text: 'Tax investigation'}
+        ]
+    }}
+/>`
 
 const pagePreambleCode = `<PagePreamble>
     <PagePreambleSection>
@@ -113,6 +131,30 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
                 </pre>
                 <div className="jumbotron">
                     <Icon text="Step complete" classNames="checkmark-icon" imgSrc={require('../styling/images/checkmark-icon.png')} />
+                </div>
+            </div>
+            <div className="design-system-panel">
+                <h2>Question Answer Set</h2>
+                <pre>
+                    {questionAnswerCode}
+                </pre>
+                <div className="jumbotron">
+                <QuestionAnswerSet
+                    question='Which of the following options best describes your legal issue?'
+                    answers={{
+                        defaultOption: { id: '0', text: 'My issue is not listed above' },
+                        options: [
+                            { id: '1', text: 'Consumer disputes'},
+                            { id: '2', text: 'Criminal defence'},
+                            { id: '3', text: 'Employment disputes', example: 'e.g. redundancy or conflict in work' },
+                            { id: '4', text: 'Identity theft'},
+                            { id: '5', text: 'Neighbour disputes'},
+                            { id: '6', text: 'Personal injury'},
+                            { id: '7', text: 'Provision of an inadequate service'},
+                            { id: '8', text: 'Tax investigation'}
+                        ]
+                    }}
+                />
                 </div>
             </div>
         </div>
