@@ -1,6 +1,5 @@
 .answer {
-  @extend .button;
-  cursor: pointer;
+  text-align: left;
   width: 100%;
 
   @media #{$tablet-and-desktop} {

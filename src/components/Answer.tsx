@@ -16,10 +16,10 @@ export const Answer: React.StatelessComponent<AnswerProps> = (props) => {
     };
 
     return (
-      <div className={answerClasses} tabIndex={+props.id} onClick={clickAnswer}>
+      <button className={answerClasses} tabIndex={+props.id} onClick={clickAnswer}>
         {props.text}
         <div className="answer-example">{props.example}</div>
-      </div>
+      </button>
     );
 
 };
