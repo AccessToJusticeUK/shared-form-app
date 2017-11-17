@@ -10,19 +10,19 @@ export const Step: React.StatelessComponent<StepProps> = (props) => {
             <div className="step">
                 <StepHeader {...props.stepHeaderProps} completeAtIndex={props.nextToComplete && props.nextToComplete - 1} />
                 {props.shouldBeOpen && (
-                    <div>
+                    <div className="step-content">
                         <hr className="divider" />
                         <Preamble {...props.preambleProps} />
                         {
                             props.stages.map((stage: StepStageProps) => (
-                                <StepStage 
+                                <StepStage
                                     {...stage}
                                     key={stage.id}
                                     shouldBeOpen={(props.nextToComplete || 1 % props.stages.length) === stage.id}
-                                    moveToNextStage={props.moveToNext}                                                                  
+                                    moveToNextStage={props.moveToNext}
                                 />
                             ))
-                        }                      
+                        }
                     </div>
                 )}
             </div>

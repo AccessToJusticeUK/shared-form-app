@@ -1,5 +1,6 @@
 .answer {
   text-align: left;
+  display: block;
   width: 100%;
 
   @media #{$tablet-and-desktop} {

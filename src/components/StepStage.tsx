@@ -14,7 +14,7 @@ export const StepStage: React.StatelessComponent<StepStageProps> = (props) => {
     return (
         <div>
             {props.shouldBeOpen &&
-                <div>
+                <div className="step-stage">
                     <div className="stage-content">
                         {props.questionAnswerSetProps &&
                             <QuestionAnswerSet
@@ -30,7 +30,7 @@ export const StepStage: React.StatelessComponent<StepStageProps> = (props) => {
                             />
                         }
                     </div>
-                    <div className="form-actions">
+                    <div className="form-actions container--limited-width">
                         <Button
                             classNames={nextButtonClassNames}
                             onClickHandler={() => props.moveToNextStage && props.moveToNextStage(props.id)}

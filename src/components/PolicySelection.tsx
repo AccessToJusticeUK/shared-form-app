@@ -10,8 +10,8 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
     });
     return (
         <div>
-        THIS IS A POLICY SELECTION 
-            <div className="form-actions">
+        THIS IS A POLICY SELECTION
+            <div className="form-actions container--limited-width">
                 <Button
                     classNames={nextButtonClassNames}
                     onClickHandler={props.addAPolicyClicked}

@@ -12,10 +12,7 @@ $question-padding: $base-spacer*3;
   }
 
   &-panel {
-    width: 100%;
-
     @media #{$tablet-and-desktop} {
-      width: $answer-width + $question-padding;
       padding-left: $question-padding;
     }
   }

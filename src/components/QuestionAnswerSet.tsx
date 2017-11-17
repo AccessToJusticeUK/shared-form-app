@@ -32,7 +32,7 @@ export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {
                     onClickHandler={this.selectAnswer}
                   />)}
                 {this.props.answers.defaultOption && (
-                    <div>
+                    <div className="container--limited-width">
                         <hr className="divider-dotted" />
                         <Answer
                           {...this.props.answers.defaultOption}
