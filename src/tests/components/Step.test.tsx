@@ -75,7 +75,7 @@ describe('Step ', () => {
         const tabbedDirectoryProps = {
             defaultTabId: 'a',
             question: 'Some question',
-            results: {}
+            results: []
         };
         wrapper = shallow(<Step {...stepProps} tabbedDirectoryProps={tabbedDirectoryProps} />);
         expect(wrapper.contains(

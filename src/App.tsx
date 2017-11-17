@@ -57,7 +57,8 @@ export class App extends React.Component<{}, AppState> {
                                     <p>Having funds to cover your legal expenses will ensure your problem gets priority and resolved quickly.</p>
                                 </PagePreambleSection>
                                 <PagePreambleSection>
-                                    <p>Before you start it may be helpful to have any paperwork regarding your bank accounts, credit cards and insurance to hand.</p>
+                                    <p>Before you start it may be helpful to have any paperwork regarding your bank accounts,
+                                        credit cards and insurance to hand.</p>
                                 </PagePreambleSection>
                             </PagePreamble>
                             <NavigableStepsList steps={mockedData.steps} />

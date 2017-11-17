@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IconProps } from './props.types';
-import { concatClassNames } from '../helpers/formatters';
+import { concatClassNames } from '../support/helpers/formatters';
 
 export const Icon: React.StatelessComponent<IconProps> = (props) => {
   return (

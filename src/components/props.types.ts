@@ -78,7 +78,7 @@ export interface TabProps {
 export interface TabbedDirectoryProps {
     question: string;
     defaultTabId: string;
-    results: Object;
+    results: Array<{directory_index: string, name: string}>;
 }
 
 export interface TabPanelProps {

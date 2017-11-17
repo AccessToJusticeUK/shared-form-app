@@ -9,34 +9,20 @@ import { PagePreamble, PagePreambleSection } from '../components/PagePreamble';
 const tabbedDirectoryCode = `<TabbedDirectory
     question="Who supplies your home insurance?"
     defaultTabId="a"
-    results={{
-        a: [ 'AXA', 'Admiral' ],
-        b: [ 'BAXA', 'Badmiral' ],
-        c: [ 'CAXA', 'Cadmiral' ],
-        d: [],
-        e: [],
-        f: [],
-        g: [],
-        h: [],
-        i: [],
-        j: [],
-        k: [],
-        l: [],
-        m: [],
-        n: [],
-        o: [],
-        p: [],
-        q: [],
-        r: [],
-        s: [],
-        t: [],
-        u: [],
-        v: [],
-        w: [],
-        x: [],
-        y: [],
-        z: []
-    }}
+    results={[
+        {
+            name: 'AXA',
+            directory_index: 'a'
+        },
+        {
+            name: 'Admiral',
+            directory_index: 'a'
+        },
+        {
+            name: 'Badmiral'
+            directory_index: 'b'
+        }
+    ]}
 />`;
 
 const stepCode = `<Step
@@ -111,34 +97,20 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
                     <TabbedDirectory
                         question="Who supplies your home insurance?"
                         defaultTabId="a"
-                        results={{
-                            a: [ 'AXA', 'Admiral' ],
-                            b: [ 'BAXA', 'Badmiral' ],
-                            c: [ 'CAXA', 'Cadmiral' ],
-                            d: [],
-                            e: [],
-                            f: [],
-                            g: [],
-                            h: [],
-                            i: [],
-                            j: [],
-                            k: [],
-                            l: [],
-                            m: [],
-                            n: [],
-                            o: [],
-                            p: [],
-                            q: [],
-                            r: [],
-                            s: [],
-                            t: [],
-                            u: [],
-                            v: [],
-                            w: [],
-                            x: [],
-                            y: [],
-                            z: []
-                        }}
+                        results={[
+                            {
+                                name: 'AXA',
+                                directory_index: 'a'
+                            },
+                            {
+                                name: 'Admiral',
+                                directory_index: 'a'
+                            },
+                            {
+                                name: 'Badmiral',
+                                directory_index: 'b'
+                            }
+                        ]}
                     />
                 </div>
             </div>

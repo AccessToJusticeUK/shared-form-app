@@ -16,11 +16,20 @@ describe('TabbedDirectory', () => {
         testData = {
             question: 'Example question',
             defaultTabId: defaultTabId = 'a',
-            results: {
-                a: [ 'AXA', 'Admiral' ],
-                b: [],
-                c: [ 'CAXA', 'Cadmiral' ]
-            }
+            results: [
+                {
+                    name: "AXA",
+                    directory_index: "a"
+                },
+                {
+                    name: "Admiral",
+                    directory_index: "a"
+                },
+                {
+                    name: "Badmiral",
+                    directory_index: "b"
+                }
+            ]
         };
         wrapper = shallow(<TabbedDirectory {...testData} />)
     });
@@ -31,7 +40,12 @@ describe('TabbedDirectory', () => {
         expect(tabsHeader.props().question).toEqual('Example question')
     });
 
-    it('renders all tabs with correct props', () => {
+    it('renders message if results are empty', () => {
+        wrapper = shallow(<TabbedDirectory {...testData} results={[]} />)
+        expect(wrapper.find('.empty-message').length).toEqual(1);
+    });
+
+    it('renders all tabs with correct props and disables tab if there are no results for that letter', () => {
         const renderedTab1 = wrapper.find(Tab).at(0);
         const renderedTab2 = wrapper.find(Tab).at(1);
         const renderedTab3 = wrapper.find(Tab).at(2);
@@ -42,21 +56,30 @@ describe('TabbedDirectory', () => {
 
         expect(renderedTab2.props().id).toEqual('b');
         expect(renderedTab2.props().text).toEqual('B');
-        expect(renderedTab2.props().isDisabled).toBe(true);
+        expect(renderedTab2.props().isDisabled).toBe(false);
 
         expect(renderedTab3.props().id).toEqual('c');
         expect(renderedTab3.props().text).toEqual('C');
-        expect(renderedTab3.props().isDisabled).toBe(false);
+        expect(renderedTab3.props().isDisabled).toBe(true);
     })
 
-    it('renders all tab panels with correct props', () => {
+    it('renders all tab panels with correct props and filters answers by directory index correctly', () => {
         const renderedTabPanel1 = wrapper.find(TabPanel).at(0);
+        const renderedTabPanel1Content = renderedTabPanel1.props().panelContentFactory();
         const renderedTabPanel2 = wrapper.find(TabPanel).at(1);
+        const renderedTabPanel2Content = renderedTabPanel2.props().panelContentFactory();
         const renderedTabPanel3 = wrapper.find(TabPanel).at(2);
+        const renderedTabPanel3Content = renderedTabPanel3.props().panelContentFactory();
 
         expect(renderedTabPanel1.props().id).toEqual('a');
+        expect(renderedTabPanel1Content.props.children[0].props.text).toEqual('AXA');
+        expect(renderedTabPanel1Content.props.children[1].props.text).toEqual('Admiral');
+
         expect(renderedTabPanel2.props().id).toEqual('b');
+        expect(renderedTabPanel2Content.props.children[0].props.text).toEqual('Badmiral');
+
         expect(renderedTabPanel3.props().id).toEqual('c');
+        expect(renderedTabPanel3Content.props.children.length).toEqual(0)
     })
 
     it('sets active tab id state as default tab id and passes active tab id as props to Tab and TabPanel', () => {

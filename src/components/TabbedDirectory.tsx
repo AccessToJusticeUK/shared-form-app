@@ -5,7 +5,8 @@ import { Tab } from './tabs/Tab';
 import { TabPanel } from './tabs/TabPanel';
 import { TabsHeader } from './tabs/TabsHeader';
 import { Answer } from './Answer';
-import { formatDirectoryTab } from '../helpers/formatters';
+import { formatDirectoryTab } from '../support/helpers/formatters';
+import { TABBED_DIRECTORY_INDEXES } from '../support/constants';
 
 export class TabbedDirectory extends React.Component<TabbedDirectoryProps, TabbedDirectoryState> {
     constructor(props: TabbedDirectoryProps) {
@@ -21,19 +22,12 @@ export class TabbedDirectory extends React.Component<TabbedDirectoryProps, Tabbe
         });
     }
 
-    shouldDisableTab = (resultArr: Array<string>): boolean => {
-        if (!resultArr || resultArr.length === 0) {
-            return true;
-        }
-        return false;
-    }
-
-    getTabPanel = (key: string, entries: Array<string>) => {
-        const panelContent = () => {
+    getTabPanel = (results: TabbedDirectoryProps['results'], directoryIndex: string): JSX.Element => {
+        const panelContent = (): JSX.Element => {
             return (
-                <div key={key} className="question-panel">
-                    { entries.map((entry, index) => (
-                        <Answer key={index} id={index.toString()} text={entry} />
+                <div key={directoryIndex} className="question-panel">
+                    { results.map((result) => (
+                        <Answer key={result.directory_index} id={result.directory_index} text={result.name} />
                     ))}
                 </div>
             );
@@ -41,35 +35,53 @@ export class TabbedDirectory extends React.Component<TabbedDirectoryProps, Tabbe
 
         return (
             <TabPanel
-                key={key}
-                id={key}
+                key={directoryIndex}
+                id={directoryIndex}
                 activeTabId={this.state.activeTabId}
                 panelContentFactory={panelContent}
             />
         );
     }
 
+    filterResultsByDirectoryIndex = (results: TabbedDirectoryProps['results'], directoryIndex: string): TabbedDirectoryProps['results'] => {
+        const filterByDirectoryIndex = (result: {directory_index: string}): boolean => (
+            result.directory_index === directoryIndex
+        );
+        return results.filter(filterByDirectoryIndex);
+    }
+
+    shouldDisableTab = (results: TabbedDirectoryProps['results'], directoryIndex: string): boolean => {
+        const filteredResults = this.filterResultsByDirectoryIndex(results, directoryIndex);
+        if (filteredResults.length > 0) {
+            return false;
+        }
+        return true;
+    }
+
     render() {
         const { results } = this.props;
-        const resultsKeys = Object.keys(results);
+
+        if (results.length === 0) {
+            return (<div className="empty-message">No results found</div>);
+        }
 
         return (
             <div>
                 <TabsHeader question={this.props.question}>
-                    { results && resultsKeys.map((resultKey) => (
+                    { TABBED_DIRECTORY_INDEXES.map((directoryIndex) => (
                         <Tab
-                            key={resultKey}
-                            id={resultKey}
-                            text={formatDirectoryTab(resultKey)}
+                            key={directoryIndex}
+                            id={directoryIndex}
+                            text={formatDirectoryTab(directoryIndex)}
                             onClickHandler={this.handleTabClick}
                             activeTabId={this.state.activeTabId}
-                            isDisabled={this.shouldDisableTab(results[resultKey])}
+                            isDisabled={this.shouldDisableTab(results, directoryIndex)}
                         />
                     ))}
                 </TabsHeader>
 
-                { results && resultsKeys.map((resultKey) => (
-                    this.getTabPanel(resultKey, results[resultKey])
+                { results && TABBED_DIRECTORY_INDEXES.map((directoryIndex) => (
+                    this.getTabPanel(this.filterResultsByDirectoryIndex(results, directoryIndex), directoryIndex)
                 ))}
             </div>
         );
