@@ -39,11 +39,11 @@ $tablet-and-desktop: "(min-width: 768px)";
 
 // Sticky header
 $sticky-header-padding: $base-spacer;
-$sticky-header-title-mobile-height: 30px;
+$sticky-header-title-mobile-height: 40px;
 $sticky-header-logo-height: 65px;
 $sticky-header-logo-mobile-height: 55px;
 $sticky-header-height: $sticky-header-logo-height + $sticky-header-padding;
-$sticky-header-mobile-height: $sticky-header-logo-mobile-height + 3*$sticky-header-padding + $sticky-header-title-mobile-height;
+$sticky-header-mobile-height: $sticky-header-logo-mobile-height + 2*$sticky-header-padding + $sticky-header-title-mobile-height;
 
 // Other
 $line-height-default: 28px;

@@ -6,7 +6,11 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: $sticky-header-padding;
+  padding: $sticky-header-padding $sticky-header-padding*2;
+
+  @media #{$tablet-and-desktop} {
+    padding: $sticky-header-padding;
+  }
 
   &-left {
     padding-right: $base-spacer*3;
@@ -35,19 +39,16 @@
   }
 
   &-logo {
-    height: $sticky-header-logo-height;
+    height: $sticky-header-logo-mobile-height;
 
     @media #{$tablet-and-desktop} {
-      height: $sticky-header-logo-mobile-height;
+      height: $sticky-header-logo-height;
     }
   }
 
   &-title {
     font-weight: $font-weight-semi-bold;
-    font-size: $font-size-normal;
-
-    @media #{$tablet-and-desktop} {
-      font-size: $font-size-medium;
-    }
+    font-size: $font-size-medium;
+    vertical-align: bottom;
   }
 }
