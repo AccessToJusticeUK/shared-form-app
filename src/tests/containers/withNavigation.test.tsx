@@ -9,12 +9,12 @@ describe('NavigableStepsList', () => {
     const MockWrappedComponent = (props: NavigationProps) => {
       const onClickHandler = () => {
         if (props.moveToNext) {
-          props.moveToNext('Some data string');
+          props.moveToNext(1);
         }
       }
       return (
         <div className="link" onClick={onClickHandler}>
-          {props.openAtIndex}
+          {props.nextToComplete}
         </div>
       )
     }

@@ -5,7 +5,7 @@ import { AnswerProps } from './props.types';
 export const Answer: React.StatelessComponent<AnswerProps> = (props) => {
     const answerClasses = classNames({
         'answer': true,
-        'selected': props.activeAnswerText === props.text
+        'selected': props.isSelected,
     });
 
     const clickAnswer = (event: { preventDefault: () => void }): void => {

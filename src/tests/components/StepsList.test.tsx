@@ -15,79 +15,58 @@ describe('StepsList', () => {
     beforeEach( () => {
         testData = {
          steps: [
-            step1 = {
-                stepOrder: 2,
-                shouldBeOpen: true,
+            step2 = {
+                stages: [],
+                id: 2,
+                shouldBeOpen: false,
                 stepHeaderProps: {
-                    stepOrder: 2,
+                    stepId: 2,
                     title: 'Step ',
                     description: ' - Question one'
                 },
 
                 preambleProps: {
                     innerHTML: 'Section'
-                },
-
-                questionAnswerSetProps: {
-                    question: 'Which of the following options best describes your legal issue?',
-                    answers: {
-                        options: [],
-                        defaultOption: {id: '0', text: '', example: ''}
-                    }
                 }
             },
-            step2 = {
-                stepOrder: 3,
-                shouldBeOpen: true,
+            step3 = {
+                stages: [],                
+                id: 3,
+                shouldBeOpen: false,
                 stepHeaderProps: {
-                    stepOrder: 3,
+                    stepId: 3,
                     title: 'Step ',
                     description: ' - Question two'
                 },
 
                 preambleProps: {
                     innerHTML: 'Section'
-                },
-
-                questionAnswerSetProps: {
-                    question: 'Which of the following options best describes your legal issue?',
-                    answers: {
-                        options: [],
-                        defaultOption: {id: '0', text: '', example: ''}
-                    }
                 }
             },
-            step3 = {
-                stepOrder: 1,
+            step1 = {
+                stages: [],                
+                id: 1,
                 shouldBeOpen: true,
                 stepHeaderProps: {
-                    stepOrder: 1,
+                    stepId: 1,
                     title: 'Step ',
                     description: ' - Question three'
                 },
                 preambleProps: {
                     innerHTML: 'Section'
-                },
-
-                questionAnswerSetProps: {
-                    question: 'Which of the following options best describes your legal issue?',
-                    answers: {
-                        options: [],
-                        defaultOption: {id: '0', text: '', example: ''}
-                    }
-                 }
+                }
             }
         ]
     }
-     wrapper = mount(<StepsList steps={testData.steps} openAtIndex={1}/>)
+     wrapper = mount(<StepsList steps={testData.steps} nextToComplete={1}/>)
     });
 
     it('renders all steps in the correct order', () => {
         const steps = wrapper.find(Step);
         expect(steps.length).toEqual(3);
-        expect(steps.at(0).props().stepOrder).toEqual(1);
-        expect(steps.at(1).props().stepOrder).toEqual(2);
-        expect(steps.at(2).props().stepOrder).toEqual(3);
+        expect(steps.at(0).props().id).toEqual(1);
+        expect(steps.at(1).props().id).toEqual(2);
+        expect(steps.at(2).props().id).toEqual(3);
     });
 
     it('the only step open is the one who matches openAtIndex in props',() => {

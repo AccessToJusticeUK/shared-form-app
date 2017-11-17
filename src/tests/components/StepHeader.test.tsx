@@ -12,11 +12,10 @@ describe('StepHeader ', () => {
     beforeEach(() => {
         const title = 'Example question';
         const description = 'hey?';
-        const stepOrder = 1;
-
+        const stepId = 1;
         testHeader = {
             title,
-            stepOrder,
+            stepId,
             description
         }
         wrapper = shallow(<StepHeader {...testHeader} />)
@@ -27,13 +26,13 @@ describe('StepHeader ', () => {
         expect(wrapper.contains(<span className="step-header-question">hey?</span>)).toBe(true);
     });
 
-    it('does not render icon if isStepComplete is false', () => {
-        wrapper = shallow(<StepHeader {...testHeader} isStepComplete={false} />)
+    it('does not render icon if stepId is > completeAtIndex', () => {
+        wrapper = shallow(<StepHeader {...testHeader} completeAtIndex={0} />)
         expect(wrapper.find(Icon).length).toEqual(0);
     });
 
-    it('renders icon if isStepComplete is true', () => {
-        wrapper = shallow(<StepHeader {...testHeader} isStepComplete={true} />)
+    it('renders icon if completeAtIndex is <= completeAtIndex', () => {
+        wrapper = shallow(<StepHeader {...testHeader} completeAtIndex={1} />)
         expect(wrapper.find(Icon).length).toEqual(1);
     });
 });

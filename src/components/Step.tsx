@@ -1,50 +1,31 @@
 import * as React from 'react';
 import { StepHeader } from './StepHeader';
 import { Preamble } from './Preamble';
-import { QuestionAnswerSet } from './QuestionAnswerSet';
-import { StepProps } from './props.types';
-import { StepState } from './state.types';
-import { TabbedDirectory } from './TabbedDirectory';
+import { StepProps, StepStageProps } from './props.types';
+import { StepStage } from './StepStage';
 
-export class Step extends React.Component<StepProps, StepState> {
-    constructor(props: StepProps) {
-        super(props);
-        this.state = {
-            isStepComplete: false
-        };
-    }
-
-    handleNextButtonClick = (previousStepsAnswerIdData: string): void => {
-      if (this.props.openNextStep) {
-        this.props.openNextStep(previousStepsAnswerIdData);
-      }
-      this.setState({
-          isStepComplete: true
-      });
-    }
-
-    render() {
-        return (
-            <div className="jumbotron">
-                <div className="step">
-                    <StepHeader {...this.props.stepHeaderProps} isStepComplete={this.state.isStepComplete} />
-                    {this.props.shouldBeOpen && (
-                        <div>
-                            <hr className="divider" />
-                            <div className="step-content">
-                                <Preamble {...this.props.preambleProps} />
-                                {this.props.questionAnswerSetProps &&
-                                    <QuestionAnswerSet
-                                        {...this.props.questionAnswerSetProps}
-                                        handleNextButtonClick={(data) => this.handleNextButtonClick(data)}
-                                    />
-                                }
-                                {this.props.tabbedDirectoryProps && <TabbedDirectory {...this.props.tabbedDirectoryProps} />}
-                            </div>
-                        </div>
-                    )}
-                </div>
+export const Step: React.StatelessComponent<StepProps> = (props) => {
+    return (
+        <div className="jumbotron">
+            <div className="step">
+                <StepHeader {...props.stepHeaderProps} completeAtIndex={props.nextToComplete && props.nextToComplete - 1} />
+                {props.shouldBeOpen && (
+                    <div>
+                        <hr className="divider" />
+                        <Preamble {...props.preambleProps} />
+                        {
+                            props.stages.map((stage: StepStageProps) => (
+                                <StepStage 
+                                    {...stage}
+                                    key={stage.id}
+                                    shouldBeOpen={(props.nextToComplete || 1 % props.stages.length) === stage.id}
+                                    moveToNextStage={props.moveToNext}                                                                  
+                                />
+                            ))
+                        }                      
+                    </div>
+                )}
             </div>
-        );
-    }
-}
+        </div>
+    );
+};

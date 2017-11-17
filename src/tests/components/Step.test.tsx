@@ -5,7 +5,6 @@ import { Step } from '../../components/Step';
 import { StepProps } from '../../components/props.types';
 import { StepHeader } from '../../components/StepHeader';
 import { Preamble } from '../../components/Preamble';
-import { QuestionAnswerSet } from '../../components/QuestionAnswerSet';
 import '../../setupTests';
 import { TabbedDirectory } from "../../components/TabbedDirectory";
 
@@ -15,69 +14,59 @@ describe('Step ', () => {
 
     beforeEach(() => {
         stepProps = {
-            stepOrder: 1,
+            stages: [],
+            id: 1,
             shouldBeOpen: true,
             stepHeaderProps: {
-                stepOrder: 1,
+                stepId: 1,
                 title: 'Step 1',
                 description: 'Question'
             },
-
             preambleProps: {
                 innerHTML: 'Section'
-            },
-
-            questionAnswerSetProps: {
-                question: 'Question',
-                answers: {
-                    options: [],
-                    defaultOption: { id: '0', text: '', example: '' }
-                }
             }
         };
         wrapper = shallow(<Step {...stepProps} />)
     });
 
-    it('contains a StepHeader, Preamble and QuestionAnswerSet when shouldBeOpen is true', () => {
+    it('contains a StepHeader and Preamble when shouldBeOpen is true', () => {
         expect(wrapper.find(StepHeader).length).toEqual(1);
         expect(wrapper.find(Preamble).length).toEqual(1);
-        expect(wrapper.find(QuestionAnswerSet).length).toEqual(1);
     });
 
-    it('does not contain a Preamble and QuestionAnswerSet when shouldBeOpen is false', () => {
+    it('does not contain a Preamble when shouldBeOpen is false', () => {
         wrapper = shallow(<Step {...stepProps} shouldBeOpen={false} />)
         expect(wrapper.find(StepHeader).length).toEqual(1);
         expect(wrapper.find(Preamble).length).toEqual(0);
-        expect(wrapper.find(QuestionAnswerSet).length).toEqual(0);
     });
 
-    it('handleNextButtonClick calls openNextStep with data',() => {
-      const openNextStepSpy = spy();
-      wrapper = shallow(<Step {...stepProps} openNextStep={openNextStepSpy} />)
+    xit('moveToNext calls moveToNext with data',() => {
+      const moveToNextSpy = spy();
+      wrapper = shallow(<Step {...stepProps} moveToNext={moveToNextSpy} />)
       const instance :any = wrapper.instance();
 
-      expect(openNextStepSpy.called).toEqual(false);
-      instance.handleNextButtonClick('someText');
-      expect(openNextStepSpy.called).toEqual(true);
+      expect(moveToNextSpy.called).toEqual(false);
+      instance.moveToNext('someText');
+      expect(moveToNextSpy.called).toEqual(true);
     });
 
-    it('handleNextButtonClick sets isStepComplete state to true',() => {
-        const openNextStepSpy = spy();
-        wrapper = shallow(<Step {...stepProps} openNextStep={openNextStepSpy} />)
+    xit('moveToNext increments completeAtIndex',() => {
+        const moveToNextSpy = spy();
+        wrapper = shallow(<Step {...stepProps} moveToNext={moveToNextSpy} />)
         const instance :any = wrapper.instance();
 
-        expect(instance.state.isStepComplete).toEqual(false);
-        instance.handleNextButtonClick('someText');
-        expect(instance.state.isStepComplete).toEqual(true);
+        expect(instance.state.completeAtIndex).toEqual(0);
+        instance.moveToNext('someText');
+        expect(instance.state.completeAtIndex).toEqual(1);
     });
 
-    it('renders a TabbedDirectory if TabbedDirectoryProps exists', () => {
+    xit('renders a TabbedDirectory if TabbedDirectoryProps exists', () => {
         const tabbedDirectoryProps = {
             defaultTabId: 'a',
             question: 'Some question',
             results: []
         };
-        wrapper = shallow(<Step {...stepProps} tabbedDirectoryProps={tabbedDirectoryProps} />);
+        wrapper = shallow(<Step {...stepProps} />);
         expect(wrapper.contains(
             <TabbedDirectory {...tabbedDirectoryProps}/>
         )).toBe(true);

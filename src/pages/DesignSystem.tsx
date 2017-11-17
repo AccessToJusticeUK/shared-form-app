@@ -26,10 +26,12 @@ const tabbedDirectoryCode = `<TabbedDirectory
 />`;
 
 const stepCode = `<Step
-    stepOrder={1}
+    stepId={1}
+    stages={[]}    
     shouldBeOpen={true}
+    completeAtIndex={0}
     stepHeaderProps={{
-        stepOrder: 1,
+        stepId: 1,
         title: 'Step',
         description: 'An example step'
     }}
@@ -78,10 +80,11 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
                 <h2>Step - built using Step Header and Preamble</h2>
                 <pre>{stepCode}</pre>
                 <Step
-                    stepOrder={1}
+                    id={1}
+                    stages={[]}
                     shouldBeOpen={true}
                     stepHeaderProps={{
-                        stepOrder: 1,
+                        stepId: 1,
                         title: 'Step',
                         description: 'An example step'
                     }}

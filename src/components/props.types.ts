@@ -1,18 +1,18 @@
-export interface StageProps {
-  stageOrder: number;
-  shouldBeOpen: boolean;
-  questionAnswerSetProps?: QuestionAnswerSetProps;
-  tabbedDirectoryProps?: TabbedDirectoryProps;
+export interface StepStageProps {
+    id: number;
+    questionAnswerSetProps?: QuestionAnswerSetProps;
+    tabbedDirectoryProps?: TabbedDirectoryProps;
+    policySelectionProps?: PolicySelectionProps
+    shouldBeOpen?: boolean;
+    moveToNextStage? : (stageOrder : number) => void;
 }
 
 export interface StepProps extends NavigationProps {
-    stepOrder: number;
+    id: number;
     shouldBeOpen: boolean;
     stepHeaderProps: StepHeaderProps;
     preambleProps: PreambleProps;
-    questionAnswerSetProps?: QuestionAnswerSetProps;
-    tabbedDirectoryProps?: TabbedDirectoryProps;
-    openNextStep?: (data :string) => void;
+    stages: StepStageProps[];
 }
 
 export interface StepsListProps extends NavigationProps {
@@ -20,17 +20,17 @@ export interface StepsListProps extends NavigationProps {
 }
 
 export interface NavigationProps {
-  openAtIndex?: number;
-  moveToNext?: (data :string) => void;
+    nextToComplete?: number;
+    moveToNext?: (id :number) => void;
 }
 
 export interface WrappedNavigationProps extends StepsListProps, StepProps {}
 
 export interface StepHeaderProps {
     title: string;
-    stepOrder: number;
+    stepId: number;
     description: string;
-    isStepComplete?: boolean;
+    completeAtIndex?: number;
 }
 
 export interface PreambleProps {
@@ -41,8 +41,8 @@ export interface AnswerProps {
     id: string;
     text: string;
     example?: string;
-    activeAnswerText?: string;
-    onClickHandler?: (id: string) => void ;
+    isSelected?: boolean;
+    onClickHandler?: (text: string) => void;
 }
 
 export interface ButtonProps {
@@ -50,9 +50,14 @@ export interface ButtonProps {
     onClickHandler?: () => void;
 }
 
+export interface PolicySelectionProps {
+    policies: string[];
+    addAPolicyClicked?: () => void;
+}
+
 export interface QuestionAnswerSetProps {
     question: string;
-    handleNextButtonClick?: (data: string) => void;
+    otherThing?: (text: string) => void;
     answers: {
         options: AnswerProps[],
         defaultOption?: AnswerProps

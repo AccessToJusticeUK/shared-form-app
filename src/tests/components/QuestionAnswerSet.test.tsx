@@ -40,7 +40,7 @@ describe('QuestionAnswerSet ', () => {
         const instance :any = wrapper.instance();
 
         expect(instance.state.activeAnswerText).toEqual('');
-        instance.handleAnswerClick('someText');
+        instance.selectAnswer('someText');
         expect(instance.state.activeAnswerText).toEqual('someText');
     });
 });

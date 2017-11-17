@@ -22,12 +22,12 @@ describe('Answer ', () => {
         expect(wrapper.contains(<div className='answer-example'>e.g. test</div>)).toBe(true);
     });
 
-    it('should append active class to tab if activeAnswerText is the same as answer text', () => {
+    it('should append selected css class is props have this toggled', () => {
         const clickedAnswer = {
             id: '1',
             text: 'Answer 1',
             example: 'e.g. test',
-            activeAnswerText: 'Answer 1'
+            isSelected: true
         };
         const clickedWrapper = shallow(<Answer {...clickedAnswer} />)
         const answer = clickedWrapper.find('.answer');
