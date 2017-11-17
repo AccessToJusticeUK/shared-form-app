@@ -65,7 +65,7 @@ export interface QuestionAnswerSetProps {
 }
 
 export interface QuestionPanelProps {
-    question: string;
+    question?: string;
 }
 
 export interface TabsHeaderProps {
@@ -81,6 +81,7 @@ export interface TabProps {
 }
 
 export interface TabbedDirectoryProps {
+    onSelectAnswer?: (text: string) => void;
     question: string;
     defaultTabId: string;
     results: Array<{directory_index: string, name: string}>;

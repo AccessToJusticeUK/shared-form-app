@@ -4,7 +4,7 @@ import { TabbedDirectoryState } from './state.types';
 import { Tab } from './tabs/Tab';
 import { TabPanel } from './tabs/TabPanel';
 import { TabsHeader } from './tabs/TabsHeader';
-import { Answer } from './Answer';
+import { QuestionAnswerSet } from './QuestionAnswerSet';
 import { formatDirectoryTab } from '../support/helpers/formatters';
 import { TABBED_DIRECTORY_INDEXES } from '../support/constants';
 
@@ -24,12 +24,20 @@ export class TabbedDirectory extends React.Component<TabbedDirectoryProps, Tabbe
 
     getTabPanel = (results: TabbedDirectoryProps['results'], directoryIndex: string): JSX.Element => {
         const panelContent = (): JSX.Element => {
+            if (results.length === 0) {
+                return (<div></div>)
+            }
+
+            const options = results.map((result) => ({
+                id: result.directory_index,
+                text: result.name
+            }));
+
             return (
-                <div key={directoryIndex} className="question-panel">
-                    { results.map((result) => (
-                        <Answer key={result.directory_index} id={result.directory_index} text={result.name} />
-                    ))}
-                </div>
+                <QuestionAnswerSet
+                    onSelectAnswer={this.props.onSelectAnswer}
+                    answers={{options}}
+                />
             );
         };
 

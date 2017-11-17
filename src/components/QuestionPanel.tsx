@@ -9,7 +9,7 @@ export class QuestionPanel extends React.Component<QuestionPanelProps, {}> {
     render() {
         return (
             <div className="question-panel">
-                <div className="question"><h3>{this.props.question}</h3></div>
+                {this.props.question && <div className="question"><h3>{this.props.question}</h3></div>}
                 {this.props.children}
             </div>
         );

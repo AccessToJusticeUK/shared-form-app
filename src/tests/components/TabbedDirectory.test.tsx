@@ -63,7 +63,7 @@ describe('TabbedDirectory', () => {
         expect(renderedTab3.props().isDisabled).toBe(true);
     })
 
-    it('renders all tab panels with correct props and filters answers by directory index correctly', () => {
+    it('renders all tab panels with question answer set as content with correct transformed options', () => {
         const renderedTabPanel1 = wrapper.find(TabPanel).at(0);
         const renderedTabPanel1Content = renderedTabPanel1.props().panelContentFactory();
         const renderedTabPanel2 = wrapper.find(TabPanel).at(1);
@@ -72,14 +72,18 @@ describe('TabbedDirectory', () => {
         const renderedTabPanel3Content = renderedTabPanel3.props().panelContentFactory();
 
         expect(renderedTabPanel1.props().id).toEqual('a');
-        expect(renderedTabPanel1Content.props.children[0].props.text).toEqual('AXA');
-        expect(renderedTabPanel1Content.props.children[1].props.text).toEqual('Admiral');
+        expect(renderedTabPanel1Content.props.answers.options).toEqual([
+            { id: 'a', text: 'AXA' },
+            { id: 'a', text: 'Admiral' }
+        ]);
 
         expect(renderedTabPanel2.props().id).toEqual('b');
-        expect(renderedTabPanel2Content.props.children[0].props.text).toEqual('Badmiral');
+        expect(renderedTabPanel2Content.props.answers.options).toEqual([
+            { id: 'b', text: 'Badmiral' }
+        ]);
 
         expect(renderedTabPanel3.props().id).toEqual('c');
-        expect(renderedTabPanel3Content.props.children.length).toEqual(0)
+        expect(renderedTabPanel3Content.props.length).toEqual(undefined);
     })
 
     it('sets active tab id state as default tab id and passes active tab id as props to Tab and TabPanel', () => {
