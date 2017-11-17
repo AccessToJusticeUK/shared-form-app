@@ -56,8 +56,8 @@ export interface PolicySelectionProps {
 }
 
 export interface QuestionAnswerSetProps {
-    question: string;
-    otherThing?: (text: string) => void;
+    question?: string;
+    onSelectAnswer?: (text: string) => void;
     answers: {
         options: AnswerProps[],
         defaultOption?: AnswerProps

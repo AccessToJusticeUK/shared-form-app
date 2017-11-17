@@ -13,19 +13,19 @@ export const StepStage: React.StatelessComponent<StepStageProps> = (props) => {
     });
     return (
         <div>
-            {props.shouldBeOpen && 
+            {props.shouldBeOpen &&
                 <div>
                     <div className="stage-content">
                         {props.questionAnswerSetProps &&
                             <QuestionAnswerSet
                                 {...props.questionAnswerSetProps}
-                                otherThing={(text) => console.log('take this text aka answer selection as we will need it')}
+                                onSelectAnswer={(text) => console.log('take this text aka answer selection as we will need it')}
                             />
                         }
                         {props.tabbedDirectoryProps && <TabbedDirectory {...props.tabbedDirectoryProps} />}
-                        {props.policySelectionProps && 
-                            <PolicySelection 
-                                {...props.policySelectionProps} 
+                        {props.policySelectionProps &&
+                            <PolicySelection
+                                {...props.policySelectionProps}
                                 addAPolicyClicked={() => props.moveToNextStage && props.moveToNextStage(0)}
                             />
                         }
