@@ -7,8 +7,8 @@ import { Button } from './Button';
 import * as classNames from 'classnames';
 
 export const StepStage: React.StatelessComponent<StepStageProps> = (props) => {
-    const nextButtonClassNames = classNames({
-        'next-button button-large': true,
+    const buttonClassNames = classNames({
+        'button-large': true,
         'hidden': false,
     });
     return (
@@ -32,7 +32,7 @@ export const StepStage: React.StatelessComponent<StepStageProps> = (props) => {
                     </div>
                     <div className="form-actions container--limited-width">
                         <Button
-                            classNames={nextButtonClassNames}
+                            classNames={buttonClassNames}
                             onClickHandler={() => props.moveToNextStage && props.moveToNextStage(props.id)}
                         >
                         Next
