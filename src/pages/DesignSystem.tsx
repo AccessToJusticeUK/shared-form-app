@@ -95,6 +95,10 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
             </div>
             <div className="design-system-panel">
                 <h2>Tabbed Directory - built using Tabs, TabPanel and TabsHeader</h2>
+                <div className="jumbotron">
+                    <strong>Note:</strong> The <code>results</code> property passed into the Tabbed Directory must only have the
+                    keys <code>name</code> and <code>directory_index</code> because of Typescript's strict typing.
+                </div>
                 <pre>{tabbedDirectoryCode}</pre>
                 <div className="jumbotron">
                     <TabbedDirectory
