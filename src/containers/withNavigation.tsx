@@ -13,6 +13,7 @@ export const withNavigation = (WrappedComponent: any) => {
             const allStagesHaveFinished = this.props.stagesLength && this.props.stagesLength === previous;
             if (allStagesHaveFinished) {          
                 this.props.moveToNext(); // also call the version of this method that was passed down
+                // Todo. with no argument passed? Is this doing anything?
             }
             this.setState({
                 currentId: previous + 1

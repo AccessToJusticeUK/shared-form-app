@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import { spy } from 'sinon';
 import { Step } from '../../components/Step';
 import { StepProps } from '../../components/props.types';
 import { StepHeader } from '../../components/StepHeader';
+import { StepStage } from '../../components/StepStage';
 import { Preamble } from '../../components/Preamble';
 import '../../setupTests';
-import { TabbedDirectory } from "../../components/TabbedDirectory";
 
 describe('Step ', () => {
     let stepProps: StepProps;
@@ -14,7 +13,7 @@ describe('Step ', () => {
 
     beforeEach(() => {
         stepProps = {
-            stages: [],
+            stages: [{id:1}, {id:2}],
             id: 1,
             shouldBeOpen: true,
             stepHeaderProps: {
@@ -40,35 +39,13 @@ describe('Step ', () => {
         expect(wrapper.find(Preamble).length).toEqual(0);
     });
 
-    xit('moveToNext calls moveToNext with data',() => {
-      const moveToNextSpy = spy();
-      wrapper = shallow(<Step {...stepProps} moveToNext={moveToNextSpy} />)
-      const instance :any = wrapper.instance();
-
-      expect(moveToNextSpy.called).toEqual(false);
-      instance.moveToNext('someText');
-      expect(moveToNextSpy.called).toEqual(true);
-    });
-
-    xit('moveToNext increments completeAtIndex',() => {
-        const moveToNextSpy = spy();
-        wrapper = shallow(<Step {...stepProps} moveToNext={moveToNextSpy} />)
-        const instance :any = wrapper.instance();
-
-        expect(instance.state.completeAtIndex).toEqual(0);
-        instance.moveToNext('someText');
-        expect(instance.state.completeAtIndex).toEqual(1);
-    });
-
-    xit('renders a TabbedDirectory if TabbedDirectoryProps exists', () => {
-        const tabbedDirectoryProps = {
-            defaultTabId: 'a',
-            question: 'Some question',
-            results: []
-        };
-        wrapper = shallow(<Step {...stepProps} />);
-        expect(wrapper.contains(
-            <TabbedDirectory {...tabbedDirectoryProps}/>
-        )).toBe(true);
+    it('only sets StepStage\'s shouldBeOpen to true if it is the next to complete',() => {
+        wrapper = shallow(<Step {...stepProps} nextToComplete={2} />)
+        const stages = wrapper.find(StepStage);
+        expect(stages.length).toEqual(2);
+        expect(stages.at(0).props().id).toEqual(1);
+        expect(stages.at(0).props().shouldBeOpen).toEqual(false);
+        expect(stages.at(1).props().id).toEqual(2);
+        expect(stages.at(1).props().shouldBeOpen).toEqual(true);
     });
 });

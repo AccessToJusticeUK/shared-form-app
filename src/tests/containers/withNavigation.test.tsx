@@ -5,8 +5,7 @@ import { NavigationProps } from '../../components/props.types';
 import '../../setupTests';
 
 describe('NavigableStepsList', () => {
-    let wrapper: ReactWrapper;
-    const MockWrappedComponent = (props: NavigationProps) => {
+  const MockWrappedComponent = (props: NavigationProps) => {
       const onClickHandler = () => {
         if (props.moveToNext) {
           props.moveToNext(1);
@@ -18,17 +17,13 @@ describe('NavigableStepsList', () => {
         </div>
       )
     }
+    const MockComponentWithNavigation = withNavigation(MockWrappedComponent);
+    const wrapper :ReactWrapper = mount(<MockComponentWithNavigation stagesLength={3}/>);   
+    const instance :any = wrapper.instance();    
 
-    beforeEach(() => {
-      const MockComponentWithNavigation = withNavigation(MockWrappedComponent);
-      wrapper = mount(<MockComponentWithNavigation />)
-    })
-
-    it('moveToNextStep increments openAtIndex when called', () => {
-      const clickEvent = {};
-      const link = wrapper.find('.link');
-      expect(link.text()).toEqual("1");
-      link.simulate('click', clickEvent);
-      expect(link.text()).toEqual("2");
+    it('moveToNext increments currentId',() => {
+      expect(instance.state.currentId).toEqual(1);
+      instance.moveToNext(1);
+      expect(instance.state.currentId).toEqual(2);
     });
 });
