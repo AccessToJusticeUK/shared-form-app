@@ -7,8 +7,9 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
     const buttonClassNames = classNames({
         'button-large': true,
         'hidden': false,
-        'policy-selection':true,
+        'policy-selection': true
     });
+
     return (
         <div className="policy-selection">
 
@@ -17,7 +18,7 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
         POLICY OPTION 2
 
             <div className="question"> Add another insurance policy? It is best to list all you have </div>
-                <div className="form-actions container--limited-width">
+                <div className="form-actions container--question-width">
                     <Button
                         classNames={buttonClassNames}
                         onClickHandler={props.addAPolicyClicked}
@@ -26,7 +27,7 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
                     </Button>
                     <br/>
                 </div>
-            <div className="container--limited-width">
+            <div className="container--question-width">
                 <hr className="divider-dotted" />
             </div>
         </div>

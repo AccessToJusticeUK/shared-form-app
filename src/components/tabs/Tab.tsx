@@ -17,11 +17,13 @@ export const Tab: React.StatelessComponent<TabProps> = (props) => {
         'active': !props.isDisabled && props.activeTabId === props.id
     });
 
+    let disabledAttr: { tabIndex: number; } = { tabIndex: -1 };
+
     return (
         <li key={props.id} className={tabClasses}>
-            <a className="tab-inner" onClick={clickTab}>
+            <button className="tab-inner" onClick={clickTab} {...props.isDisabled && disabledAttr} >
                 {props.text}
-            </a>
+            </button>
         </li>
     );
 };

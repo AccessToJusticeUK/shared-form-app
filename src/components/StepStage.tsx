@@ -30,7 +30,7 @@ export const StepStage: React.StatelessComponent<StepStageProps> = (props) => {
                             />
                         }
                     </div>
-                    <div className="form-actions container--limited-width">
+                    <div className="form-actions container--question-width">
                         <Button
                             classNames={buttonClassNames}
                             onClickHandler={() => props.moveToNextStage && props.moveToNextStage(props.id)}

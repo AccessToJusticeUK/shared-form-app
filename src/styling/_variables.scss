@@ -24,6 +24,8 @@ $font-weight-bold: 700;
 $font-weight-semi-bold: 600;
 $font-weight-normal: 400;
 
+$line-height-default: 28px;
+
 // Borders
 $link-box-shadow: 0 0 0 2px $color-blue inset;
 $button-border: 2px solid $color-blue;
@@ -46,5 +48,5 @@ $sticky-header-height: $sticky-header-logo-height + $sticky-header-padding;
 $sticky-header-mobile-height: $sticky-header-logo-mobile-height + 2*$sticky-header-padding + $sticky-header-title-mobile-height;
 
 // Other
-$line-height-default: 28px;
+$question-padding: $base-spacer*3;
 

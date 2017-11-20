@@ -25,7 +25,7 @@ export class TabbedDirectory extends React.Component<TabbedDirectoryProps, Tabbe
     getTabPanel = (results: TabbedDirectoryProps['results'], directoryIndex: string): JSX.Element => {
         const panelContent = (): JSX.Element => {
             if (results.length === 0) {
-                return (<div></div>)
+                return (<div />);
             }
 
             const options = results.map((result) => ({

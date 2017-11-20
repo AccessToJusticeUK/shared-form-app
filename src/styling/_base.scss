@@ -38,11 +38,12 @@ h3, h4 {
   margin: $base-spacer*3 0;
 }
 
-.container--limited-width {
+.container--question-width {
   display: block;
   width: 100%;
 
   @media #{$tablet-and-desktop} {
-    width: $answer-width;
+    width: $answer-width + $question-padding;
+    padding-left: $question-padding;
   }
 }

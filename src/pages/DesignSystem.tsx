@@ -27,7 +27,7 @@ const tabbedDirectoryCode = `<TabbedDirectory
 
 const stepCode = `<Step
     stepId={1}
-    stages={[]}    
+    stages={[]}
     shouldBeOpen={true}
     completeAtIndex={0}
     stepHeaderProps={{

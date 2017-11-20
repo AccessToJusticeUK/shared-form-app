@@ -4,7 +4,7 @@ import { AnswerProps } from './props.types';
 
 export const Answer: React.StatelessComponent<AnswerProps> = (props) => {
     const answerClasses = classNames({
-        'answer': true,
+        'answer button': true,
         'selected': props.isSelected,
     });
 

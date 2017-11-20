@@ -1,5 +1,3 @@
-$question-padding: $base-spacer*3;
-
 .question {
   padding-top: $question-padding;
   font-family: $font-family-semi-bold, $font-family-regular, $font-family-default;
@@ -14,6 +12,10 @@ $question-padding: $base-spacer*3;
   &-panel {
     @media #{$tablet-and-desktop} {
       padding-left: $question-padding;
+
+      .default-option {
+        width: $answer-width;
+      }
     }
   }
 }

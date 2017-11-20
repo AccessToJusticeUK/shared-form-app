@@ -70,7 +70,7 @@ describe('Tab ', () => {
     describe('on clicking link', () => {
         it('should trigger event prevent default', () => {
             const clickEvent = { preventDefault: spy() };
-            wrapper.find('a').simulate('click', clickEvent);
+            wrapper.find('.tab-inner').simulate('click', clickEvent);
             expect(clickEvent.preventDefault.called).toBe(true)
         });
 
@@ -79,7 +79,7 @@ describe('Tab ', () => {
             wrapper = shallow(<Tab {...tab1} onClickHandler={onClickHandlerSpy} />);
 
             const clickEvent = { preventDefault: spy() };
-            wrapper.find('a').simulate('click', clickEvent);
+            wrapper.find('.tab-inner').simulate('click', clickEvent);
             expect(onClickHandlerSpy.firstCall.args[0]).toEqual(tab1.id)
         });
 
@@ -88,7 +88,7 @@ describe('Tab ', () => {
             wrapper = shallow(<Tab {...tab3} onClickHandler={onClickHandlerSpy} />);
 
             const clickEvent = { preventDefault: spy() };
-            wrapper.find('a').simulate('click', clickEvent);
+            wrapper.find('.tab-inner').simulate('click', clickEvent);
             expect(onClickHandlerSpy.called).toBe(false)
         })
     })
