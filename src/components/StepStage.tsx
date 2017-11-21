@@ -4,7 +4,6 @@ import { TabbedDirectory } from './TabbedDirectory';
 import { PolicySelection } from './PolicySelection';
 import { StepStageProps } from './props.types';
 import { Button } from './Button';
-import * as classNames from 'classnames';
 
 export class StepStage extends React.Component<StepStageProps, {activeAnswerText: string}> {
     constructor(props: StepStageProps) {
@@ -31,11 +30,6 @@ export class StepStage extends React.Component<StepStageProps, {activeAnswerText
     }
 
     render() {
-        const buttonClassNames = classNames({
-            'button-large': true,
-            'hidden': false,
-        });
-
         return (
             <div>
                 {this.props.shouldBeOpen &&
@@ -63,7 +57,7 @@ export class StepStage extends React.Component<StepStageProps, {activeAnswerText
                         <div className="form-actions container--question-width">
                             {(this.state.activeAnswerText !== '' || this.props.skipNextValidation) &&
                                 <Button
-                                    classNames={buttonClassNames}
+                                    classNames="button-large"
                                     onClickHandler={() => this.resetAndMoveToNext(this.props.id)}
                                 >
                                 Next

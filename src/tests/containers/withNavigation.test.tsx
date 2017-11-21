@@ -18,8 +18,8 @@ describe('NavigableStepsList', () => {
       )
     }
     const MockComponentWithNavigation = withNavigation(MockWrappedComponent);
-    const wrapper :ReactWrapper = mount(<MockComponentWithNavigation stagesLength={3}/>);   
-    const instance :any = wrapper.instance();    
+    const wrapper: ReactWrapper = mount(<MockComponentWithNavigation stagesLength={3}/>);
+    const instance: any = wrapper.instance();
 
     it('moveToNext increments currentId',() => {
       expect(instance.state.currentId).toEqual(1);

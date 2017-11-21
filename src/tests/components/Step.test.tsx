@@ -7,7 +7,7 @@ import { StepStage } from '../../components/StepStage';
 import { Preamble } from '../../components/Preamble';
 import '../../setupTests';
 
-describe('Step ', () => {
+describe('Step', () => {
     let stepProps: StepProps;
     let wrapper: ShallowWrapper;
 
@@ -47,5 +47,25 @@ describe('Step ', () => {
         expect(stages.at(0).props().shouldBeOpen).toEqual(false);
         expect(stages.at(1).props().id).toEqual(2);
         expect(stages.at(1).props().shouldBeOpen).toEqual(true);
+    });
+
+    it('passes step header isComplete props as false if lastStepCompleted is not given', () => {
+        wrapper = shallow(<Step {...stepProps} />)
+        expect(wrapper.find(StepHeader).props().isComplete).toEqual(false);
+    });
+
+    it('passes step header isComplete props as false if lastStepCompleted is given but is less than id', () => {
+        wrapper = shallow(<Step {...stepProps} lastStepCompleted={2} id={3} />)
+        expect(wrapper.find(StepHeader).props().isComplete).toEqual(false);
+    });
+
+    it('passes step header isComplete props as true if lastStepCompleted is given and is greater than id', () => {
+        wrapper = shallow(<Step {...stepProps} lastStepCompleted={3} id={2} />)
+        expect(wrapper.find(StepHeader).props().isComplete).toEqual(true);
+    });
+
+    it('passes step header isComplete props as true if lastStepCompleted is given and is equal to id', () => {
+        wrapper = shallow(<Step {...stepProps} lastStepCompleted={2} id={2} />)
+        expect(wrapper.find(StepHeader).props().isComplete).toEqual(true);
     });
 });

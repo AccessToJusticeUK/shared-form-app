@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
+import { spy } from 'sinon';
 import { StepStage } from '../../components/StepStage';
+import { Button } from '../../components/Button';
 import { StepStageProps } from '../../components/props.types';
 import { TabbedDirectory } from "../../components/TabbedDirectory";
 import { QuestionAnswerSet } from "../../components/QuestionAnswerSet";
@@ -10,24 +12,32 @@ import '../../setupTests';
 describe('StepStage',() => {
     let wrapper: ShallowWrapper;
 
-    it('renders a TabbedDirectory, QuestionAnswerSet and PolicySelection if shouldBeOpen', () => {
-    const stepStageProps: StepStageProps =
-            {
-                id: 2,
-                questionAnswerSetProps: {
-                    answers: {
-                        options: [{ text: 'Car' }],
-                    }
-                },
-                tabbedDirectoryProps: {
-                    defaultTabId: 'a',
-                    question: 'Some question',
-                    results: [],
-                },
-                policySelectionProps: {
-                    policies: ['bla'],
-                }
+    const stepStageProps: StepStageProps = {
+        id: 2,
+        questionAnswerSetProps: {
+            answers: {
+                options: [{ text: 'Car' }],
             }
+        },
+        tabbedDirectoryProps: {
+            defaultTabId: 'a',
+            question: 'Some question',
+            results: [],
+        },
+        policySelectionProps: {
+            policies: ['bla'],
+        }
+    }
+
+    it('does not render a TabbedDirectory, QuestionAnswerSet and PolicySelection if shouldBeOpen is false', () => {
+        wrapper = shallow(<StepStage {...stepStageProps} shouldBeOpen={false}/>);
+
+        expect(wrapper.find(QuestionAnswerSet).length).toEqual(0);
+        expect(wrapper.find(TabbedDirectory).length).toEqual(0);
+        expect(wrapper.find(PolicySelection).length).toEqual(0);
+    })
+
+    it('renders a TabbedDirectory, QuestionAnswerSet and PolicySelection if shouldBeOpen', () => {
         wrapper = shallow(<StepStage {...stepStageProps} shouldBeOpen={true}/>);
 
         const questionAnswerSet = wrapper.find(QuestionAnswerSet);
@@ -38,5 +48,45 @@ describe('StepStage',() => {
 
         const policySelection = wrapper.find(PolicySelection);
         expect(policySelection.at(0).props().policies).toEqual(['bla']);
+    });
+
+    it('sets state of activeAnswerText if answerSelected is triggered and shows next button if skipNextValidation is not true', () => {
+        wrapper = shallow(<StepStage {...stepStageProps} shouldBeOpen={true} />);
+
+        let instance: any;
+        instance = wrapper.instance();
+
+        expect(instance.state.activeAnswerText).toEqual('');
+        expect(wrapper.find(Button).length).toEqual(0);
+
+        instance.answerSelected('some answer text');
+        wrapper.update();
+
+        expect(instance.state.activeAnswerText).toEqual('some answer text');
+        expect(wrapper.find(Button).length).toEqual(1);
+    });
+
+    it('shows next button if skipNextValidation is true', () => {
+        wrapper = shallow(<StepStage {...stepStageProps} shouldBeOpen={true} skipNextValidation={true} />);
+
+        expect(wrapper.find(Button).length).toEqual(1);
+    });
+
+    it('should reset activeAnswerText and move to next if resetAndMoveToNext is called', () => {
+        const moveToNextStageSpy = spy();
+        wrapper = shallow(<StepStage {...stepStageProps} shouldBeOpen={true} moveToNextStage={moveToNextStageSpy} />);
+
+        let instance: any;
+        instance = wrapper.instance();
+
+        instance.answerSelected('some answer text');
+        wrapper.update();
+
+        expect(instance.state.activeAnswerText).toEqual('some answer text');
+
+        instance.resetAndMoveToNext(1);
+
+        expect(moveToNextStageSpy.firstCall.args[0]).toEqual(1);
+        expect(instance.state.activeAnswerText).toEqual('');
     });
 });
