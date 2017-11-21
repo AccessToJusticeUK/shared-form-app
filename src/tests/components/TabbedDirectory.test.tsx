@@ -73,13 +73,13 @@ describe('TabbedDirectory', () => {
 
         expect(renderedTabPanel1.props().id).toEqual('a');
         expect(renderedTabPanel1Content.props.answers.options).toEqual([
-            { id: 'a', text: 'AXA' },
-            { id: 'a', text: 'Admiral' }
+            { text: 'AXA' },
+            { text: 'Admiral' }
         ]);
 
         expect(renderedTabPanel2.props().id).toEqual('b');
         expect(renderedTabPanel2Content.props.answers.options).toEqual([
-            { id: 'b', text: 'Badmiral' }
+            { text: 'Badmiral' }
         ]);
 
         expect(renderedTabPanel3.props().id).toEqual('c');

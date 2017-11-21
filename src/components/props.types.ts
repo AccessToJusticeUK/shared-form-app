@@ -1,5 +1,6 @@
 export interface StepStageProps {
     id: number;
+    skipNextValidation?: boolean;
     questionAnswerSetProps?: QuestionAnswerSetProps;
     tabbedDirectoryProps?: TabbedDirectoryProps;
     policySelectionProps?: PolicySelectionProps
@@ -22,6 +23,7 @@ export interface StepsListProps extends NavigationProps {
 export interface NavigationProps {
     nextToComplete?: number;
     moveToNext?: (id :number) => void;
+    lastStepCompleted?: number;
 }
 
 export interface WrappedNavigationProps extends StepsListProps, StepProps {}
@@ -30,7 +32,7 @@ export interface StepHeaderProps {
     title: string;
     stepId: number;
     description: string;
-    completeAtIndex?: number;
+    isComplete?: boolean;
 }
 
 export interface PreambleProps {
@@ -38,7 +40,6 @@ export interface PreambleProps {
 }
 
 export interface AnswerProps {
-    id: string;
     text: string;
     example?: string;
     isSelected?: boolean;

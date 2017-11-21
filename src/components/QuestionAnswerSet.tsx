@@ -24,9 +24,9 @@ export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {
     render() {
         return (
             <QuestionPanel question={this.props.question}>
-                {this.props.answers.options.map(option =>
+                {this.props.answers.options.map((option, index) =>
                   <Answer
-                    key={option.id}
+                    key={index}
                     {...option}
                     isSelected={option.text === this.state.activeAnswerText}
                     onClickHandler={this.selectAnswer}

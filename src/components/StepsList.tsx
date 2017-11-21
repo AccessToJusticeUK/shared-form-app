@@ -16,6 +16,7 @@ export class StepsList extends React.Component<StepsListProps, {} > {
                             stagesLength={step.stages.length}
                             moveToNext={() => this.props.moveToNext && this.props.moveToNext(step.id)}
                             shouldBeOpen={this.props.nextToComplete === step.id}
+                            lastStepCompleted={this.props.lastStepCompleted}
                         />
                     </li>
                 ))}

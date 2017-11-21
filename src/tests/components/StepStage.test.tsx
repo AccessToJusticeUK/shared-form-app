@@ -9,16 +9,16 @@ import '../../setupTests';
 
 describe('StepStage',() => {
     let wrapper: ShallowWrapper;
-    
-    it('renders a TabbedDirectory, QuestionAnswerSet and PolicySelection if shouldBeOpen', () => {        
+
+    it('renders a TabbedDirectory, QuestionAnswerSet and PolicySelection if shouldBeOpen', () => {
     const stepStageProps: StepStageProps =
-            {   
-                id: 2,                
+            {
+                id: 2,
                 questionAnswerSetProps: {
                     answers: {
-                        options: [{ id: '1', text: 'Car' }],
+                        options: [{ text: 'Car' }],
                     }
-                },  
+                },
                 tabbedDirectoryProps: {
                     defaultTabId: 'a',
                     question: 'Some question',
@@ -26,16 +26,16 @@ describe('StepStage',() => {
                 },
                 policySelectionProps: {
                     policies: ['bla'],
-                }            
+                }
             }
-        wrapper = shallow(<StepStage {...stepStageProps} shouldBeOpen={true}/>);    
-        
+        wrapper = shallow(<StepStage {...stepStageProps} shouldBeOpen={true}/>);
+
         const questionAnswerSet = wrapper.find(QuestionAnswerSet);
-        expect(questionAnswerSet.at(0).props().answers).toEqual({options: [{ id: '1', text: 'Car' }]});
-        
+        expect(questionAnswerSet.at(0).props().answers).toEqual({options: [{ text: 'Car' }]});
+
         const tabbedDirectory = wrapper.find(TabbedDirectory);
         expect(tabbedDirectory.at(0).props().defaultTabId).toEqual('a');
-        
+
         const policySelection = wrapper.find(PolicySelection);
         expect(policySelection.at(0).props().policies).toEqual(['bla']);
     });

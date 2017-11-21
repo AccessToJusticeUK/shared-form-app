@@ -5,10 +5,12 @@ import { StepProps, StepStageProps } from './props.types';
 import { StepStage } from './StepStage';
 
 export const Step: React.StatelessComponent<StepProps> = (props) => {
+    const isComplete = props.lastStepCompleted ? props.id <= props.lastStepCompleted : false;
+
     return (
         <div className="jumbotron">
             <div className="step">
-                <StepHeader {...props.stepHeaderProps} completeAtIndex={props.nextToComplete && props.nextToComplete - 1} />
+                <StepHeader {...props.stepHeaderProps} isComplete={isComplete} />
                 {props.shouldBeOpen && (
                     <div className="step-content">
                         <hr className="divider" />

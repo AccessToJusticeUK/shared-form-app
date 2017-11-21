@@ -28,8 +28,7 @@ export class TabbedDirectory extends React.Component<TabbedDirectoryProps, Tabbe
                 return (<div />);
             }
 
-            const options = results.map((result) => ({
-                id: result.directory_index,
+            const options = results.map(result => ({
                 text: result.name
             }));
 
@@ -43,7 +42,7 @@ export class TabbedDirectory extends React.Component<TabbedDirectoryProps, Tabbe
 
         return (
             <TabPanel
-                key={directoryIndex}
+                key={`${directoryIndex}-panel`}
                 id={directoryIndex}
                 activeTabId={this.state.activeTabId}
                 panelContentFactory={panelContent}

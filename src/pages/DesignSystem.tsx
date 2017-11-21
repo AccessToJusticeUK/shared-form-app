@@ -43,16 +43,16 @@ const stepCode = `<Step
 const questionAnswerCode = `<QuestionAnswerSet
     question='Which of the following options best describes your legal issue?'
     answers={{
-        defaultOption: { id: '0', text: 'My issue is not listed above' },
+        defaultOption: { text: 'My issue is not listed above' },
         options: [
-            { id: '1', text: 'Consumer disputes'},
-            { id: '2', text: 'Criminal defence'},
-            { id: '3', text: 'Employment disputes', example: 'e.g. redundancy or conflict in work' },
-            { id: '4', text: 'Identity theft'},
-            { id: '5', text: 'Neighbour disputes'},
-            { id: '6', text: 'Personal injury'},
-            { id: '7', text: 'Provision of an inadequate service'},
-            { id: '8', text: 'Tax investigation'}
+            { text: 'Consumer disputes'},
+            { text: 'Criminal defence'},
+            { text: 'Employment disputes', example: 'e.g. redundancy or conflict in work' },
+            { text: 'Identity theft'},
+            { text: 'Neighbour disputes'},
+            { text: 'Personal injury'},
+            { text: 'Provision of an inadequate service'},
+            { text: 'Tax investigation'}
         ]
     }}
 />`;
@@ -163,16 +163,16 @@ export const DesignSystem: React.StatelessComponent<{}> = props => {
                 <QuestionAnswerSet
                     question="Which of the following options best describes your legal issue?"
                     answers={{
-                        defaultOption: { id: '0', text: 'My issue is not listed above' },
+                        defaultOption: { text: 'My issue is not listed above' },
                         options: [
-                            { id: '1', text: 'Consumer disputes'},
-                            { id: '2', text: 'Criminal defence'},
-                            { id: '3', text: 'Employment disputes', example: 'e.g. redundancy or conflict in work' },
-                            { id: '4', text: 'Identity theft'},
-                            { id: '5', text: 'Neighbour disputes'},
-                            { id: '6', text: 'Personal injury'},
-                            { id: '7', text: 'Provision of an inadequate service'},
-                            { id: '8', text: 'Tax investigation'}
+                            { text: 'Consumer disputes'},
+                            { text: 'Criminal defence'},
+                            { text: 'Employment disputes', example: 'e.g. redundancy or conflict in work' },
+                            { text: 'Identity theft'},
+                            { text: 'Neighbour disputes'},
+                            { text: 'Personal injury'},
+                            { text: 'Provision of an inadequate service'},
+                            { text: 'Tax investigation'}
                         ]
                     }}
                 />

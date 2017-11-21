@@ -10,7 +10,6 @@ describe('Answer ', () => {
     let answer: AnswerProps;
     beforeEach(() => {
         answer = {
-            id: '1',
             text: 'Answer 1',
             example: 'e.g. test'
         };
