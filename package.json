@@ -1,6 +1,6 @@
 {
   "name": "shared-form-app",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "dependencies": {
     "autoprefixer": "7.1.2",
     "bootstrap": "^3.3.7",
@@ -54,7 +54,7 @@
     "@types/enzyme": "^2.8.12",
     "@types/jest": "^21.1.2",
     "@types/node": "^8.0.34",
-    "@types/react": "^16.0.10",
+    "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.1",
     "@types/sinon": "^2.3.7",
     "awesome-typescript-loader": "^3.2.3",

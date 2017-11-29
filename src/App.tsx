@@ -12,7 +12,7 @@ const DESIGN_SYSTEM_PAGE = 'designSystem';
 
 export class App extends React.Component<{}, AppState> {
     constructor() {
-        super();
+        super({});
         this.state = {
             activePage: EXAMPLES_PAGE
         };
