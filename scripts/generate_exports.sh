@@ -9,6 +9,11 @@ find ./src/components -name '*.tsx' | while read line; do
   filename=${line%.tsx}
   relativepath=$(sed 's/.*components\/\(.*\).tsx.*/\1/' <<< "$line")
   echo "export { ${filename##*/} } from './components/${relativepath}';" >> ./src/main.ts
+done
+
+find ./src/pages -name '*.tsx' | while read line; do
+  filename=${line%.tsx}
+  relativepath=$(sed 's/.*pages\/\(.*\).tsx.*/\1/' <<< "$line")
   echo "export { ${filename##*/} } from './pages/${relativepath}';" >> ./src/main.ts
 done
 
