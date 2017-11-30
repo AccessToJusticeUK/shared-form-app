@@ -5,7 +5,6 @@ export { Icon } from './components/Icon';
 export { NavigableStep } from './components/NavigableStep';
 export { NavigableStepsList } from './components/NavigableStepsList';
 export { PagePreamble } from './components/PagePreamble';
-export { PagePreambleSection } from './components/PagePreamble';
 export { PolicySelection } from './components/PolicySelection';
 export { Preamble } from './components/Preamble';
 export { QuestionAnswerSet } from './components/QuestionAnswerSet';

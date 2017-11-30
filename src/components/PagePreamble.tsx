@@ -7,11 +7,3 @@ export const PagePreamble: React.StatelessComponent<{}> = (props) => {
         </div>
     );
 };
-
-export const PagePreambleSection: React.StatelessComponent<{}> = (props) => {
-    return (
-        <div className="page-preamble-section">
-            {props.children}
-        </div>
-    );
-};

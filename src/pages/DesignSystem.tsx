@@ -4,7 +4,8 @@ import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
 import { QuestionAnswerSet } from '../components/QuestionAnswerSet';
 import { TabbedDirectory } from '../components/TabbedDirectory';
-import { PagePreamble, PagePreambleSection } from '../components/PagePreamble';
+import { PagePreamble } from '../components/PagePreamble';
+import { PagePreambleSection } from '../components/PagePreambleSection';
 
 const tabbedDirectoryCode = `<TabbedDirectory
     question="Who supplies your home insurance?"

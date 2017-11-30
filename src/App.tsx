@@ -5,7 +5,8 @@ import { NavigableStepsList } from './components/NavigableStepsList';
 import { Home } from './pages/Home';
 import { DesignSystem } from './pages/DesignSystem';
 import { AppState } from './state.types';
-import { PagePreamble, PagePreambleSection } from './components/PagePreamble';
+import { PagePreamble } from './components/PagePreamble';
+import { PagePreambleSection } from './components/PagePreambleSection';
 
 const EXAMPLES_PAGE = 'examples';
 const DESIGN_SYSTEM_PAGE = 'designSystem';
