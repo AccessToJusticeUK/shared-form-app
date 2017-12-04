@@ -1,6 +1,6 @@
 {
   "name": "shared-form-app",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "dependencies": {
     "autoprefixer": "7.1.2",
     "bootstrap": "^3.3.7",
