@@ -37,7 +37,7 @@ export class QuestionAnswerSet extends React.Component<QuestionAnswerSetProps, {
                         <Answer
                           {...this.props.answers.defaultOption}
                           isSelected={this.props.answers.defaultOption.text === this.state.activeAnswerText}
-                          onClickHandler={this.props.onSelectAnswer}
+                          onClickHandler={this.selectAnswer}
                         />
                     </div>
                 )}
