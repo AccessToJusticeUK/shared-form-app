@@ -46,6 +46,11 @@ export interface AnswerProps {
     onClickHandler?: (text: string) => void;
 }
 
+export interface SimpleProps {
+    classNames?: string;
+    text: string; 
+}
+
 export interface ButtonProps {
     classNames?: string;
     onClickHandler?: () => void;

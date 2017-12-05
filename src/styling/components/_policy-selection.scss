@@ -1,0 +1,10 @@
+.policy-selection {
+  font-size: $font-size-medium;
+  box-sizing: border-box;
+  margin-top: $base-spacer;
+  padding: 2px $base-spacer;
+  border: $policy-selection-border;
+  border-radius: 0;
+  background-color: $color-white;
+  width: $answer-width;
+}

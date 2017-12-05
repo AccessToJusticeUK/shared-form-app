@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PolicySelectionProps } from './props.types';
+import { PolicySelectionProps, SimpleProps } from './props.types';
 import { Button } from './Button';
 import * as classNames from 'classnames';
 
@@ -7,13 +7,29 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
     const buttonClassNames = classNames({
         'button-large': true,
         'hidden': false,
-        'policy-selection': true
     });
 
-    return (
-        <div className="policy-selection">
+    const policyClassNames = classNames({
+        'policy-selection': true,
+        'answer-width': true
+    })
 
-        POLICY OPTION 1
+    const SELECTED_POLICIES = ['Home insurance – supplied by AXA', 'Life insurance – supplied by MyMum']
+
+    return (
+        <div>
+            <div>
+            {
+                SELECTED_POLICIES.map((policyText)=>(
+                 <Simple
+                 classNames={policyClassNames}
+                 text={policyText}
+                 >
+                    
+                     </Simple>
+                ))
+            }
+            </div>     
         <br/>
         POLICY OPTION 2
 
@@ -23,13 +39,23 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
                         classNames={buttonClassNames}
                         onClickHandler={props.addAPolicyClicked}
                     >
-                    Add a Policy
+                    Add another Policy
                     </Button>
                     <br/>
                 </div>
             <div className="container--question-width">
                 <hr className="divider-dotted" />
+                <div className="question"> When you have added in all your insurance policies proceed to the next step.</div>
             </div>
         </div>
     );
 };
+
+
+const Simple: React.StatelessComponent<SimpleProps> = (props) => {
+return (
+    <div className={props.classNames}>
+    {props.text}
+    </div>
+)
+}
