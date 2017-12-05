@@ -14,35 +14,33 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
         'answer-width': true
     })
 
-    const SELECTED_POLICIES = ['Home insurance – supplied by AXA', 'Life insurance – supplied by MyMum']
-
     return (
         <div>
             <div>
-            {
-                SELECTED_POLICIES.map((policyText)=>(
-                 <Simple
-                 classNames={policyClassNames}
-                 text={policyText}
-                 >
-                    
-                     </Simple>
-                ))
-            }
-            </div>     
-        <br/>
-        POLICY OPTION 2
+                {
+                    props.policies.map((policyText: any) => (
+                        <Simple
+                            classNames={policyClassNames}
+                            text={policyText}
+                        >
+
+                        </Simple>
+                    ))
+                }
+            </div>
+            <br />
+            POLICY OPTION 2
 
             <div className="question"> Add another insurance policy? It is best to list all you have </div>
-                <div className="form-actions container--question-width">
-                    <Button
-                        classNames={buttonClassNames}
-                        onClickHandler={props.addAPolicyClicked}
-                    >
+            <div className="form-actions container--question-width">
+                <Button
+                    classNames={buttonClassNames}
+                    onClickHandler={props.addAPolicyClicked}
+                >
                     Add another Policy
                     </Button>
-                    <br/>
-                </div>
+                <br />
+            </div>
             <div className="container--question-width">
                 <hr className="divider-dotted" />
                 <div className="question"> When you have added in all your insurance policies proceed to the next step.</div>
@@ -53,9 +51,9 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
 
 
 const Simple: React.StatelessComponent<SimpleProps> = (props) => {
-return (
-    <div className={props.classNames}>
-    {props.text}
-    </div>
-)
+    return (
+        <div className={props.classNames}>
+            {props.text}
+        </div>
+    )
 }

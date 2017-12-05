@@ -5,11 +5,12 @@ import { PolicySelection } from './PolicySelection';
 import { StepStageProps } from './props.types';
 import { Button } from './Button';
 
-export class StepStage extends React.Component<StepStageProps, {activeAnswerText: string}> {
+export class StepStage extends React.Component<StepStageProps, {activeAnswerText: string, selectedPolicies: string[]}> {
     constructor(props: StepStageProps) {
         super(props);
         this.state = {
-            activeAnswerText: ''
+            activeAnswerText: '',
+            selectedPolicies: []
         };
     }
 
@@ -17,6 +18,15 @@ export class StepStage extends React.Component<StepStageProps, {activeAnswerText
         this.setState({
             activeAnswerText: text
         });
+    }
+
+    
+    appendPolicy = (text?: string) => {
+        if (text) {
+            this.setState(prevState => { return  {
+                selectedPolicies:  [...prevState.selectedPolicies, text]
+              } })
+        }          
     }
 
     resetAndMoveToNext = (prevStageId: number) => {
@@ -44,12 +54,13 @@ export class StepStage extends React.Component<StepStageProps, {activeAnswerText
                             {this.props.tabbedDirectoryProps &&
                                 <TabbedDirectory
                                     {...this.props.tabbedDirectoryProps}
-                                    onSelectAnswer={(text) => this.answerSelected(text)}
+                                    onSelectAnswer={(text) =>{ this.appendPolicy(text) ; this.forceUpdate(this.appendPolicy) ; this.answerSelected(text)}}
                                 />
                             }
                             {this.props.policySelectionProps &&
                                 <PolicySelection
                                     {...this.props.policySelectionProps}
+                                    policies={this.state.selectedPolicies}
                                     addAPolicyClicked={() => this.resetAndMoveToNext(0)}
                                 />
                             }
