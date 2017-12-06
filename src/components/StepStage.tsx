@@ -5,7 +5,7 @@ import { PolicySelection } from './PolicySelection';
 import { StepStageProps } from './props.types';
 import { Button } from './Button';
 
-export class StepStage extends React.Component<StepStageProps, {activeAnswerText: string, selectedPolicies: string[]}> {
+export class StepStage extends React.Component<StepStageProps, { activeAnswerText: string, selectedPolicies: string[] }> {
     constructor(props: StepStageProps) {
         super(props);
         this.state = {
@@ -20,13 +20,11 @@ export class StepStage extends React.Component<StepStageProps, {activeAnswerText
         });
     }
 
-    
-    appendPolicy = (text?: string) => {
-        if (text) {
-            this.setState(prevState => { return  {
-                selectedPolicies:  [...prevState.selectedPolicies, text]
-              } })
-        }          
+    appendPolicy = (text: string) => {
+        console.log('before: ' + this.state.selectedPolicies);
+        this.setState({ selectedPolicies: [...this.state.selectedPolicies, text] }, () => {
+            console.log('after: ' + this.state.selectedPolicies);
+        });
     }
 
     resetAndMoveToNext = (prevStageId: number) => {
@@ -54,9 +52,10 @@ export class StepStage extends React.Component<StepStageProps, {activeAnswerText
                             {this.props.tabbedDirectoryProps &&
                                 <TabbedDirectory
                                     {...this.props.tabbedDirectoryProps}
-                                    onSelectAnswer={(text) =>{ this.appendPolicy(text) ; this.forceUpdate(this.appendPolicy) ; this.answerSelected(text)}}
+                                    onSelectAnswer={(text) => { this.answerSelected(text); this.appendPolicy(text); }}
                                 />
                             }
+                            { console.log("before policy call: " + this.state.selectedPolicies) }
                             {this.props.policySelectionProps &&
                                 <PolicySelection
                                     {...this.props.policySelectionProps}
@@ -71,13 +70,13 @@ export class StepStage extends React.Component<StepStageProps, {activeAnswerText
                                     classNames="button-large"
                                     onClickHandler={() => this.resetAndMoveToNext(this.props.id)}
                                 >
-                                Next
+                                    Next
                                 </Button>
                             }
                         </div>
                     </div>
                 }
             </div>
-      );
+        );
     }
 }

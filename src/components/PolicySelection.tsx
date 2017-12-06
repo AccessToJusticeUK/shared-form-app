@@ -3,7 +3,7 @@ import { PolicySelectionProps, SimpleProps } from './props.types';
 import { Button } from './Button';
 import * as classNames from 'classnames';
 
-export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (props) => {
+export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (props: PolicySelectionProps) => {
     const buttonClassNames = classNames({
         'button-large': true,
         'hidden': false,
@@ -12,19 +12,20 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
     const policyClassNames = classNames({
         'policy-selection': true,
         'answer-width': true
-    })
+    });
+
+    console.log("policy props: " + props)
+    console.log("policy props policies: " + props.policies)
 
     return (
         <div>
             <div>
                 {
-                    props.policies.map((policyText: any) => (
+                    props.policies.map((policyText: string) => (
                         <Simple
                             classNames={policyClassNames}
                             text={policyText}
-                        >
-
-                        </Simple>
+                        />
                     ))
                 }
             </div>
@@ -38,7 +39,7 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
                     onClickHandler={props.addAPolicyClicked}
                 >
                     Add another Policy
-                    </Button>
+                </Button>
                 <br />
             </div>
             <div className="container--question-width">
@@ -49,11 +50,10 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
     );
 };
 
-
-const Simple: React.StatelessComponent<SimpleProps> = (props) => {
+const Simple: React.StatelessComponent<SimpleProps> = (props: SimpleProps) => {
     return (
         <div className={props.classNames}>
             {props.text}
         </div>
-    )
-}
+    );
+};
