@@ -15,15 +15,15 @@ export class StepStage extends React.Component<StepStageProps, { activeAnswerTex
     }
 
     answerSelected = (text: string) => {
+        // overwriting everytime
         this.setState({
             activeAnswerText: text
         });
     }
 
-    policySelected = (text :string) => {
+    policySelected = (text: string) => {
         this.setState({
             activePolicySelected: text,
-            activeAnswerText: ''
         });
     }
 
@@ -48,14 +48,14 @@ export class StepStage extends React.Component<StepStageProps, { activeAnswerTex
                             {this.props.tabbedDirectoryProps &&
                                 <TabbedDirectory
                                     {...this.props.tabbedDirectoryProps}
-                                    onSelectAnswer={(text) => { this.policySelected(text)}}
+                                    onSelectAnswer={(text) => this.policySelected(text)}
                                 />
                             }
                         
-                            {this.props.policySelectionProps && this.props.policyList &&
+                            {this.props.policySelectionProps && this.props.insuranceProviderList &&
                                 <PolicySelection
                                     {...this.props.policySelectionProps}
-                                    policies={this.props.policyList}
+                                    policies={this.props.insuranceProviderList}
                                     addAPolicyClicked={() => this.resetAndMoveToNext(0)}
                                 />
                             }
@@ -64,7 +64,11 @@ export class StepStage extends React.Component<StepStageProps, { activeAnswerTex
                             {((this.state.activeAnswerText !== '' || this.state.activePolicySelected !== '') || this.props.skipNextValidation) &&
                                 <Button
                                     classNames="button-large"
-                                    onClickHandler={() => { this.props.updatePolicyList && this.props.updatePolicyList(this.state.activeAnswerText, this.state.activePolicySelected); this.resetAndMoveToNext(this.props.id);}}
+                                    onClickHandler={() => { 
+                                        this.props.updatePolicyList &&
+                                        this.props.updatePolicyList(this.state.activeAnswerText, this.state.activePolicySelected);
+                                        this.resetAndMoveToNext(this.props.id);
+                                    }}
                                 >
                                     Next
                                 </Button>

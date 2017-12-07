@@ -7,8 +7,7 @@ export interface StepStageProps {
     shouldBeOpen?: boolean;
     moveToNextStage? : (stageOrder : number) => void;
     updatePolicyList? : (othertext: string, text: string) => void;
-    policyList? : string[];
-    
+    insuranceProviderList? : string[];
 }
 
 export interface StepProps extends NavigationProps {

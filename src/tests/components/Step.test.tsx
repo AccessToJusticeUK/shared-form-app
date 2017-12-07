@@ -28,6 +28,28 @@ describe('Step', () => {
         wrapper = shallow(<Step {...stepProps} />)
     });
 
+    it('updateProviderOrTypeList updates only insuranceProviderList when called with new provider', () => {
+        let instance: any = wrapper.instance();
+        instance.updateProviderOrTypeList('','fake provider')
+        expect(instance.state.insuranceProviderList).toContain('fake provider')
+        expect(instance.state.insuranceTypeList).toHaveLength(0);
+    });
+
+    it('updateProviderOrTypeList updates only insuranceTypeList when called with new provider', () => {
+        let instance: any = wrapper.instance();
+        instance.updateProviderOrTypeList('fake type','')
+        expect(instance.state.insuranceTypeList).toContain('fake type')
+        expect(instance.state.insuranceProviderList).toHaveLength(0);
+    });
+
+    it('concatedInsuranceTypesAndProvidersList contacts types and policies into a presentable string', () => {
+        let instance: any = wrapper.instance();
+        instance.updateProviderOrTypeList('fake type','')
+        instance.updateProviderOrTypeList('','fake provider')        
+        const presentableStrings = instance.concatedInsuranceTypesAndProvidersList();
+        expect(presentableStrings).toContain('fake type insurance supplied by fake provider');
+    });
+
     it('contains a StepHeader and Preamble when shouldBeOpen is true', () => {
         expect(wrapper.find(StepHeader).length).toEqual(1);
         expect(wrapper.find(Preamble).length).toEqual(1);

@@ -13,10 +13,6 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
         'policy-selection': true,
         'answer-width': true
     });
-
-    // console.log("policy props: " + props)
-    // console.log("policy props policies: " + props.policies)
-
     return (
         <div>
             <div>
@@ -30,9 +26,6 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
                     ))
                 }
             </div>
-            <br />
-            POLICY OPTION 2
-
             <div className="question"> Add another insurance policy? It is best to list all you have </div>
             <div className="form-actions container--question-width">
                 <Button
