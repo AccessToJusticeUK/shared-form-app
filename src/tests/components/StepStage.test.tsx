@@ -23,9 +23,6 @@ describe('StepStage',() => {
             defaultTabId: 'a',
             question: 'Some question',
             results: [],
-        },
-        policySelectionProps: {
-            policies: ['bla'],
         }
     }
 
@@ -37,7 +34,7 @@ describe('StepStage',() => {
         expect(wrapper.find(PolicySelection).length).toEqual(0);
     })
 
-    it('renders a TabbedDirectory, QuestionAnswerSet and PolicySelection if shouldBeOpen', () => {
+    it('renders a TabbedDirectory, QuestionAnswerSet if shouldBeOpen', () => {
         wrapper = shallow(<StepStage {...stepStageProps} shouldBeOpen={true}/>);
 
         const questionAnswerSet = wrapper.find(QuestionAnswerSet);
@@ -45,9 +42,6 @@ describe('StepStage',() => {
 
         const tabbedDirectory = wrapper.find(TabbedDirectory);
         expect(tabbedDirectory.at(0).props().defaultTabId).toEqual('a');
-
-        const policySelection = wrapper.find(PolicySelection);
-        expect(policySelection.at(0).props().policies).toEqual(['bla']);
     });
 
     it('sets state of activeAnswerText if answerSelected is triggered and shows next button if skipNextValidation is not true', () => {
@@ -72,21 +66,17 @@ describe('StepStage',() => {
         expect(wrapper.find(Button).length).toEqual(1);
     });
 
-    it('should reset activeAnswerText and move to next if resetAndMoveToNext is called', () => {
+    it('should move to next if resetAndMoveToNext is called', () => {
         const moveToNextStageSpy = spy();
         wrapper = shallow(<StepStage {...stepStageProps} shouldBeOpen={true} moveToNextStage={moveToNextStageSpy} />);
 
         let instance: any;
         instance = wrapper.instance();
 
-        instance.answerSelected('some answer text');
         wrapper.update();
-
-        expect(instance.state.activeAnswerText).toEqual('some answer text');
 
         instance.resetAndMoveToNext(1);
 
         expect(moveToNextStageSpy.firstCall.args[0]).toEqual(1);
-        expect(instance.state.activeAnswerText).toEqual('');
     });
 });

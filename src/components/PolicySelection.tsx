@@ -14,8 +14,8 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
         'answer-width': true
     });
 
-    console.log("policy props: " + props)
-    console.log("policy props policies: " + props.policies)
+    // console.log("policy props: " + props)
+    // console.log("policy props policies: " + props.policies)
 
     return (
         <div>
@@ -23,6 +23,7 @@ export const PolicySelection: React.StatelessComponent<PolicySelectionProps> = (
                 {
                     props.policies.map((policyText: string) => (
                         <Simple
+                            key={props.policies.indexOf(policyText)}
                             classNames={policyClassNames}
                             text={policyText}
                         />

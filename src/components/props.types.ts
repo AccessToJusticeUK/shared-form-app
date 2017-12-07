@@ -6,6 +6,9 @@ export interface StepStageProps {
     policySelectionProps?: PolicySelectionProps
     shouldBeOpen?: boolean;
     moveToNextStage? : (stageOrder : number) => void;
+    updatePolicyList? : (othertext: string, text: string) => void;
+    policyList? : string[];
+    
 }
 
 export interface StepProps extends NavigationProps {
