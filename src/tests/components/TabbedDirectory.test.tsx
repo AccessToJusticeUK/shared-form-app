@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
+import { spy } from 'sinon';
 import '../../setupTests';
 import { TabbedDirectory } from '../../components/TabbedDirectory';
 import { Tab } from '../../components/tabs/Tab';
@@ -96,6 +97,18 @@ describe('TabbedDirectory', () => {
     })
 
     describe('handleTabClick', () => {
+        it('should reset onSelectAnswer props back to an empty string if provided (so that selected answer is reset)', () => {
+            const onSelectAnswerSpy = spy();
+            wrapper = shallow(<TabbedDirectory {...testData} onSelectAnswer={onSelectAnswerSpy} />)
+
+            let instance: any;
+            instance = wrapper.instance();
+
+            expect(instance.state.activeTabId).toEqual(defaultTabId);
+            instance.handleTabClick('someId');
+            expect(onSelectAnswerSpy.firstCall.args[0]).toEqual('');
+        })
+
         it('should change the active tab id state to tabId passed in', () => {
             let instance: any;
             instance = wrapper.instance();

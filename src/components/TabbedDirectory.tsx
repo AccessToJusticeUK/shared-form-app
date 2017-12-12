@@ -17,6 +17,9 @@ export class TabbedDirectory extends React.Component<TabbedDirectoryProps, Tabbe
     }
 
     handleTabClick = (tabId: string): void => {
+        if (this.props.onSelectAnswer) {
+            this.props.onSelectAnswer('');
+        }
         this.setState({
             activeTabId: tabId
         });
